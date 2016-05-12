@@ -1,0 +1,197 @@
+﻿<UserControl x:Class="Parliament.CertTool.Views.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Parliament.CertTool.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:caliburn="http://www.caliburnproject.org"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Header="New Keystore" >
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/nju.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="NewKeystore" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Open Keystore File">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/open.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="OpenKeystoreFile" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Open CA Certs Keystore">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/open.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="OpenCA" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Save Keystore">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/save.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="SaveKeystore" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Save Keystore As">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/save_as.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="SaveKeystoreAs" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Exit">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/exit.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="Exit" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools">
+                <MenuItem Header="Generate Keypair">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/keypair.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="GenerateKeypair" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Import Trusted Certificate">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/cert.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ImportTrustedCertificate" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Import Keypair">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/import_k.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ImportKeypair" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <Separator />
+                <MenuItem Header="Set Keystore Password">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/pass.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="SetKeystorePassword" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Keystore Report">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/raport.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="KeystoreReport" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Options">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/options.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="Options" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Examine">
+                <MenuItem Header="Examine Certificate">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/lupa.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ExamineCertificate" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Examine SSL/TLS Connection">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/lupa.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ExamineSSL-TLS" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Examine Certification Request">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/lupa.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ExamineCertificationRequest" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+                <MenuItem Header="Examine CRL...">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/lupa.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="ExamineCRL" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem Header="About">
+                    <MenuItem.Icon>
+                        <Image Source="../Resources/Icons/about.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
+                    </MenuItem.Icon>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <caliburn:ActionMessage MethodName="About" />
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</UserControl>

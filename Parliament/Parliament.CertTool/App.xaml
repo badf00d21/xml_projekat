@@ -1,0 +1,17 @@
+﻿<Application x:Class="Parliament.CertTool.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:bootstrap="clr-namespace:Parliament.CertTool.Bootstrap"
+             xmlns:smvvm.converters="clr-namespace:SwollenMvvmToolkit.Core.Utils.ValueConverters;assembly=SwollenMvvmToolkit.Core">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <bootstrap:AppBootstrapper x:Key="bootstrapper" />
+                    <smvvm.converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="Views/Resources/Styles/ToolbarStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
