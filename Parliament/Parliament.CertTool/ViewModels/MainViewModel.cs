@@ -142,5 +142,18 @@ namespace Parliament.CertTool.ViewModels
         {
             TryClose();
         }
+
+        public override void CanClose(Action<bool> callback)
+        {
+            if (_isKeystoreChanged)
+            {
+                bool? result = FeedbackService.ShowWarningMessage("Would you like to save changes to current keystore first?");
+
+                if (result.HasValue && result == true)
+                    SaveKeystore();
+
+                callback(result.HasValue);
+            }
+        }
     }
 }
