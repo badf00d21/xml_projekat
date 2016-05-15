@@ -65,6 +65,10 @@
     <Compile Include="Migrations\201605151409517_Initial.Designer.cs">
       <DependentUpon>201605151409517_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605152215544_AddedRoleToUserEntity.cs" />
+    <Compile Include="Migrations\201605152215544_AddedRoleToUserEntity.Designer.cs">
+      <DependentUpon>201605152215544_AddedRoleToUserEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepository.cs" />
@@ -79,6 +83,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605151409517_Initial.resx">
       <DependentUpon>201605151409517_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605152215544_AddedRoleToUserEntity.resx">
+      <DependentUpon>201605152215544_AddedRoleToUserEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

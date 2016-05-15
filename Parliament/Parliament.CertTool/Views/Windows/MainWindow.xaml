@@ -22,7 +22,7 @@
         <local:MainMenu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
         <local:Toolbar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
         <GroupBox Header="Certificates" Grid.Row="2" Grid.Column="0" >
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Users}">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="CertificateID" Binding="{Binding CertificateID}" Width="*" />
                     <DataGridTextColumn Header="Alias" Binding="{Binding Alias}" Width="*" />
@@ -35,13 +35,12 @@
         </GroupBox>
         <GridSplitter Grid.Row="2" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
         <GroupBox Header="Users" Grid.Row="2" Grid.Column="2" >
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Users}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First name" Binding="{Binding FirstName}" Width="*" />
                     <DataGridTextColumn Header="Last name" Binding="{Binding LastName}" Width="*" />
                     <DataGridTextColumn Header="Email:" Binding="{Binding Email}" Width="*" />
                     <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="*" />
-                    <DataGridTextColumn Header="Certificate:" Binding="{Binding Certificate}" Width="*" />
                 </DataGrid.Columns>
             </DataGrid>
         </GroupBox>

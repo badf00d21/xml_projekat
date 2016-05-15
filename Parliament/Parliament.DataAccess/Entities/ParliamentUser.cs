@@ -13,19 +13,24 @@ namespace Parliament.DataAccess.Entities
         [MaxLength(200)]
         public string LastName { get; set; }
 
+        public ParliamentRole Role { get; set; }
+
         public ParliamentUser()
         {
             EmailConfirmed = true;
             LockoutEnabled = true;
+
+            Role = ParliamentRole.Citizen;
         }
 
-        public ParliamentUser(string firstName, string lastName, string email)
+        public ParliamentUser(string firstName, string lastName, string email, ParliamentRole role)
             : this()
         {
             FirstName = firstName;
             LastName = lastName;
             Email = email;
             UserName = email;
+            Role = role;
         }
     }
 }

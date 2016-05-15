@@ -1,0 +1,38 @@
+﻿<Window x:Class="Parliament.CertTool.Views.NewCertificateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Parliament.CertTool.Views"
+        mc:Ignorable="d"
+        Title="New Certificate Window" Height="503.007" Width="223.308"
+        Icon="../Resources/Icons/create_certificate.ico"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize">
+    <Grid Background="WhiteSmoke">
+        <StackPanel Orientation="Vertical" Margin="5, 0, 0, 0" HorizontalAlignment="Left" >
+            <Label Content="CA: " Margin="-5, 0, 0, 0"/>
+            <ComboBox ItemsSource="{Binding CAs}" Width="100" HorizontalAlignment="Left"/>
+            <Label Content="Surname (S):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding Surname}"></TextBox>
+            <Label Content="Common Name (CN):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding CommonName}"></TextBox>
+            <Label Content="Organisation Unit (OU):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding OsrganisationUnit}"></TextBox>
+            <Label Content="Organisation Name (ON):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding OrganisationName}"></TextBox>
+            <Label Content="Given Name :" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding GivenName}"></TextBox>
+            <Label Content="State Name :" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding StateName}"></TextBox>
+            <Label Content="Country Code (C):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="50" Height="22" Text="{Binding CountryCode}" HorizontalAlignment="Left"></TextBox>
+            <Label Content="Email Address (E):" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding EmailAddress}"></TextBox>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 10, 0, 0">
+                <Button  Name="Ok" Content="Ok" Width="50" ></Button>
+                <Button  Name="Cancel" Content="Cancel" Margin="5, 0, 0, 0" Width="50"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
