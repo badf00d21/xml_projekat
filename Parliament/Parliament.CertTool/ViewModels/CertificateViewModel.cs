@@ -15,6 +15,12 @@ namespace Parliament.CertTool.ViewModels
 
         public string Alias { get; set; }
 
-        public string SignedBy { get; set; }
+        public string Subject { get; set; }
+
+        public string Issuer { get; set; }
+
+        public string ValidFrom { get; set; }
+
+        public string ValidUntil { get; set; }
     }
 }
