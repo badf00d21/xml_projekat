@@ -41,6 +41,8 @@ namespace Parliament.CertTool.ViewModels
         {
             _isKeystoreChanged = false;
 
+            DisplayName = "Parliament User And Certificate Manager";
+
             WindowManager = windowManager;
             FeedbackService = feedbackService;
             DialogService = dialogService;
@@ -135,7 +137,7 @@ namespace Parliament.CertTool.ViewModels
 
         public void About()
         {
-
+            FeedbackService.ShowInfoMessage("Tool for maniging certificates and users in Parliament");
         }
 
         public void CloseApplication()
@@ -153,6 +155,10 @@ namespace Parliament.CertTool.ViewModels
                     SaveKeystore();
 
                 callback(result.HasValue);
+            }
+            else
+            {
+                callback(true);
             }
         }
     }

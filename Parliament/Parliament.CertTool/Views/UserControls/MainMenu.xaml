@@ -48,7 +48,7 @@
                     </MenuItem.Icon>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="Exit" />
+                            <caliburn:ActionMessage MethodName="CloseApplication" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </MenuItem>

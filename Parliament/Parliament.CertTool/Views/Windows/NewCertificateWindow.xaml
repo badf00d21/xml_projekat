@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parliament.CertTool.Views"
         mc:Ignorable="d"
-        Title="New Certificate Window" Height="503.007" Width="223.308"
+        Title="New Certificate Window" Height="508" Width="226"
         Icon="../Resources/Icons/create_certificate.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
@@ -18,7 +18,7 @@
             <Label Content="Common Name (CN):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding CommonName}"></TextBox>
             <Label Content="Organisation Unit (OU):" Margin="-5, 0, 0, 0"/>
-            <TextBox Width="200" Height="22" Text="{Binding OsrganisationUnit}"></TextBox>
+            <TextBox Width="200" Height="22" Text="{Binding OrganisationUnit}"></TextBox>
             <Label Content="Organisation Name (ON):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding OrganisationName}"></TextBox>
             <Label Content="Given Name :" Margin="-5, 0, 0, 0"/>

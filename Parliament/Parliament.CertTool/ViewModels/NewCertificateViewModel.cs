@@ -28,7 +28,7 @@ namespace Parliament.CertTool.ViewModels
 
         public string CountryCode { get; set; }
 
-        public string EmailAdress { get; set; }
+        public string EmailAddress { get; set; }
 
         public bool IsCanceled { get; set; }
 

@@ -48,7 +48,7 @@
                     <Image Source="../Resources/Icons/create_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ImportTrustedCertificate" />
+                            <caliburn:ActionMessage MethodName="CreateCertificate" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
@@ -74,7 +74,7 @@
                     <Image Source="../Resources/Icons/about.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="KeystoreReport" />
+                            <caliburn:ActionMessage MethodName="About" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
