@@ -5,31 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parliament.CertTool.Views"
         mc:Ignorable="d"
-        Icon="../Resources/Icons/cert.png"
+        Icon="../Resources/Icons/new_keystore.ico"
         WindowStartupLocation="CenterScreen"
-        Title="Certificate Tool" Height="400" Width="400">
-    <Grid>
+        Title="Parliament user and certificate manager" Height="500" Width="800">
+    <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <local:MainMenu Grid.Row="0" />
-        <local:Toolbar Grid.Row="1" />
-        <DataGrid Grid.Row="2" Margin="0, 5, 0 ,0" ItemsSource="{Binding KeyPairs}" AutoGenerateColumns="False" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTemplateColumn Header="" Width="25" IsReadOnly="True">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Image Width="22" Height="22" HorizontalAlignment="Center" VerticalAlignment="Center" Source="../Resources/Icons/keypair.png" />
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Header="Alias Name" Binding="{Binding AliasName}" Width="*" />
-                <DataGridTextColumn Header="Last Modified" Binding="{Binding LastModified}" Width="150"/>
-            </DataGrid.Columns>
-        </DataGrid>
-        <TextBlock Grid.Row="3" Margin="0, 5, 0, 0" Text="{Binding KeyStoreInfo}" IsEnabled="False"/>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        <local:MainMenu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+        <local:Toolbar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
+        <GroupBox Header="Certificates" Grid.Row="2" Grid.Column="0" >
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Users}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="CertificateID" Binding="{Binding CertificateID}" Width="*" />
+                    <DataGridTextColumn Header="Alias" Binding="{Binding Alias}" Width="*" />
+                    <DataGridTextColumn Header="Signed by:" Binding="{Binding SignedBy}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
+        <GridSplitter Grid.Row="2" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />
+        <GroupBox Header="Users" Grid.Row="2" Grid.Column="2" >
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First name" Binding="{Binding FirstName}" Width="*" />
+                    <DataGridTextColumn Header="Last name" Binding="{Binding LastName}" Width="*" />
+                    <DataGridTextColumn Header="Email:" Binding="{Binding Email}" Width="*" />
+                    <DataGridTextColumn Header="Role" Binding="{Binding Role}" Width="*" />
+                    <DataGridTextColumn Header="Certificate:" Binding="{Binding Certificate}" Width="*" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </GroupBox>
     </Grid>
 </Window>

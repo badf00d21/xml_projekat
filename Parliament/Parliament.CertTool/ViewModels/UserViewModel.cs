@@ -9,10 +9,16 @@ using System.Threading.Tasks;
 namespace Parliament.CertTool.ViewModels
 {
     [Observable]
-    public class KeyPairViewModel : ViewModel
+    public class UserViewModel : ViewModel
     {
-        public string AliasName { get; set; }
+        public string FirstName { get; set; }
 
-        public string LastModified { get; set; }
+        public string LastName { get; set; }
+
+        public string Email { get; set; }
+
+        public string Role { get; set; }
+
+        public string Certificate { get; set; }
     }
 }

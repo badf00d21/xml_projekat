@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Parliament.CertTool</RootNamespace>
     <AssemblyName>Parliament.CertTool</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -91,8 +91,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\KeyPairViewModel.cs" />
+    <Compile Include="ViewModels\CertificateViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
     <Compile Include="Views\UserControls\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
     </Compile>
@@ -144,22 +145,22 @@
     <Content Include="BuildTools\Syringe\bin\Syringe.dll" />
     <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.Attributes.dll" />
     <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.dll" />
-    <Resource Include="Views\Resources\Icons\about.png" />
-    <Resource Include="Views\Resources\Icons\lupa.png" />
-    <Resource Include="Views\Resources\Icons\import_k.png" />
-    <Resource Include="Views\Resources\Icons\cert.png" />
-    <Resource Include="Views\Resources\Icons\exit.png" />
-    <Resource Include="Views\Resources\Icons\keypair.png" />
-    <Resource Include="Views\Resources\Icons\options.png" />
-    <Resource Include="Views\Resources\Icons\pass.png" />
-    <Resource Include="Views\Resources\Icons\raport.png" />
-    <Resource Include="Views\Resources\Icons\storage.png" />
-    <Resource Include="Views\Resources\Icons\save.png" />
-    <Resource Include="Views\Resources\Icons\save_as.png" />
-    <Resource Include="Views\Resources\Icons\nju.png" />
-    <Resource Include="Views\Resources\Icons\open.ico" />
+    <Resource Include="Views\Resources\Icons\about.ico" />
+    <Resource Include="Views\Resources\Icons\export_certificate.ico" />
+    <Resource Include="Views\Resources\Icons\import_certificate.ico" />
+    <Resource Include="Views\Resources\Icons\create_certificate.ico" />
+    <Resource Include="Views\Resources\Icons\create_user.ico" />
+    <Resource Include="Views\Resources\Icons\close_application.ico" />
+    <Resource Include="Views\Resources\Icons\save_keystore.ico" />
+    <Resource Include="Views\Resources\Icons\open_keystore.ico" />
+    <Resource Include="Views\Resources\Icons\new_keystore.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Parliament.DataAccess\Parliament.DataAccess.csproj">
+      <Project>{f6d4247f-13d5-4463-a86f-d30456f55f95}</Project>
+      <Name>Parliament.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Page Include="Views\Resources\Styles\ToolbarStyles.xaml">
       <Generator>MSBuild:Compile</Generator>

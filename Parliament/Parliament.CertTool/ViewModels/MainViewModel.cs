@@ -15,20 +15,59 @@ namespace Parliament.CertTool.ViewModels
     [PartCreationPolicy(CreationPolicy.Shared)]
     public class MainViewModel : ViewModel
     {
-        public BindableCollection<KeyPairViewModel> KeyPairs { get; set; }
+        public IWindowManager WindowManager { get; set; }
 
-        public string KeyStoreInfo { get; set; }
+        public BindableCollection<CertificateViewModel> Certificates { get; set; }
 
-        public MainViewModel()
+        public BindableCollection<UserViewModel> Users { get; set; }
+
+        [ImportingConstructor]
+        public MainViewModel(IWindowManager windowManager)
         {
-            KeyPairs = new BindableCollection<KeyPairViewModel>();
-            KeyStoreInfo = "Keystore type: ";
+            WindowManager = windowManager;
+
+            Certificates = new BindableCollection<CertificateViewModel>();
+            Users = new BindableCollection<UserViewModel>();
         }
 
         public void NewKeystore()
         {
-            KeyPairs = new BindableCollection<KeyPairViewModel>();
-            KeyStoreInfo = "Keystore type: ";
+            
+        }
+
+        public void OpenKeystore()
+        {
+
+        }
+
+        public void CreateUser()
+        {
+
+        }
+
+        public void CreateCertificate()
+        {
+
+        }
+
+        public void ImportCertificate()
+        {
+
+        }
+
+        public void ExportCertificate()
+        {
+
+        }
+
+        public void About()
+        {
+
+        }
+
+        public void CloseApplication()
+        {
+
         }
     }
 }

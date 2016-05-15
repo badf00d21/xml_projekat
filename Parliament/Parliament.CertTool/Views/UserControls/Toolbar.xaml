@@ -12,7 +12,7 @@
         <ToolBarTray IsLocked="True">
             <ToolBar Cursor="Hand" HorizontalAlignment="Stretch" Style="{StaticResource SmartOverflowButtonStyle}" Width="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=ActualWidth}">
                 <Button  ToolTip="New Keystore">
-                    <Image Source="../Resources/Icons/nju.png" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <Image Source="../Resources/Icons/new_keystore.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="NewKeystore" />
@@ -20,86 +20,61 @@
                     </i:Interaction.Triggers>
                 </Button>
                 <Button  ToolTip="Open Keystore">
-                    <Image Source="../Resources/Icons/open.ico" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <Image Source="../Resources/Icons/open_keystore.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="OpenKeystore" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Separator />
                 <Button  ToolTip="Save Keystore">
-                    <Image Source="../Resources/Icons/save.png" Width="16" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                    <Image Source="../Resources/Icons/save_keystore.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="SaveKeystore" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button ToolTip="Generate Keypair">
-                    <Image Source="../Resources/Icons/keypair.png"  Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                <Separator />
+                <Button ToolTip="Create parliament user">
+                    <Image Source="../Resources/Icons/create_user.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="GenerateKeypair" />
+                            <caliburn:ActionMessage MethodName="CreateUser" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button ToolTip="Import Trusted Certificate">
-                    <Image Source="../Resources/Icons/import.png" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                <Button ToolTip="Create certificate">
+                    <Image Source="../Resources/Icons/create_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="ImportTrustedCertificate" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button  ToolTip="Import Keypair">
-                    <Image Source="../Resources/Icons/import_k.png" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                <Separator />
+                <Button  ToolTip="Import certificate">
+                    <Image Source="../Resources/Icons/import_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ImportKeypair" />
+                            <caliburn:ActionMessage MethodName="ImportCertificate" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Separator />
-                <Button ToolTip="Set Keystore Password">
-                    <Image Source="../Resources/Icons/pass.png" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                <Button ToolTip="Export certificate">
+                    <Image Source="../Resources/Icons/export_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="SetKeystorePassword" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button  ToolTip="Keystore Report">
-                    <Image Source="../Resources/Icons/raport.png"  Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
+                <Separator />
+                <Button  ToolTip="About">
+                    <Image Source="../Resources/Icons/about.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
                             <caliburn:ActionMessage MethodName="KeystoreReport" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Separator />
-                <Button ToolTip="Examine Certificate">
-                    <Image Source="../Resources/Icons/cert.png" Width="16" RenderOptions.BitmapScalingMode="HighQuality" />
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ExamineCertificate" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Button  ToolTip="Examine CRL">
-                    <Image Source="../Resources/Icons/cert.png"  Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ExamineCRL" />
-                        </i:EventTrigger>
-                    </i:Interaction.Triggers>
-                </Button>
-                <Separator />
-                <Button ToolTip="About">
-                    <Image Source="../Resources/Icons/about.png" Height="16" RenderOptions.BitmapScalingMode="HighQuality" />
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="About" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
