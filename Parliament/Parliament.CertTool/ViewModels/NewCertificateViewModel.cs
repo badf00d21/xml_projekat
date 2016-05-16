@@ -1,4 +1,6 @@
 ﻿using Caliburn.Micro;
+using Org.BouncyCastle.X509;
+using Org.BouncyCastle.Crypto;
 using SwollenMvvmToolkit.CaliburnMicro.ViewModels;
 using Syringe.ObservableClassAmpoule;
 using System;
@@ -6,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Parliament.Security.CertUtils;
+using Org.BouncyCastle.Asn1.X509;
 
 namespace Parliament.CertTool.ViewModels
 {
@@ -40,6 +44,7 @@ namespace Parliament.CertTool.ViewModels
         public void Ok()
         {
             IsCanceled = false;
+            
             TryClose();
         }
 

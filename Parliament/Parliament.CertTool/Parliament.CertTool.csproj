@@ -38,8 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.1.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.1\lib\BouncyCastle.Crypto.dll</HintPath>
+    <Reference Include="BouncyCastle.Crypto, Version=1.7.4137.9688, Culture=neutral, PublicKeyToken=a4292a325f69b123, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Caliburn.Micro, Version=2.0.2.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
@@ -192,6 +192,10 @@
     <ProjectReference Include="..\Parliament.DataAccess\Parliament.DataAccess.csproj">
       <Project>{f6d4247f-13d5-4463-a86f-d30456f55f95}</Project>
       <Name>Parliament.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Parliament.Security\Parliament.Security.csproj">
+      <Project>{4bac5019-eab1-4d67-8d3c-eea77cf68e76}</Project>
+      <Name>Parliament.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
