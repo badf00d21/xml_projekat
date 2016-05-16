@@ -9,6 +9,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.DataAccess", "Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.Security", "Parliament.Security\Parliament.Security.csproj", "{4BAC5019-EAB1-4D67-8D3C-EEA77CF68E76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.AuthServer", "Parliament.AuthServer\Parliament.AuthServer.csproj", "{FF05F809-3D04-4F9A-B448-B5726E105085}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.Api.SGNS", "Parliament.Api.SGNS\Parliament.Api.SGNS.csproj", "{C8E9D127-7A56-4012-BEAA-CBEE78B03A47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.Api.IAGNS", "Parliament.Api.IAGNS\Parliament.Api.IAGNS.csproj", "{DCC4017D-E3BD-41D0-9253-298CCF3537A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.AngularClient", "Parliament.AngularClient\Parliament.AngularClient.csproj", "{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +35,22 @@ Global
 		{4BAC5019-EAB1-4D67-8D3C-EEA77CF68E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BAC5019-EAB1-4D67-8D3C-EEA77CF68E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BAC5019-EAB1-4D67-8D3C-EEA77CF68E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF05F809-3D04-4F9A-B448-B5726E105085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF05F809-3D04-4F9A-B448-B5726E105085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF05F809-3D04-4F9A-B448-B5726E105085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF05F809-3D04-4F9A-B448-B5726E105085}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8E9D127-7A56-4012-BEAA-CBEE78B03A47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8E9D127-7A56-4012-BEAA-CBEE78B03A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8E9D127-7A56-4012-BEAA-CBEE78B03A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8E9D127-7A56-4012-BEAA-CBEE78B03A47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCC4017D-E3BD-41D0-9253-298CCF3537A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCC4017D-E3BD-41D0-9253-298CCF3537A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCC4017D-E3BD-41D0-9253-298CCF3537A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCC4017D-E3BD-41D0-9253-298CCF3537A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
