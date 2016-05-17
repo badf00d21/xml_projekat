@@ -8,7 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static Parliament.Security.CertUtils;
 using Org.BouncyCastle.Asn1.X509;
 
 namespace Parliament.CertTool.ViewModels

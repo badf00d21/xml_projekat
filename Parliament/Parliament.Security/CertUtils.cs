@@ -81,8 +81,8 @@ namespace Parliament.Security
 
             // Set the signature algorithm. This is used to generate the thumbprint which is then signed
             // with the issuer's private key. We'll use SHA-256, which is (currently) considered fairly strong.
-            const string signatureAlgorithm = "SHA256WithRSA";
-            certificateGenerator.SetSignatureAlgorithm(signatureAlgorithm);
+            //const string signatureAlgorithm = "SHA256WithRSA";
+           // certificateGenerator.SetSignatureAlgorithm(signatureAlgorithm);
 
             var issuerDN = new X509Name(issuerName);
             certificateGenerator.SetIssuerDN(issuerDN);
@@ -224,8 +224,7 @@ namespace Parliament.Security
         }
 
         private static SecureRandom GetSecureRandom()
-        {
-           
+        {           
             var randomGenerator = new CryptoApiRandomGenerator();
             var random = new SecureRandom(randomGenerator);
             return random;
