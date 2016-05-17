@@ -1,6 +1,7 @@
 ﻿using Caliburn.Micro;
 using Org.BouncyCastle.Crypto.Prng;
 using Org.BouncyCastle.Math;
+using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities;
 using Org.BouncyCastle.X509;
@@ -26,6 +27,7 @@ namespace Parliament.CertTool.ViewModels
         private bool _isKeystoreChanged;
         private string _keystorePath;
         private string _keystorePassword;
+        private Pkcs12Store _keystore;
 
         public IWindowManager WindowManager { get; set; }
         public IFeedbackService FeedbackService { get; set; }
@@ -84,6 +86,9 @@ namespace Parliament.CertTool.ViewModels
                 _keystorePassword = keystoreDialog.Password;
 
                 Certificates.Clear();
+                _isKeystoreChanged = false;
+
+                _keystore = new Pkcs12Store();
             }          
         }
 
