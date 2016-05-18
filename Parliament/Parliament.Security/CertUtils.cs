@@ -9,6 +9,7 @@ using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities;
 using Org.BouncyCastle.X509;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,11 +28,30 @@ namespace Parliament.Security
             return issuerCertificate;
         }
 
-        public static X509Certificate2 IssueCertificate(X509Name subjectName, X509Certificate2 issuerCertificate, Pkcs12Store store, string storePassword)
+        public static X509Certificate2 IssueCertificate(X509Name subjectName, X509Certificate2 issuerCertificate, Pkcs12Store store, string storePassword, bool isCertificateAuthority)
         {
             // It's self-signed, so these are the same.
-            var issuerName = new X509Name(issuerCertificate.Subject);
-            
+            IList oids = new ArrayList();
+            oids.Add(X509Name.CN);
+            oids.Add(X509Name.OU);
+            oids.Add(X509Name.O);
+            oids.Add(X509Name.ST);
+            oids.Add(X509Name.C);
+            oids.Add(X509Name.E);
+            oids.Add(X509Name.GivenName);
+
+
+            IList values = new ArrayList();
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("CN=")).Replace("CN=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("OU=")).Replace("OU=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("O=")).Replace("O=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("S=")).Replace("S=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("C=")).Replace("C=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("E=")).Replace("E=", ""));
+            values.Add(issuerCertificate.Subject.Split(',').First(s => s.Contains("G=")).Replace("G=", ""));
+
+            var issuerName = new X509Name(oids, values);
+
             var random = GetSecureRandom();
             var subjectKeyPair = GenerateKeyPair(random, 1024);
 
@@ -40,7 +60,6 @@ namespace Parliament.Security
             var serialNumber = GenerateSerialNumber(random);
             var issuerSerialNumber = new BigInteger(issuerCertificate.GetSerialNumber());
 
-            const bool isCertificateAuthority = false;
             var certificate = GenerateCertificate(random, subjectName, subjectKeyPair, serialNumber,
                                                   issuerName, issuerKeyPair,
                                                   issuerSerialNumber, isCertificateAuthority);

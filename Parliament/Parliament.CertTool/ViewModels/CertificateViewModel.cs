@@ -20,5 +20,7 @@ namespace Parliament.CertTool.ViewModels
         public string ValidFrom { get; set; }
 
         public string ValidUntil { get; set; }
+
+        public bool IsCA { get; set; }
     }
 }

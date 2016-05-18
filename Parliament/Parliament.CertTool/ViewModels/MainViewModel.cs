@@ -134,7 +134,7 @@ namespace Parliament.CertTool.ViewModels
         {
             List<string> avaliableCAs = new List<string>();
 
-            foreach (var cert in Certificates.Where(c => c.Issuer == "Self signed"))
+            foreach (var cert in Certificates.Where(c => c.IsCA))
                 avaliableCAs.Add(string.Format("{0} ({1})", cert.Alias, cert.SerialNumber));
 
             NewCertificateViewModel certificateDialog = new NewCertificateViewModel(avaliableCAs);
@@ -168,12 +168,17 @@ namespace Parliament.CertTool.ViewModels
 
             if (certificateDialog.SelectedCA == "Self signed")
             {
-                certificate = CertUtils.CreateCertificateAuthorityCertificate(subjectName, _keystore, _keystorePassword);
+                if (certificateDialog.IsCertificateAuthority)
+                    certificate = CertUtils.CreateCertificateAuthorityCertificate(subjectName, _keystore, _keystorePassword);
+                else
+                    certificate = CertUtils.CreateSelfSignedCertificate(subjectName, _keystore, _keystorePassword);
+
                 issuerName = "Self signed";
             }          
             else
             {
-                certificate = CertUtils.IssueCertificate(subjectName, _certificates[certificateDialog.SelectedCA.Split('(').Last().Replace(")", "").Trim()], _keystore, _keystorePassword);
+                certificate = CertUtils.IssueCertificate(subjectName, _certificates[certificateDialog.SelectedCA.Split('(').Last().Replace(")", "").Trim()],
+                    _keystore, _keystorePassword, certificateDialog.IsCertificateAuthority);
                 issuerName = certificateDialog.SelectedCA;
             }
                 
@@ -185,7 +190,8 @@ namespace Parliament.CertTool.ViewModels
                 SerialNumber = certificate.SerialNumber,
                 Issuer = issuerName,
                 ValidFrom = certificate.NotBefore.ToString(),
-                ValidUntil = certificate.NotAfter.ToString()
+                ValidUntil = certificate.NotAfter.ToString(),
+                IsCA = certificateDialog.IsCertificateAuthority
             });
         }
 

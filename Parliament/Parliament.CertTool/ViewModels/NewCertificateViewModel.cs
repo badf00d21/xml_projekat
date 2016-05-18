@@ -33,6 +33,8 @@ namespace Parliament.CertTool.ViewModels
 
         public string EmailAddress { get; set; }
 
+        public bool IsCertificateAuthority { get; set; }
+
         public bool IsCanceled { get; set; }
 
         public NewCertificateViewModel(IEnumerable<string> issuers)
