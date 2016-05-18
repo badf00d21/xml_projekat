@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Icon="../Resources/Icons/new_keystore.ico"
         WindowStartupLocation="CenterScreen"
-        Title="Parliament user and certificate manager" Height="500" Width="900">
+        Title="Parliament user and certificate manager" Height="700" Width="1100">
     <Grid Background="WhiteSmoke">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -24,9 +24,8 @@
         <GroupBox Header="Certificates" Grid.Row="2" Grid.Column="0" >
             <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="CertificateID" Binding="{Binding CertificateID}" Width="*" />
+                    <DataGridTextColumn Header="Serial number" Binding="{Binding SerialNumber}" Width="*" />
                     <DataGridTextColumn Header="Alias" Binding="{Binding Alias}" Width="*" />
-                    <DataGridTextColumn Header="Subject" Binding="{Binding Subject}" Width="*" />
                     <DataGridTextColumn Header="Issuer:" Binding="{Binding Issuer}" Width="*" />
                     <DataGridTextColumn Header="Valid from" Binding="{Binding ValidFrom}" Width="*" />
                     <DataGridTextColumn Header="Valid until" Binding="{Binding ValidUntil}" Width="*" />

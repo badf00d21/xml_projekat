@@ -11,11 +11,9 @@ namespace Parliament.CertTool.ViewModels
     [Observable]
     public class CertificateViewModel : ViewModel
     {
-        public int CertificateID { get; set; }
+        public string SerialNumber { get; set; }
 
         public string Alias { get; set; }
-
-        public string Subject { get; set; }
 
         public string Issuer { get; set; }
 

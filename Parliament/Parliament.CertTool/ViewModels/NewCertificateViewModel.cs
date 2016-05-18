@@ -15,9 +15,9 @@ namespace Parliament.CertTool.ViewModels
     [Observable]
     public class NewCertificateViewModel : Screen
     {
-        public BindableCollection<int> CAs { get; set; }
+        public BindableCollection<string> CAs { get; set; }
 
-        public string Surname { get; set; }
+        public string SelectedCA { get; set; }
 
         public string CommonName { get; set; }
 
@@ -25,7 +25,7 @@ namespace Parliament.CertTool.ViewModels
 
         public string OrganisationName { get; set; }
 
-        public string GivenName { get; set; }
+        public string Alias { get; set; }
 
         public string StateName { get; set; }
 
@@ -35,15 +35,20 @@ namespace Parliament.CertTool.ViewModels
 
         public bool IsCanceled { get; set; }
 
-        public NewCertificateViewModel()
+        public NewCertificateViewModel(IEnumerable<string> issuers)
         {
             DisplayName = "Create New Certificate";
+
+            CAs = new BindableCollection<string>();
+            CAs.Add("Self signed");
+            CAs.AddRange(issuers);
+
+            SelectedCA = CAs.First();
         }
 
         public void Ok()
         {
-            IsCanceled = false;
-            
+            IsCanceled = false;          
             TryClose();
         }
 

@@ -1,4 +1,5 @@
 ﻿using Caliburn.Micro;
+using Org.BouncyCastle.Asn1.X509;
 using Org.BouncyCastle.Crypto.Prng;
 using Org.BouncyCastle.Math;
 using Org.BouncyCastle.Pkcs;
@@ -6,10 +7,12 @@ using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities;
 using Org.BouncyCastle.X509;
 using Parliament.DataAccess.Databases;
+using Parliament.Security;
 using SwollenMvvmToolkit.CaliburnMicro.ViewModels;
 using SwollenMvvmToolkit.Core.Services;
 using Syringe.ObservableClassAmpoule;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -28,6 +31,7 @@ namespace Parliament.CertTool.ViewModels
         private string _keystorePath;
         private string _keystorePassword;
         private Pkcs12Store _keystore;
+        private Dictionary<string, X509Certificate2> _certificates;
 
         public IWindowManager WindowManager { get; set; }
         public IFeedbackService FeedbackService { get; set; }
@@ -42,6 +46,10 @@ namespace Parliament.CertTool.ViewModels
         public MainViewModel(IWindowManager windowManager, IFeedbackService feedbackService, IDialogService dialogService)
         {
             _isKeystoreChanged = false;
+            _keystorePath = string.Empty;
+            _keystorePassword = string.Empty;
+            _keystore = new Pkcs12Store();
+            _certificates = new Dictionary<string, X509Certificate2>();
 
             DisplayName = "Parliament User And Certificate Manager";
 
@@ -89,6 +97,7 @@ namespace Parliament.CertTool.ViewModels
                 _isKeystoreChanged = false;
 
                 _keystore = new Pkcs12Store();
+                _certificates = new Dictionary<string, X509Certificate2>();
             }          
         }
 
@@ -123,11 +132,61 @@ namespace Parliament.CertTool.ViewModels
 
         public void CreateCertificate()
         {
-            NewCertificateViewModel certificateDialog = new NewCertificateViewModel();
+            List<string> avaliableCAs = new List<string>();
+
+            foreach (var cert in Certificates.Where(c => c.Issuer == "Self signed"))
+                avaliableCAs.Add(string.Format("{0} ({1})", cert.Alias, cert.SerialNumber));
+
+            NewCertificateViewModel certificateDialog = new NewCertificateViewModel(avaliableCAs);
             WindowManager.ShowDialog(certificateDialog);
 
             if (certificateDialog.IsCanceled)
                 return;
+
+            IList oids = new ArrayList();
+            oids.Add(X509Name.CN);
+            oids.Add(X509Name.OU);
+            oids.Add(X509Name.O);
+            oids.Add(X509Name.ST);
+            oids.Add(X509Name.C);
+            oids.Add(X509Name.E);
+            oids.Add(X509Name.GivenName);
+
+
+            IList values = new ArrayList();
+            values.Add(certificateDialog.CommonName);
+            values.Add(certificateDialog.OrganisationUnit);
+            values.Add(certificateDialog.OrganisationName);
+            values.Add(certificateDialog.StateName);
+            values.Add(certificateDialog.CountryCode);
+            values.Add(certificateDialog.EmailAddress);
+            values.Add(certificateDialog.Alias);
+
+            X509Name subjectName = new X509Name(oids, values);
+            X509Certificate2 certificate = null;
+            string issuerName = "";
+
+            if (certificateDialog.SelectedCA == "Self signed")
+            {
+                certificate = CertUtils.CreateCertificateAuthorityCertificate(subjectName, _keystore, _keystorePassword);
+                issuerName = "Self signed";
+            }          
+            else
+            {
+                certificate = CertUtils.IssueCertificate(subjectName, _certificates[certificateDialog.SelectedCA.Split('(').Last().Replace(")", "").Trim()], _keystore, _keystorePassword);
+                issuerName = certificateDialog.SelectedCA;
+            }
+                
+            _certificates.Add(certificate.SerialNumber, certificate);
+
+            Certificates.Add(new CertificateViewModel
+            {
+                Alias = certificateDialog.Alias,
+                SerialNumber = certificate.SerialNumber,
+                Issuer = issuerName,
+                ValidFrom = certificate.NotBefore.ToString(),
+                ValidUntil = certificate.NotAfter.ToString()
+            });
         }
 
         public void ImportCertificate()

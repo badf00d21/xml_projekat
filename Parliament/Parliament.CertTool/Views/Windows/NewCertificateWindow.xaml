@@ -5,25 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parliament.CertTool.Views"
         mc:Ignorable="d"
-        Title="New Certificate Window" Height="508" Width="226"
+        Title="New Certificate Window" Height="460" Width="226"
         Icon="../Resources/Icons/create_certificate.ico"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid Background="WhiteSmoke">
         <StackPanel Orientation="Vertical" Margin="5, 0, 0, 0" HorizontalAlignment="Left" >
             <Label Content="CA: " Margin="-5, 0, 0, 0"/>
-            <ComboBox ItemsSource="{Binding CAs}" Width="100" HorizontalAlignment="Left"/>
-            <Label Content="Surname (S):" Margin="-5, 0, 0, 0"/>
-            <TextBox Width="200" Height="22" Text="{Binding Surname}"></TextBox>
+            <ComboBox ItemsSource="{Binding CAs}" Width="100" HorizontalAlignment="Left" SelectedIndex="0" SelectedValue="{Binding SelectedCA}"/>
+            <Label Content="Alias :" Margin="-5, 0, 0, 0"/>
+            <TextBox Width="200" Height="22" Text="{Binding Alias}"></TextBox>
             <Label Content="Common Name (CN):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding CommonName}"></TextBox>
             <Label Content="Organisation Unit (OU):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding OrganisationUnit}"></TextBox>
             <Label Content="Organisation Name (ON):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding OrganisationName}"></TextBox>
-            <Label Content="Given Name :" Margin="-5, 0, 0, 0"/>
-            <TextBox Width="200" Height="22" Text="{Binding GivenName}"></TextBox>
-            <Label Content="State Name :" Margin="-5, 0, 0, 0"/>
+            <Label Content="State Name (ST) :" Margin="-5, 0, 0, 0"/>
             <TextBox Width="200" Height="22" Text="{Binding StateName}"></TextBox>
             <Label Content="Country Code (C):" Margin="-5, 0, 0, 0"/>
             <TextBox Width="50" Height="22" Text="{Binding CountryCode}" HorizontalAlignment="Left"></TextBox>
