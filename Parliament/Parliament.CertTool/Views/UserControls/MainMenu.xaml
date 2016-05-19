@@ -74,6 +74,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </MenuItem>
+                <Separator />
                 <MenuItem Header="Import Certificate">
                     <MenuItem.Icon>
                         <Image Source="../Resources/Icons/import_certificate.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
@@ -84,7 +85,6 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </MenuItem>
-                <Separator />
                 <MenuItem Header="ExportCertificate">
                     <MenuItem.Icon>
                         <Image Source="../Resources/Icons/export_certificate.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>

@@ -1,6 +1,6 @@
 ﻿using Caliburn.Micro;
 using Microsoft.AspNet.Identity;
-using Parliament.DataAccess.Databases;
+using Parliament.DataAccess.Database;
 using Parliament.DataAccess.Entities;
 using Parliament.DataAccess.Utils;
 using SwollenMvvmToolkit.Core.Services;

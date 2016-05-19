@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
-using Parliament.DataAccess.Databases;
+using Parliament.DataAccess.Database;
 
 namespace Parliament.DataAccess.Utils
 {
