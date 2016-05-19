@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Databases\ParliamentDbContext.cs" />
+    <Compile Include="Database\ParliamentDbContext.cs" />
     <Compile Include="Entities\Enums.cs" />
     <Compile Include="Entities\ParliamentUser.cs" />
     <Compile Include="Migrations\201605151409517_Initial.cs" />
@@ -87,6 +87,12 @@
     <EmbeddedResource Include="Migrations\201605152215544_AddedRoleToUserEntity.resx">
       <DependentUpon>201605152215544_AddedRoleToUserEntity.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Parliament.Security\Parliament.Security.csproj">
+      <Project>{4bac5019-eab1-4d67-8d3c-eea77cf68e76}</Project>
+      <Name>Parliament.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

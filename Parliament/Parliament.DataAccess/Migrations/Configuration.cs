@@ -7,14 +7,14 @@ namespace Parliament.DataAccess.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Utils;
-    internal sealed class Configuration : DbMigrationsConfiguration<Parliament.DataAccess.Databases.ParliamentDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Parliament.DataAccess.Database.ParliamentDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Parliament.DataAccess.Databases.ParliamentDbContext context)
+        protected override void Seed(Parliament.DataAccess.Database.ParliamentDbContext context)
         {
             if (!context.Roles.Any())
             {

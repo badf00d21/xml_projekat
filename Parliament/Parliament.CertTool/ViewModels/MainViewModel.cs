@@ -6,7 +6,7 @@ using Org.BouncyCastle.Pkcs;
 using Org.BouncyCastle.Security;
 using Org.BouncyCastle.Utilities;
 using Org.BouncyCastle.X509;
-using Parliament.DataAccess.Databases;
+using Parliament.DataAccess.Database;
 using Parliament.Security;
 using SwollenMvvmToolkit.CaliburnMicro.ViewModels;
 using SwollenMvvmToolkit.Core.Services;
