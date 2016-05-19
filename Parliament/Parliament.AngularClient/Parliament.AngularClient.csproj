@@ -67,8 +67,19 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\homeController.js" />
+    <Content Include="app\controllers\indexController.js" />
+    <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\refreshController.js" />
+    <Content Include="app\services\authInterceptorService.js" />
+    <Content Include="app\services\authService.js" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\views\login.html" />
+    <Content Include="content\css\loading-bar.css" />
+    <Content Include="content\css\site.css" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
+    <Content Include="content\css\bootstrap.min.css" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -77,18 +88,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="scripts\angular.min.js" />
+    <Content Include="scripts\loading-bar.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\controllers\" />
-    <Folder Include="app\services\" />
-    <Folder Include="app\views\" />
-    <Folder Include="content\css\" />
     <Folder Include="content\fonts\" />
-    <Folder Include="scripts\" />
+    <Folder Include="views\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
