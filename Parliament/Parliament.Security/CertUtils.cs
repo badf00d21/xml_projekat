@@ -21,13 +21,6 @@ namespace Parliament.Security
 {
     public static class CertUtils
     {
-        private static X509Certificate2 LoadCertificate(string issuerFileName, string password)
-        {
-            // We need to pass 'Exportable', otherwise we can't get the private key.
-            var issuerCertificate = new X509Certificate2(issuerFileName, password, X509KeyStorageFlags.Exportable);
-            return issuerCertificate;
-        }
-
         public static X509Certificate2 IssueCertificate(X509Name subjectName, X509Certificate2 issuerCertificate, Pkcs12Store store, string storePassword, bool isCertificateAuthority)
         {
             // It's self-signed, so these are the same.
