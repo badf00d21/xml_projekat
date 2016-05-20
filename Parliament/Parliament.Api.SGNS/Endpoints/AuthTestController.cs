@@ -12,7 +12,7 @@ namespace Parliament.Api.SGNS.Endpoints
     {
         [HttpGet]
         [Route("api/test/token")]
-        public async Task<IHttpActionResult> TokenTest()
+        public IHttpActionResult TokenTest()
         {
             return Ok("Radi");
         }
