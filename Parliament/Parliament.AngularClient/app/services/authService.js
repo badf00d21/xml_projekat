@@ -28,11 +28,9 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
     var _login = function (loginData) {
 
-        var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+        var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password + "&client_id=" + "7fb613284f504776ad94ddadb65036bd";
 
-        if (loginData.useRefreshTokens) {
-            data = data + "&client_id=" + ngAuthSettings.clientId;
-        }
+        
 
         var deferred = $q.defer();
 

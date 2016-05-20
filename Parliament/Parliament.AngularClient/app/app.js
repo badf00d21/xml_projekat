@@ -43,10 +43,10 @@ app.config(function ($routeProvider) {
 });
 
 //var serviceBase = 'http://localhost:26264/';
-var serviceBase = 'https://localhost:8904/api/auth/token/';
+var serviceBase = 'https://localhost:8904/api/auth/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
-    clientId: 'ngAuthApp'
+    clientId: '7fb613284f504776ad94ddadb65036bd'
 });
 
 app.config(function ($httpProvider) {
