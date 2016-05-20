@@ -30,9 +30,14 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
         var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password + "&client_id=" + "7fb613284f504776ad94ddadb65036bd";
 
-        
+        $http.post("http://localhost:8904/api/auth/token", "grant_type=password&username=bule@asd.com&password=Jazavac-123&client_id=7fb613284f504776ad94ddadb65036bd", { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(
+            function (response) {
+               // console.log(response);
+            });
 
         var deferred = $q.defer();
+
+        console.log("url:  " + serviceBase + 'token' + "  data:   " + data);
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
