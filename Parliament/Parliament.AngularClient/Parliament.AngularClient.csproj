@@ -67,7 +67,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\controllers\aldermanController.js" />
     <Content Include="app\controllers\associateController.js" />
+    <Content Include="app\controllers\chairmanController.js" />
+    <Content Include="app\controllers\citizenController.js" />
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
@@ -79,7 +82,10 @@
     <Content Include="app\services\authService.js" />
     <Content Include="app\services\ordersService.js" />
     <Content Include="app\services\tokensManagerService.js" />
+    <Content Include="app\views\aldermanHome.html" />
     <Content Include="app\views\associate.html" />
+    <Content Include="app\views\citizenHome.html" />
+    <Content Include="app\views\chairmanHome.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\orders.html" />
