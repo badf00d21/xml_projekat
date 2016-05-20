@@ -24,7 +24,7 @@
             <Label Content="Confirm password:" Margin="-5, 0, 0, 0" />
             <TextBox Text="{Binding ConfirmPassword}" Width="150" Height="22"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 10, 0, 0">
-                <Button Name="Ok" Content="Ok" Width="50" />
+                <Button Name="Ok" Content="Ok" Width="50" IsDefault="True"/>
                 <Button Name="Cancel" Content="Cancel" Width="50" Margin="5, 0, 0, 0"/>
             </StackPanel>
         </StackPanel>

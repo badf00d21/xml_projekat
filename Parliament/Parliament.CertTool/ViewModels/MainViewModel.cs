@@ -15,6 +15,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -40,7 +41,9 @@ namespace Parliament.CertTool.ViewModels
         public BindableCollection<CertificateViewModel> Certificates { get; set; }
 
         public BindableCollection<UserViewModel> Users { get; set; }
-        public object X509V3CertificateGenerator { get; private set; }
+        public CertificateViewModel SelectedCertificate { get; set; }
+
+        public bool CanExportCertificate { get { return SelectedCertificate != null; } }
 
         [ImportingConstructor]
         public MainViewModel(IWindowManager windowManager, IFeedbackService feedbackService, IDialogService dialogService)
@@ -79,7 +82,7 @@ namespace Parliament.CertTool.ViewModels
         {
             if (_isKeystoreChanged)
             {
-               bool? result = FeedbackService.ShowWarningMessage("Would you like to save changes to current keystore first?");
+                bool? result = FeedbackService.ShowWarningMessage("Would you like to save changes to current keystore first?");
 
                 if (result.HasValue && result == true)
                     SaveKeystore();
@@ -98,16 +101,101 @@ namespace Parliament.CertTool.ViewModels
 
                 _keystore = new Pkcs12Store();
                 _certificates = new Dictionary<string, X509Certificate2>();
-            }          
+            }
         }
 
         public void OpenKeystore()
         {
+            if (_isKeystoreChanged)
+            {
+                bool? result = FeedbackService.ShowWarningMessage("Would you like to save changes to current keystore first?");
+
+                if (result.HasValue && result == true)
+                    SaveKeystore();
+            }
+
+            OpenKeystoreViewModel keystoreDialog = new OpenKeystoreViewModel();
+            WindowManager.ShowDialog(keystoreDialog);
+
+            if (keystoreDialog.IsCanceled || string.IsNullOrWhiteSpace(keystoreDialog.KeystoreFilePath))
+                return;
+
+            using (var fileStream = new FileStream(keystoreDialog.KeystoreFilePath, FileMode.Open, FileAccess.Read))
+            {
+                try
+                {
+                    _keystore = new Pkcs12Store();
+
+                    _keystorePath = keystoreDialog.KeystoreFilePath;
+                    _keystorePassword = keystoreDialog.Password;
+                    _isKeystoreChanged = false;
+
+                    Certificates.Clear();
+                    _certificates = new Dictionary<string, X509Certificate2>();
+
+                    X509Certificate2Collection certificateCollection = new X509Certificate2Collection();
+                    certificateCollection.Import(_keystorePath, _keystorePassword, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+
+                    foreach (var certificate in certificateCollection)
+                    {
+                        _certificates.Add(certificate.SerialNumber, certificate);
+
+                        string certAlias = certificate.FriendlyName.Split(',').First(s => s.Contains("GIVENNAME=")).Replace("GIVENNAME=", "").Trim();
+                        string certIssuer = certificate.Issuer.Split(',').First(s => s.Contains("G=")).Replace("G=", "").Trim();
+
+                        Certificates.Add(new CertificateViewModel
+                        {
+                            Alias = certAlias,
+                            SerialNumber = certificate.SerialNumber,
+                            Issuer = certAlias == certIssuer ? "Self signed" : certIssuer,
+                            ValidFrom = certificate.NotBefore.ToString(),
+                            ValidUntil = certificate.NotAfter.ToString(),
+                            IsCA = true
+                        });
+
+                        CertUtils.AddCertificateToStore(certificate, _keystore, _keystorePassword);
+                    }
+
+                    foreach (var certificate in Certificates)
+                        if (Certificates.Any(c => c.Alias == certificate.Issuer))
+                            certificate.Issuer += string.Format(" ({0})", Certificates.First(c => c.Alias == certificate.Issuer).SerialNumber);
+
+                }
+                catch
+                {
+                    FeedbackService.ShowErrorMessage(string.Format("Could not open: '{0}'", keystoreDialog.KeystoreFilePath));
+                }
+            }
 
         }
 
         public void SaveKeystore()
         {
+            if (string.IsNullOrWhiteSpace(_keystorePath) || string.IsNullOrWhiteSpace(_keystorePassword))
+            {
+                NewKeystoreViewModel keystoreDialog = new NewKeystoreViewModel();
+                WindowManager.ShowDialog(keystoreDialog);
+
+                if (!keystoreDialog.IsCanceled)
+                {
+                    _keystorePath = keystoreDialog.KeystoreFilePath;
+                    _keystorePassword = keystoreDialog.Password;
+                }
+            }
+
+            using (var fileStream = new FileStream(_keystorePath, FileMode.Create, FileAccess.Write))
+            {
+                try
+                {
+                    _keystore.Save(fileStream, _keystorePassword.ToArray(), new SecureRandom());
+                    _isKeystoreChanged = false;
+                    FeedbackService.ShowInfoMessage("Keystore successfully saved!");
+                }
+                catch
+                {
+                    FeedbackService.ShowErrorMessage("Keystore could not be saved.");
+                }
+            }
 
         }
 
@@ -174,14 +262,14 @@ namespace Parliament.CertTool.ViewModels
                     certificate = CertUtils.CreateSelfSignedCertificate(subjectName, _keystore, _keystorePassword);
 
                 issuerName = "Self signed";
-            }          
+            }
             else
             {
                 certificate = CertUtils.IssueCertificate(subjectName, _certificates[certificateDialog.SelectedCA.Split('(').Last().Replace(")", "").Trim()],
                     _keystore, _keystorePassword, certificateDialog.IsCertificateAuthority);
                 issuerName = certificateDialog.SelectedCA;
             }
-                
+
             _certificates.Add(certificate.SerialNumber, certificate);
 
             Certificates.Add(new CertificateViewModel
@@ -193,16 +281,83 @@ namespace Parliament.CertTool.ViewModels
                 ValidUntil = certificate.NotAfter.ToString(),
                 IsCA = certificateDialog.IsCertificateAuthority
             });
+
+            _isKeystoreChanged = true;
         }
 
-        public void ImportCertificate()
+        public void ImportCertificates()
         {
+            OpenKeystoreViewModel keystoreDialog = new OpenKeystoreViewModel();
+            WindowManager.ShowDialog(keystoreDialog);
 
+            if (keystoreDialog.IsCanceled)
+                return;
+
+            try
+            {
+                X509Certificate2Collection certificateCollection = new X509Certificate2Collection();
+                certificateCollection.Import(keystoreDialog.KeystoreFilePath, keystoreDialog.Password, X509KeyStorageFlags.Exportable | X509KeyStorageFlags.PersistKeySet);
+
+                foreach (var certificate in certificateCollection)
+                {
+                    _certificates.Add(certificate.SerialNumber, certificate);
+
+                    string certAlias = certificate.FriendlyName.Split(',').First(s => s.Contains("GIVENNAME=")).Replace("GIVENNAME=", "").Trim();
+                    string certIssuer = certificate.Issuer.Split(',').First(s => s.Contains("G=")).Replace("G=", "").Trim();
+
+                    CertificateViewModel newCert = new CertificateViewModel
+                    {
+                        Alias = certAlias,
+                        SerialNumber = certificate.SerialNumber,
+                        Issuer = certAlias == certIssuer ? "Self signed" : certIssuer,
+                        ValidFrom = certificate.NotBefore.ToString(),
+                        ValidUntil = certificate.NotAfter.ToString(),
+                        IsCA = true
+                    };
+
+                    Certificates.Add(newCert);
+
+                    if (Certificates.Any(c => c.Alias == certIssuer))
+                        newCert.Issuer += string.Format(" ({0})", Certificates.First(c => c.Alias == certIssuer).SerialNumber);
+
+                    CertUtils.AddCertificateToStore(certificate, _keystore, _keystorePassword);
+                }
+
+            }
+            catch
+            {
+                FeedbackService.ShowErrorMessage(string.Format("Could not open: '{0}'", keystoreDialog.KeystoreFilePath));
+            }
         }
 
         public void ExportCertificate()
         {
+            if (SelectedCertificate == null)
+                return;
 
+            string filePath = DialogService.SaveFileDialog(new Dictionary<string, object>
+                {
+                    {"Filter", "PFX|*.pfx" }
+                });
+
+            if (string.IsNullOrWhiteSpace(filePath))
+                return;
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+            {
+                try
+                {
+                    Pkcs12Store keystore = new Pkcs12Store();
+                    CertUtils.AddCertificateToStore(_certificates[SelectedCertificate.SerialNumber], keystore, _keystorePassword);
+                    keystore.Save(fileStream, _keystorePassword.ToArray(), new SecureRandom());
+
+                    FeedbackService.ShowInfoMessage("Certificate exported successfully!");
+                }
+                catch
+                {
+                    FeedbackService.ShowErrorMessage("Keystore could not be saved.");
+                }
+            }
         }
 
         public void About()

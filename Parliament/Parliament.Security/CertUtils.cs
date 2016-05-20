@@ -161,7 +161,7 @@ namespace Parliament.Security
             AddSubjectKeyIdentifier(certificateGenerator, subjectKeyPair);
             AddBasicConstraints(certificateGenerator, isCertificateAuthority);
 
-            
+
             var certificate = certificateGenerator.Generate(issuerKeyPair.Private, random);
             return certificate;
         }
@@ -278,7 +278,7 @@ namespace Parliament.Security
                 X509Extensions.SubjectKeyIdentifier.Id, false, subjectKeyIdentifierExtension);
         }
 
-        private static X509Certificate2 ConvertCertificate(Org.BouncyCastle.X509.X509Certificate certificate,
+        public static X509Certificate2 ConvertCertificate(Org.BouncyCastle.X509.X509Certificate certificate,
                                                            AsymmetricCipherKeyPair subjectKeyPair,
                                                            SecureRandom random)
         {
@@ -323,7 +323,7 @@ namespace Parliament.Security
                                                           SecureRandom random,
                                                           Pkcs12Store store,
                                                           string storePassword)
-        { 
+        {
             // What Bouncy Castle calls "alias" is the same as what Windows terms the "friendly name".
             string friendlyName = certificate.SubjectDN.ToString();
 
@@ -338,6 +338,14 @@ namespace Parliament.Security
             // It needs a password. Since we'll remove this later, it doesn't particularly matter what we use.
             var stream = new MemoryStream();
             store.Save(stream, storePassword.ToCharArray(), random);
+        }
+
+        public static void AddCertificateToStore(X509Certificate2 certificate, Pkcs12Store store, string storePassword)
+        {
+            AsymmetricCipherKeyPair keyPair = DotNetUtilities.GetKeyPair(certificate.PrivateKey);
+            SecureRandom random = new SecureRandom();
+
+            AddCertificateToStore(DotNetUtilities.FromX509Certificate(certificate), keyPair, random, store, storePassword);
         }
     }
 }

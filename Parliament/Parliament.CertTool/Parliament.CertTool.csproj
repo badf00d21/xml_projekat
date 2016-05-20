@@ -117,9 +117,16 @@
     <Compile Include="ViewModels\NewCertificateViewModel.cs" />
     <Compile Include="ViewModels\NewKeystoreViewModel.cs" />
     <Compile Include="ViewModels\NewUserViewModel.cs" />
+    <Compile Include="ViewModels\OpenKeystoreViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
-    <Compile Include="Views\Windows\NewUserWindow.xaml.cs">
-      <DependentUpon>NewUserWindow.xaml</DependentUpon>
+    <Compile Include="Views\Windows\OpenKeystoreView.xaml.cs">
+      <DependentUpon>OpenKeystoreView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Windows\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Windows\NewCertificateWindow.xaml.cs">
       <DependentUpon>NewCertificateWindow.xaml</DependentUpon>
@@ -127,14 +134,11 @@
     <Compile Include="Views\Windows\NewKeystoreWindow.xaml.cs">
       <DependentUpon>NewKeystoreWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Windows\NewUserWindow.xaml.cs">
+      <DependentUpon>NewUserWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\Toolbar.xaml.cs">
       <DependentUpon>Toolbar.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\UserControls\MainMenu.xaml.cs">
-      <DependentUpon>MainMenu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Windows\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -168,16 +172,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BuildTools\Syringe\bin\CodeAmpoule.dll" />
-    <Content Include="BuildTools\Syringe\bin\Microsoft.Build.Framework.dll" />
-    <Content Include="BuildTools\Syringe\bin\Microsoft.Build.Utilities.v12.0.dll" />
-    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.dll" />
-    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Mdb.dll" />
-    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Pdb.dll" />
-    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Rocks.dll" />
-    <Content Include="BuildTools\Syringe\bin\Syringe.dll" />
-    <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.Attributes.dll" />
-    <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.dll" />
     <Resource Include="Views\Resources\Icons\about.ico" />
     <Resource Include="Views\Resources\Icons\export_certificate.ico" />
     <Resource Include="Views\Resources\Icons\import_certificate.ico" />
@@ -199,23 +193,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Views\Windows\NewUserWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\NewCertificateWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Windows\NewKeystoreWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Resources\Styles\ToolbarStyles.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserControls\Toolbar.xaml">
+    <Page Include="Views\Windows\OpenKeystoreView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,7 +205,40 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Windows\NewCertificateWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewKeystoreWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Windows\NewUserWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Resources\Styles\ToolbarStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\UserControls\Toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildTools\Syringe\bin\CodeAmpoule.dll" />
+    <Content Include="BuildTools\Syringe\bin\Microsoft.Build.Framework.dll" />
+    <Content Include="BuildTools\Syringe\bin\Microsoft.Build.Utilities.v12.0.dll" />
+    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.dll" />
+    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Mdb.dll" />
+    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Pdb.dll" />
+    <Content Include="BuildTools\Syringe\bin\Mono.Cecil.Rocks.dll" />
+    <Content Include="BuildTools\Syringe\bin\Syringe.dll" />
+    <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.Attributes.dll" />
+    <Content Include="BuildTools\Syringe\CodeAmpoules\ObservableClassAmpoule\Syringe.ObservableClassAmpoule.dll" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Syringe.3.0.1.3\build\Syringe.targets" Condition="Exists('..\packages\Syringe.3.0.1.3\build\Syringe.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

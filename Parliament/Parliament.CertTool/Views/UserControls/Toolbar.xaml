@@ -53,19 +53,19 @@
                     </i:Interaction.Triggers>
                 </Button>
                 <Separator />
-                <Button  ToolTip="Import certificate">
+                <Button  ToolTip="Import certificates into keystore">
                     <Image Source="../Resources/Icons/import_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ImportCertificate" />
+                            <caliburn:ActionMessage MethodName="ImportCertificates" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>
-                <Button ToolTip="Export certificate">
+                <Button ToolTip="Export selected certificate">
                     <Image Source="../Resources/Icons/export_certificate.ico" Width="22" Height="22" RenderOptions.BitmapScalingMode="HighQuality" />
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="SetKeystorePassword" />
+                            <caliburn:ActionMessage MethodName="ExportCertificate" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </Button>

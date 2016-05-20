@@ -75,17 +75,17 @@
                     </i:Interaction.Triggers>
                 </MenuItem>
                 <Separator />
-                <MenuItem Header="Import Certificate">
+                <MenuItem Header="Import certificates">
                     <MenuItem.Icon>
                         <Image Source="../Resources/Icons/import_certificate.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </MenuItem.Icon>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="Click">
-                            <caliburn:ActionMessage MethodName="ImportCertificate" />
+                            <caliburn:ActionMessage MethodName="ImportCertificates" />
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </MenuItem>
-                <MenuItem Header="ExportCertificate">
+                <MenuItem Header="Export certificate">
                     <MenuItem.Icon>
                         <Image Source="../Resources/Icons/export_certificate.ico" Width="16" RenderOptions.BitmapScalingMode="HighQuality"></Image>
                     </MenuItem.Icon>

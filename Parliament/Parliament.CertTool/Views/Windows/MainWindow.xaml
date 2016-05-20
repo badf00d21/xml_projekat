@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Parliament.CertTool.Views"
+		xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+		xmlns:caliburn="http://www.caliburnproject.org"
         mc:Ignorable="d"
         Icon="../Resources/Icons/new_keystore.ico"
         WindowStartupLocation="CenterScreen"
@@ -22,7 +24,7 @@
         <local:MainMenu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
         <local:Toolbar Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" />
         <GroupBox Header="Certificates" Grid.Row="2" Grid.Column="0" >
-            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow">
+            <DataGrid AutoGenerateColumns="False" CanUserAddRows="False" ItemsSource="{Binding Certificates}" IsReadOnly="True" SelectionMode="Single" SelectionUnit="FullRow" SelectedValue="{Binding SelectedCertificate}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Serial number" Binding="{Binding SerialNumber}" Width="*" />
                     <DataGridTextColumn Header="Alias" Binding="{Binding Alias}" Width="*" />
@@ -30,6 +32,7 @@
                     <DataGridTextColumn Header="Valid from" Binding="{Binding ValidFrom}" Width="*" />
                     <DataGridTextColumn Header="Valid until" Binding="{Binding ValidUntil}" Width="*" />
                 </DataGrid.Columns>
+
             </DataGrid>
         </GroupBox>
         <GridSplitter Grid.Row="2" Grid.Column="1" Width="5" HorizontalAlignment="Stretch" />

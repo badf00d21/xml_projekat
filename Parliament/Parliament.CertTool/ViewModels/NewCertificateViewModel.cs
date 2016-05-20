@@ -43,7 +43,7 @@ namespace Parliament.CertTool.ViewModels
 
         public void Ok()
         {
-            IsCanceled = false;          
+            IsCanceled = false;
             TryClose();
         }
 
