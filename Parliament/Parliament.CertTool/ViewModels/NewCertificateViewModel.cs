@@ -1,5 +1,7 @@
 ﻿using Caliburn.Micro;
 using Syringe.ObservableClassAmpoule;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Parliament.CertTool.ViewModels
 {
