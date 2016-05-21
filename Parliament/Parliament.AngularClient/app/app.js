@@ -23,6 +23,21 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/orders.html"
     });
 
+    $routeProvider.when("/citizen", {
+        controller: "citizenController",
+        templateUrl: "/app/views/citizenHome.html"
+    });
+
+    $routeProvider.when("/chairman", {
+        controller: "chairmanController",
+        templateUrl: "/app/views/chairmanHome.html"
+    });
+
+    $routeProvider.when("/alderman", {
+        controller: "aldermanController",
+        templateUrl: "/app/views/aldermanHome.html"
+    });
+
     $routeProvider.when("/refresh", {
         controller: "refreshController",
         templateUrl: "/app/views/refresh.html"
@@ -42,10 +57,8 @@ app.config(function ($routeProvider) {
 
 });
 
-//var serviceBase = 'http://localhost:26264/';
-var serviceBase = 'https://localhost:8904/api/auth/';
 app.constant('ngAuthSettings', {
-    apiServiceBaseUri: serviceBase,
+    apiServiceBaseUri: 'http://localhost:8904/api/auth/',
     clientId: '7fb613284f504776ad94ddadb65036bd'
 });
 
