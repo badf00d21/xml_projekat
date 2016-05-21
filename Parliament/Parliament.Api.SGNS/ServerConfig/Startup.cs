@@ -2,11 +2,18 @@
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler.Encoder;
 using Microsoft.Owin.Security.Jwt;
+using Newtonsoft.Json.Serialization;
+using Ninject;
+using Ninject.Web.Common.OwinHost;
+using Ninject.Web.WebApi.OwinHost;
 using Owin;
+using Parliament.DataAccess.Database;
+using Parliament.DataAccess.Repository;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Configuration;
 using System.Web.Http;
@@ -25,9 +32,16 @@ namespace Parliament.Api.SGNS.ServerConfig
             ConfigureOAuth(app);
 
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            app.UseNinjectMiddleware(CreateKernel);
+            app.UseNinjectWebApi(config);
 
-            app.UseWebApi(config);
+            ConfigureJSONFormatter(config);
+        }
 
+        public void ConfigureJSONFormatter(HttpConfiguration config)
+        {
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.UseDataContractJsonSerializer = false;
         }
 
         public void ConfigureOAuth(IAppBuilder app)
@@ -47,6 +61,17 @@ namespace Parliament.Api.SGNS.ServerConfig
                         new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
                     }
                 });
+        }
+
+        private static StandardKernel CreateKernel()
+        {
+            var kernel = new StandardKernel();
+            kernel.Load(Assembly.GetExecutingAssembly());
+
+            kernel.Bind<ParliamentDbContext>().To<ParliamentDbContext>().InThreadScope();
+            kernel.Bind(typeof(IRepository<,>)).To(typeof(Repository<,>)).InThreadScope();
+
+            return kernel;
         }
     }
 }
