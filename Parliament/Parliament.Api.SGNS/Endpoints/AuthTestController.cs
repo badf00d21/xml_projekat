@@ -16,5 +16,13 @@ namespace Parliament.Api.SGNS.Endpoints
         {
             return Ok("Radi");
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("api/test/server")]
+        public IHttpActionResult AnonymousTest()
+        {
+            return Ok("Server radi");
+        }
     }
 }
