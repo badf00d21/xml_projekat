@@ -28,8 +28,12 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
             console.log(response);
 
+            localStorageService.set('authorizationData',
+                {
+                    token: response.access_token
+                });
 
-            $http.get('http://localhost:8973/api/users/username/' + username + '/').success(function (userresponse) {
+            $http.get('http://localhost:8973/api/users/username/' + loginData.userName + '/').success(function (userresponse) {
 
                 _authentication.email = userresponse.email;
                 _authentication.firstName = userresponse.firstName;
@@ -38,7 +42,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
                 localStorageService.set('authorizationData',
                 {
-                    token: response.access_token,
+                    
                     userName: username,
                     email: _authentication.email,
                     firstName: _authentication.firstName,
