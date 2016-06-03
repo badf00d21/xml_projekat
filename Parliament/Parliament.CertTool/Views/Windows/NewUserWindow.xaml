@@ -12,17 +12,17 @@
     <Grid Background="WhiteSmoke">
         <StackPanel Orientation="Vertical" Margin="5, 5, 0, 0" HorizontalAlignment="Left">
             <Label Content="First name:" Margin="-5, 0, 0, 0" />
-            <TextBox Text="{Binding FirstName}" Width="150" Height="22"/>
+            <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="22"/>
             <Label Content="Last name:" Margin="-5, 0, 0, 0" />
-            <TextBox Text="{Binding LastName}" Width="150" Height="22"/>
+			<TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="22"/>
             <Label Content="Email:" Margin="-5, 0, 0, 0" />
-            <TextBox Text="{Binding Email}" Width="150" Height="22"/>
+			<TextBox Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="22"/>
             <Label Content="Role:" Margin="-5, 0, 0, 0" />
-            <ComboBox SelectedValue="{Binding Role}" ItemsSource="{Binding Roles}" SelectedIndex="1" Width="150" Height="22"/>
+			<ComboBox SelectedValue="{Binding Role, UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Roles}" SelectedIndex="1" Width="150" Height="22"/>
             <Label Content="Password:" Margin="-5, 0, 0, 0" />
-            <TextBox Text="{Binding Password}" Width="150" Height="22"/>
+			<TextBox Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="22"/>
             <Label Content="Confirm password:" Margin="-5, 0, 0, 0" />
-            <TextBox Text="{Binding ConfirmPassword}" Width="150" Height="22"/>
+			<TextBox Text="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="22"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 10, 0, 0">
                 <Button Name="Ok" Content="Ok" Width="50" IsDefault="True"/>
                 <Button Name="Cancel" Content="Cancel" Width="50" Margin="5, 0, 0, 0"/>
