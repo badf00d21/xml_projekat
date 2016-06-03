@@ -153,7 +153,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>9009</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:9009/</IISUrl>
+          <IISUrl>https://parliament.iagns:44302/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
