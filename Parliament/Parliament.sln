@@ -17,13 +17,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.Api.IAGNS", "Par
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parliament.AngularClient", "Parliament.AngularClient\Parliament.AngularClient.csproj", "{06AA0050-A2FC-4810-9DBF-A07E2D8FA5D6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "XmlSchema", "XmlSchema", "{3FE9076C-9E60-4FD4-BA90-597426A54334}"
-	ProjectSection(SolutionItems) = preProject
-		..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\Amandman.xsd = ..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\Amandman.xsd
-		..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\NadlezniOrgan.xsd = ..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\NadlezniOrgan.xsd
-		..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\Propis.xsd = ..\..\..\Users\Admin\Desktop\XMLProjekat\XMLMarkLogic\ParliamentSchema\Propis.xsd
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
