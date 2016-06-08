@@ -33,7 +33,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
                     token: response.access_token
                 });
 
-            $http.get('http://localhost:8973/api/users/username/' + loginData.userName + '/').success(function (userresponse) {
+            $http.get('https://localhost:44337/api/users/username/' + loginData.userName + '/').success(function (userresponse) {
 
                 _authentication.email = userresponse.email;
                 _authentication.firstName = userresponse.firstName;
