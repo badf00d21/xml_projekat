@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.parliament.rs/schema" xmlns="http://www.parliament.rs/schema"
+    xmlns:parliament="http://www.parliament.rs/schema">
+
+    <xs:include schemaLocation="NadlezniOrgan.xsd"/>
+    <xs:include schemaLocation="Propis.xsd"/>
+    <xs:element name="Amandman">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="NadlezniOrgan"/>
+                <xs:element maxOccurs="unbounded" name="Modifikacija">
+                    <xs:complexType>
+                        <xs:attribute ref="Id" use="required"/>
+                        <xs:attribute name="TipModifikacije" use="required">
+                            <xs:simpleType>
+                                <xs:restriction base="xs:string">
+                                    <xs:enumeration value="Izmena"/>
+                                    <xs:enumeration value="Brisanje"/>
+                                    <xs:enumeration value="Dodavanje"/>
+                                </xs:restriction>
+                            </xs:simpleType>
+                        </xs:attribute>
+                        <xs:attribute name="PredmetModifikacije" type="xs:IDREF" use="required"/>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute ref="Id" use="required"/>
+            <xs:attribute ref="DatumVremePredlaganja" use="required"/>
+            <xs:attribute ref="DatumVremeUsvajanja"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

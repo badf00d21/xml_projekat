@@ -79,6 +79,15 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="XmlSchema\Amandman.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XmlSchema\NadlezniOrgan.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="XmlSchema\Propis.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605151409517_Initial.resx">
