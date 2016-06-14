@@ -25,6 +25,7 @@
             </xs:sequence>
             <xs:attribute ref="DatumVremePredlaganja" use="required"/>
             <xs:attribute ref="DatumVremeUsvajanja" use="optional"/>
+            <xs:attribute name="SerijskiBroj" type="xs:long" use="required"/>
         </xs:complexType>
     </xs:element>
     <xs:element name="Preamblula">

@@ -88,6 +88,8 @@
     <None Include="XmlSchema\Propis.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="XQuery\AddActQuery.xqy" />
+    <None Include="XQuery\GetActQuery.xqy" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605151409517_Initial.resx">
