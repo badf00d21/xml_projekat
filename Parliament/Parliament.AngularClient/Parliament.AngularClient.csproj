@@ -73,6 +73,8 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\newActController.js" />
+    <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
     <Content Include="app\views\aldermanHome.html" />
@@ -80,6 +82,7 @@
     <Content Include="app\views\chairmanHome.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
+    <Content Include="app\views\newAct.html" />
     <Content Include="authComplete.html" />
     <Content Include="content\css\font-awesome.min.css" />
     <Content Include="content\css\loading-bar.css" />
@@ -87,6 +90,7 @@
     <Content Include="content\css\social-buttons.css" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="directives\XmlEditor.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="content\css\bootstrap.min.css" />
@@ -96,6 +100,22 @@
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="xml-editor\editor.html" />
+    <Content Include="xml-editor\editor.js" />
+    <Content Include="xml-editor\lib\ace\ace.min.js" />
+    <Content Include="xml-editor\lib\ace\keybinding-emacs.js" />
+    <Content Include="xml-editor\lib\ace\keybinding-vim.js" />
+    <Content Include="xml-editor\lib\ace\mode-xml.js" />
+    <Content Include="xml-editor\lib\ace\theme-textmate.js" />
+    <Content Include="xml-editor\lib\css\jquery.xmleditor.min.css" />
+    <Content Include="xml-editor\lib\css\reset.min.css" />
+    <Content Include="xml-editor\lib\cycle.min.js" />
+    <Content Include="xml-editor\lib\jquery-ui.min.js" />
+    <Content Include="xml-editor\lib\jquery.autosize.min.js" />
+    <Content Include="xml-editor\lib\jquery.min.js" />
+    <Content Include="xml-editor\lib\jquery.xmleditor.min.js" />
+    <Content Include="xml-editor\lib\json2.min.js" />
+    <Content Include="xml-editor\lib\xsd2json.min.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
