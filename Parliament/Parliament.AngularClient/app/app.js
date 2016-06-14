@@ -28,6 +28,16 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/aldermanHome.html"
     });
 
+    $routeProvider.when("/aldermanhome", {
+        controller: "aldermanController",
+        templateUrl: "/app/views/aldermanHome.html"
+    });
+
+    $routeProvider.when("/newact", {
+        controller: "newActController",
+        templateUrl: "/app/views/newAct.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });
