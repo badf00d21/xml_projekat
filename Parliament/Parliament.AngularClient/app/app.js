@@ -43,7 +43,7 @@ app.config(function ($routeProvider) {
 });
 
 app.constant('ngAuthSettings', {
-    apiServiceBaseUri: 'http://localhost:8904/api/auth/',
+    apiServiceBaseUri: 'https://localhost:44364/api/auth/',
     clientId: '7fb613284f504776ad94ddadb65036bd'
 });
 

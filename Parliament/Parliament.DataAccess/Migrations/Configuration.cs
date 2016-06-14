@@ -22,7 +22,7 @@ namespace Parliament.DataAccess.Migrations
                 {
                     roleManager.Create(new IdentityRole(ParliamentRole.Citizen.ToString()));
                     roleManager.Create(new IdentityRole(ParliamentRole.Alderman.ToString()));
-                    roleManager.Create(new IdentityRole(ParliamentRole.Citizen.ToString()));
+                    roleManager.Create(new IdentityRole(ParliamentRole.Chairman.ToString()));
                 }
             }
         }
