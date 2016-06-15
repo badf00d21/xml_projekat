@@ -2,10 +2,8 @@
 <html data-ng-app="AngularAuthApp">
 <head>
 
-    <meta name="keywords" content="angularjs,SPA,Single Page Application,refresh tokens,authentication,bearer token authentication,OWIN,bootstrap,bootstrap ui,tutorial,JS framework,ASP.NET WEB API 2,Taiseer Joudeh" />
-    <meta name="description" content="SPA built using angularjs,authentication is done using bearer token,back end built using Asp.net web api 2 and OWIN Framework,creatd by Taiseer Joudeh" />
     <meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible" />
-    <title>AngularJS Authentication</title>
+    <title>XML & BSEP</title>
     <link href="content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="content/css/site.css" rel="stylesheet" />
     <link href="content/css/loading-bar.css" rel="stylesheet" />
@@ -26,12 +24,13 @@
             </div>
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-hide="!authentication.isAuth"><a href="#">Welcome {{authentication.firstName}}</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/orders">My Orders</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="#/refresh">Refresh Token</a></li>
-                    <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
-                    <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Sign Up</a></li>
+                    <li data-ng-show="authentication.isAuth "><a href="#">Welcome {{authentication.firstName}}</a></li>
+                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/orders">Predlozi Amandman</a></li>
+                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/refresh">Predlozi Akt</a></li>
+                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/refresh">Povuci Predloge</a></li>
+                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Chairman"}}"><a href="#/refresh">Rukovodjenje Sednicom</a></li>
+                    <li data-ng-show="authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                    <li data-ng-show="!authentication.isAuth "> <a href="#/login">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -39,10 +38,9 @@
     <div class="jumbotron">
         <div class="container">
             <div class="page-header text-center">
-                <h1>AngularJS Authentication</h1>
+                <h1>XML & BSEP</h1>
             </div>
-            <p>AngularJS Application which uses OAuth Bearer Token for authentication and implements Refresh Tokens. The backend API is built using ASP.NET Web API 2, OWIN middleware, and ASP.NET Identity.</p>
-        </div>
+           </div>
     </div>
 
     <div class="container">
@@ -56,10 +54,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="text-muted">Created by Taiseer Joudeh. Twitter: <a target="_blank" href="http://twitter.com/tjoudeh">@tjoudeh</a></p>
-                </div>
-                <div class="col-md-6">
-                    <p class="text-muted">Taiseer Joudeh Blog: <a target="_blank" href="http://bitoftech.net">bitoftech.net</a></p>
+                    <p class="text-muted">Created by: Marko Bera, Marko Micic, Vladimir Djurdjevic, Petar Makevic </p>
                 </div>
             </div>
         </div>
@@ -85,7 +80,11 @@
     <script src="app/controllers/aldermanController.js?v=2"></script>
     <script src="app/controllers/citizenController.js?v=2"></script>
     <script src="app/controllers/chairmanController.js?v=2"></script>
-    
+    <script src="app/controllers/newActController.js"></script>
+
+    <script src="app/directives.js"></script>
+    <!-- Load directives-->
+    <script src="app/directives/XmlEditor.js"></script>
 
 </body>
 </html>
