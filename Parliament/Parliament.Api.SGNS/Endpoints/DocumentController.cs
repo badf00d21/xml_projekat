@@ -24,7 +24,7 @@ namespace Parliament.Api.SGNS.Endpoints
 			XmlDocument document = new XmlDocument();
 			document.LoadXml(doc.ToString());
 
-			Uri uri = new Uri(WebConfigurationManager.AppSettings["MarkLogicConnectionString"]);
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
 			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
 
 			using (Session session = contentSource.NewSession())
@@ -68,6 +68,28 @@ namespace Parliament.Api.SGNS.Endpoints
 					return BadRequest(addActQueryResult.AsString());
 
 				return Created(addActQueryResult.AsString(), doc);
+			}
+		}
+
+		[HttpGet]
+		[Route("api/documents/schema/{name}", Name = "GetSchema")]
+		public IHttpActionResult GetSchema(string name)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlSchemaDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			if (!name.Contains(".xsd"))
+				name = name + ".xsd";
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getSchemaQuery = session.NewAdhocQuery(string.Format("doc('{0}')", name));
+				ResultSequence getSchemaQueryResult = session.SubmitRequest(getSchemaQuery);
+
+				if (getSchemaQueryResult.AsString() == "")
+					return BadRequest("Schema '" + name + "' does not exist!");
+
+				return Ok(getSchemaQueryResult.AsString());
 			}
 		}
 	}
