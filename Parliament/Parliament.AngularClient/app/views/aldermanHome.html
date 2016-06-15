@@ -4,7 +4,19 @@
         &nbsp;
     </div>
     <div class="col-md-8">
-        Ovde je za aldermana bata home
+        Ovde je za aldermana bata home<br />
+       <h3>Spisak usvojenih akata:</h3><br />
+        <div ng-repeat="usvojen in usvojeniAkti">
+             <a href="{{usvojen.uri}}">link</a><br />
+             {{usvojen.nazivPropisa}}<br /><br />
+        </div>
+        <br />
+        <h3>Spisak predlozenih akata:</h3><br />
+        <div ng-repeat="predlozen in predlozeniAkti">
+            <a href="{{predlozen.uri}}">link</a><br />
+            {{predlozen.nazivPropisa}}<br /><br />
+        </div>
+        <br />
     </div>
     <div class="col-md-2">
         &nbsp;

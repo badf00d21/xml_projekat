@@ -24,11 +24,11 @@
             </div>
             <div class="collapse navbar-collapse" data-collapse="!navbarExpanded">
                 <ul class="nav navbar-nav navbar-right">
-                    <li data-ng-show="authentication.isAuth "><a href="#">Welcome {{authentication.firstName}}</a></li>
-                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/orders">Predlozi Amandman</a></li>
-                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/refresh">Predlozi Akt</a></li>
-                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Alderman"}}"><a href="#/refresh">Povuci Predloge</a></li>
-                    <li data-ng-show="{{authentication.isAuth && authentication.role == "Chairman"}}"><a href="#/refresh">Rukovodjenje Sednicom</a></li>
+                    <li data-ng-show="authentication.isAuth "><a href="#">Welcome {{authentication.lastName}}</a></li>
+                    <li data-ng-show='authentication.role == "Alderman"'><a href="#/orders">Predlozi Amandman</a></li>
+                    <li data-ng-show='authentication.role == "Alderman"'><a href="#/refresh">Predlozi Akt</a></li>
+                    <li data-ng-show='authentication.role == "Alderman"'><a href="#/refresh">Povuci Predloge</a></li>
+                    <li data-ng-show='authentication.role == "Chairman"'><a href="#/refresh">Rukovodjenje Sednicom</a></li>
                     <li data-ng-show="authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
                     <li data-ng-show="!authentication.isAuth "> <a href="#/login">Login</a></li>
                 </ul>
@@ -73,6 +73,7 @@
     <!-- Load services -->
     <script src="app/services/authInterceptorService.js?v=2"></script>
     <script src="app/services/authService.js?v=2"></script>
+    <script src="app/services/actService.js"></script>
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js?v=2"></script>
     <script src="app/controllers/homeController.js?v=2"></script>
