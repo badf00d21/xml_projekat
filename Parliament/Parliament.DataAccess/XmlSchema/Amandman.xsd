@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
     targetNamespace="http://www.parliament.rs/schema" xmlns="http://www.parliament.rs/schema"
-    xmlns:parliament="http://www.parliament.rs/schema">
+    xmlns:parliament="http://www.parliament.rs/schema"
+    xmlns:security="http://www.w3.org/2000/09/xmldsig#">
 
     <xs:include schemaLocation="NadlezniOrgan.xsd"/>
     <xs:include schemaLocation="Propis.xsd"/>
+    <xs:import namespace="http://www.w3.org/2000/09/xmldsig#"
+        schemaLocation="http://www.w3.org/2000/09/xmldsig"/>
     <xs:element name="Amandman">
         <xs:complexType>
             <xs:sequence>
@@ -23,6 +26,7 @@
                         <xs:attribute name="PredmetModifikacije" type="xs:IDREF" use="required"/>
                     </xs:complexType>
                 </xs:element>
+                <xs:element ref="security:Signature"/>
             </xs:sequence>
             <xs:attribute ref="DatumVremePredlaganja" use="required"/>
             <xs:attribute ref="DatumVremeUsvajanja"/>
