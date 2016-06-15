@@ -74,6 +74,7 @@
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\newActController.js" />
+    <Content Include="app\directives.js" />
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
@@ -90,7 +91,8 @@
     <Content Include="content\css\social-buttons.css" />
     <Content Include="content\fonts\fontawesome-webfont.svg" />
     <Content Include="content\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="directives\XmlEditor.js" />
+    <Content Include="app\directives\asd.html" />
+    <Content Include="app\directives\XmlEditor.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="content\css\bootstrap.min.css" />
