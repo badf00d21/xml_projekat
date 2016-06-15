@@ -1,4 +1,5 @@
 ﻿using Marklogic.Xcc;
+using Parliament.Api.SGNS.ViewModels;
 using Parliament.Security;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				getActQuery.SetNewStringVariable("text", "");
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
-				getActQuery.SetNewStringVariable("naslov_propisa", "");
+				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
@@ -109,7 +110,7 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				getActQuery.SetNewStringVariable("text", "");
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
-				getActQuery.SetNewStringVariable("naslov_propisa", "");
+				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
@@ -134,7 +135,7 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				getActQuery.SetNewStringVariable("text", "");
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
-				getActQuery.SetNewStringVariable("naslov_propisa", "");
+				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "Predlozen");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
@@ -146,7 +147,7 @@ namespace Parliament.Api.SGNS.Endpoints
 
 		[HttpGet]
 		[Route("api/documents/acts/adopted", Name = "GetAllAdoptedActs")]
-		public IHttpActionResult GetAllProposedActs()
+		public IHttpActionResult GetAllAdoptedActs()
 		{
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
 			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
@@ -159,7 +160,7 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				getActQuery.SetNewStringVariable("text", "");
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
-				getActQuery.SetNewStringVariable("naslov_propisa", "");
+				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "Usvojen");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
@@ -170,22 +171,25 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpPost]
-		[Route("api/documents/acts", Name = "FindActs")]
-		public IHttpActionResult FindActs(string naziv = "", string status = "", string datumVremePredlaganja = "", string datumVremeUsvajanja = "", string text = "")
+		[Route("api/documents/acts/filter", Name = "FindActs")]
+		public IHttpActionResult FindActs(ActViewModel act)
 		{
+			if (act == null)
+				act = new ActViewModel();
+
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
 			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
 
 			using (Session session = contentSource.NewSession())
 			{
 				var getActQuery = session.NewModuleInvoke("/GetActQuery.xqy");
-				getActQuery.SetNewStringVariable("datum_vreme_predlaganja", datumVremePredlaganja);
+				getActQuery.SetNewStringVariable("datum_vreme_predlaganja", act.DatumVremePredlaganja);
 				getActQuery.SetNewStringVariable("serijski_broj", "");
 
-				getActQuery.SetNewStringVariable("text", text);
-				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", datumVremeUsvajanja);
-				getActQuery.SetNewStringVariable("naslov_propisa", naziv);
-				getActQuery.SetNewStringVariable("status", status);
+				getActQuery.SetNewStringVariable("text", act.Text);
+				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", act.DatumVremeUsvajanja);
+				getActQuery.SetNewStringVariable("naziv_propisa", act.Naziv);
+				getActQuery.SetNewStringVariable("status", act.Status);
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());

@@ -1,5 +1,5 @@
 ﻿declare variable $text as xs:string external;
-declare variable $naslov_propisa as xs:string external;
+declare variable $naziv_propisa as xs:string external;
 declare variable $datum_vreme_predlaganja as xs:string external;
 declare variable $datum_vreme_usvajanja as xs:string external;
 declare variable $serijski_broj as xs:string external;
@@ -14,12 +14,12 @@ declare variable $q2 := if ($text eq "") then $q1 else
             "case-insensitive")
     ));
 
-declare variable $q3 := if ($naslov_propisa eq "") then $q2 else
+declare variable $q3 := if ($naziv_propisa eq "") then $q2 else
     cts:and-query(($q2,
     cts:properties-query(
             cts:element-word-query(
-                    QName('', 'NaslovPropisa'),
-                    tokenize($naslov_propisa, '\s')
+                    QName('', 'NazivPropisa'),
+                    tokenize($naziv_propisa, '\s')
             )
     )));
 
@@ -64,7 +64,7 @@ declare variable $q7 := if ($status eq "") then $q6 else
         return
             <Propis>
                 <uri>{$x}</uri>
-                <NaslovPropisa>{data(xdmp:document-get-properties($x, QName('', 'NaslovPropisa')))}</NaslovPropisa>
+                <NazivPropisa>{data(xdmp:document-get-properties($x, QName('', 'NazivPropisa')))}</NazivPropisa>
                 <Status>{data(xdmp:document-get-properties($x, QName('', 'Status')))}</Status>
             </Propis>
     }
