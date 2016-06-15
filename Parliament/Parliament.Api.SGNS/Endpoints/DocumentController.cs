@@ -64,10 +64,10 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				ResultSequence addActQueryResult = session.SubmitRequest(addActQuery);
 
-				if (addActQueryResult.AsString() != "OK")
+				if (addActQueryResult.AsString().Contains("Error"))
 					return BadRequest(addActQueryResult.AsString());
 
-				return Created(addActQueryResult.AsString(), doc);
+				return Created(addActQueryResult.AsString(), document.InnerXml);
 			}
 		}
 

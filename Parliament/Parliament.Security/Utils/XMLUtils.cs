@@ -53,11 +53,5 @@ namespace Parliament.Security
 
 			eXml.DecryptDocument();
 		}
-
-		public static void AddTimestampAndSerialNumber(XmlDocument document, int serialNumber)
-		{
-			document.DocumentElement.SetAttribute("RedniBrojPoruke", serialNumber.ToString());
-			document.DocumentElement.SetAttribute("VremeSlanjaPoruke", DateTime.Now.ToString());
-		}
 	}
 }
