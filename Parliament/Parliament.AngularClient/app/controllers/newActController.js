@@ -8,7 +8,7 @@
 
             (function () {
                 $scope.options = {
-                    schemaUri: '/api/schemas/',
+                    schemaUri: '/api/documents/schema',
                     schemaName: 'act.xsd',
                     rootElement: 'act',
                     submitPath: '/api/acts'
