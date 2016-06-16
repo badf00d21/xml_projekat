@@ -51,6 +51,9 @@
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Fonet">
+      <HintPath>..\..\..\..\Program Files (x86)\FO.NET\Fonet.dll</HintPath>
+    </Reference>
     <Reference Include="IKVM.AWT.WinForms">
       <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.AWT.WinForms.dll</HintPath>
     </Reference>

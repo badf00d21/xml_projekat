@@ -1,5 +1,7 @@
 ﻿using Marklogic.Xcc;
 using Parliament.Api.SGNS.ViewModels;
+using Parliament.DataAccess.Database;
+using Parliament.DataAccess.Utils;
 using Parliament.Security;
 using System;
 using System.Collections.Generic;
@@ -66,6 +68,19 @@ namespace Parliament.Api.SGNS.Endpoints
 					return BadRequest("Could not find users certificate!");
 				
 				XMLUtils.SignXmlDocument(document, targetCertificate);
+				XMLUtils.AddTimeAndSerialNumber(document);
+				XMLUtils.GenerateIdForElements(document);
+
+				using (var dbContext = new ParliamentDbContext())
+				{
+					using (var userManager = new ParliamentUserManager(dbContext))
+					{
+						var user = await userManager.FindByNameAsync(User.Identity.Name);
+
+						XMLUtils.AddUserInfo(document, user.FirstName, user.LastName, user.Email);
+					}
+				}
+				
 
 				var addActQuery = session.NewModuleInvoke("/AddActQuery.xqy");
 				addActQuery.SetNewStringVariable("act_string", document.InnerXml);
@@ -257,7 +272,10 @@ namespace Parliament.Api.SGNS.Endpoints
 
 				var xmlResult = XDocument.Parse(getActQueryResult.AsString());
 
-				//convert to pdf
+				XslCompiledTransform transform = new XslCompiledTransform();
+				string xslPath = System.Web.Hosting.HostingEnvironment.MapPath("~/Resources/propis-fo.xsl");
+				transform.Load(xslPath);
+
 
 				return Ok();
 			}
