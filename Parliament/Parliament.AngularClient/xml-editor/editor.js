@@ -21,7 +21,7 @@ $(function () {
             schemaURI: params.schemaUri,
             rootElement: params.rootElement
         }),
-        elementText = '<element xlmns="http://ftn.uns.ac.rs/xml"></element>'
+        elementText = '<element xlmns="http://www.parliament.rs/scheme"></element>'
             .split('element')
             .join(params.rootElement),
         ajaxOptions = {

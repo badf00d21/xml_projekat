@@ -1,11 +1,7 @@
-﻿(function (angular) {
-    "use strict";
-
-    angular.module('app.XmlEditor', [])
-        .directive('xmlEditor', function () {
+﻿app.directive('xmlEditor', function () {
             return {
                 restrict: 'E',
-                template: '<iframe class="editor" ng-src="{{ createUrl() }}" width="100%">',
+                template: '<iframe class="editor" ng-src="{{ createUrl() }}" width="100%" height="630">',
                 scope: {
                     options: '='
                 },
@@ -23,4 +19,3 @@
                 }
             }
         });
-}(angular));

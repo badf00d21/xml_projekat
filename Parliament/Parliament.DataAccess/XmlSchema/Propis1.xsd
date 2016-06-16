@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+    targetNamespace="http://www.parliament.rs/schema" xmlns="http://www.parliament.rs/schema"
+    xmlns:parliament="http://www.parliament.rs/schema"
+    xmlns:security="http://www.w3.org/2000/09/xmldsig#">
+    <xs:element name="Propis">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="Preamblula" minOccurs="0"/>
+                <xs:element name="NazivPropisa">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="300"/>
+                            <xs:pattern value="[A-Z]{1,300}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:choice>
+                    <xs:element maxOccurs="unbounded" ref="Deo"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="1" ref="Glava"/>
+                    <xs:element maxOccurs="20" minOccurs="2" ref="Clan"/>
+                </xs:choice>
+                <xs:element maxOccurs="unbounded" minOccurs="0" name="Prilog" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute ref="DatumVremePredlaganja" use="required"/>
+            <xs:attribute ref="DatumVremeUsvajanja" use="optional"/>
+            <xs:attribute name="SerijskiBroj" type="xs:long" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Preamblula">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="PravniOsnov" type="xs:string"/>
+                <xs:element ref="NadlezniOrgan"/>
+                <xs:element minOccurs="0" ref="Saglasnost"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Saglasnost" nillable="false">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Naznaka" type="xs:string"/>
+                <xs:element ref="NadlezniOrgan"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Deo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NazivDela">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="500"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="Glava" minOccurs="2"/>
+            </xs:sequence>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Glava">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NazivGlave">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="500"/>
+                            <xs:pattern value="[A-Z]{1,300}"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="Odeljak"/>
+            </xs:sequence>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Odeljak">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NazivOdeljka">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="30"/>
+                            <xs:pattern value="[1-9][0-9]*\. [A-Za-z]*"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:choice>
+                    <xs:element maxOccurs="unbounded" ref="Pododeljak"/>
+                    <xs:element maxOccurs="unbounded" ref="Clan"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Pododeljak">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NazivPododeljka">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="300"/>
+                            <xs:pattern value="\([a-z]\) [A-Za-z]*"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element maxOccurs="unbounded" ref="Clan"/>
+            </xs:sequence>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Clan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="NazivClana">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1"/>
+                            <xs:maxLength value="300"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="OznakaClana">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="6"/>
+                            <xs:maxLength value="10"/>
+                            <xs:pattern value="Clan [1-9][0-9]*"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:choice>
+                    <xs:element ref="TekstualniSadrzaj"/>
+                    <xs:element maxOccurs="unbounded" ref="Stav"/>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Stav">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="TekstualniSadrzaj"/>
+                <xs:element maxOccurs="unbounded" minOccurs="2" ref="Tacka"/>
+            </xs:choice>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Tacka">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="TekstualniSadrzaj"/>
+                <xs:element maxOccurs="unbounded" minOccurs="2" ref="Podtacka"/>
+            </xs:choice>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Podtacka">
+        <xs:complexType>
+            <xs:choice>
+                <xs:element ref="TekstualniSadrzaj"/>
+                <xs:element maxOccurs="unbounded" minOccurs="2" name="Alineja">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute ref="Id" use="required"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+            </xs:choice>
+            <xs:attribute ref="RedniBroj" use="required"/>
+            <xs:attribute ref="Id" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="TekstualniSadrzaj" type="xs:string"/>
+    <xs:attribute name="RedniBroj" type="xs:int"/>
+    <xs:attribute name="Id" type="xs:ID"/>
+    <xs:attribute name="DatumVremePredlaganja" type="xs:dateTime"/>
+    <xs:attribute name="DatumVremeUsvajanja" type="xs:dateTime"/>
+    <xs:element name="NadlezniOrgan">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Ime" type="xs:string"/>
+                <xs:element name="Prezime" type="xs:string"/>
+                <xs:element name="Email" type="xs:string"/>
+            </xs:sequence>
+            <xs:attribute name="Uloga" type="xs:string"/>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>

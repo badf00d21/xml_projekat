@@ -80,6 +80,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
+        [AllowAnonymous]
 		[Route("api/documents/schema/{name}", Name = "GetSchema")]
 		public IHttpActionResult GetSchema(string name)
 		{
@@ -97,7 +98,7 @@ namespace Parliament.Api.SGNS.Endpoints
 				if (getSchemaQueryResult.AsString() == "")
 					return BadRequest("Schema '" + name + "' does not exist!");
 
-				return Ok(getSchemaQueryResult.AsString());
+				return Ok(XElement.Parse( getSchemaQueryResult.AsString()));
 			}
 		}
 

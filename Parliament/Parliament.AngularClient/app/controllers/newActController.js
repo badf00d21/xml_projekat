@@ -1,17 +1,13 @@
-﻿app.controller('newActController', function ($scope, $location, Auth) {
+﻿app.controller('newActController', function ($scope, $location) {
 
-          /*  Auth.isLogged(function (isLogged) {
-                if (!isLogged) {
-                    $location.path('/login');
-                }
-            });*/
+          //proveri da l je logovan
 
             (function () {
                 $scope.options = {
-                    schemaUri: '/api/schemas/',
-                    schemaName: 'act.xsd',
-                    rootElement: 'act',
-                    submitPath: '/api/acts'
+                    schemaUri: 'http://localhost:8973/api/documents/schema/Propis1.xsd/',
+                    schemaName: 'Propis1.xsd/',
+                    rootElement: 'Propis',
+                    submitPath: 'http://localhost:8973/api/propose/act/'
                 }
             }());
         });

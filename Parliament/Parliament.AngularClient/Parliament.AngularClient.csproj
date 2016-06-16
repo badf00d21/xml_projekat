@@ -74,7 +74,6 @@
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\newActController.js" />
-    <Content Include="app\directives.js" />
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
@@ -84,6 +83,7 @@
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\newAct.html" />
+    <Content Include="app\views\searchForm.html" />
     <Content Include="authComplete.html" />
     <Content Include="content\css\font-awesome.min.css" />
     <Content Include="content\css\loading-bar.css" />
@@ -94,6 +94,7 @@
     <Content Include="app\directives\asd.html" />
     <Content Include="app\directives\XmlEditor.js" />
     <Content Include="index.html" />
+    <Content Include="lib\xml2json\xml2json.min.js" />
     <Content Include="packages.config" />
     <Content Include="content\css\bootstrap.min.css" />
     <Content Include="content\fonts\fontawesome-webfont.eot" />
