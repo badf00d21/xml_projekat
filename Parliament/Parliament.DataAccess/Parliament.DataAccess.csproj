@@ -79,7 +79,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Xls\Propis.xls" />
     <None Include="XmlSchema\Amandman.xsd">
       <SubType>Designer</SubType>
     </None>
