@@ -262,7 +262,6 @@
   <ItemGroup>
     <Content Include="Resources\propis-fo.xsl" />
     <Content Include="Resources\propis-html.xsl" />
-    <Content Include="Resources\propis-style.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

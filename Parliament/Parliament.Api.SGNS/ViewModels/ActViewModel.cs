@@ -17,6 +17,12 @@ namespace Parliament.Api.SGNS.ViewModels
 
 		public string Text { get; set; }
 
+		public string ImeNadleznogOrgana { get; set; }
+
+		public string PrezimeNadleznogOrgana { get; set; }
+
+		public string EmailNadleznogOrgana { get; set; }
+
 		public ActViewModel()
 		{
 			Naziv = "";
@@ -24,6 +30,9 @@ namespace Parliament.Api.SGNS.ViewModels
 			DatumVremePredlaganja = "";
 			DatumVremeUsvajanja = "";
 			Text = "";
+			ImeNadleznogOrgana = "";
+			PrezimeNadleznogOrgana = "";
+			EmailNadleznogOrgana = "";
 		}
 	}
 }

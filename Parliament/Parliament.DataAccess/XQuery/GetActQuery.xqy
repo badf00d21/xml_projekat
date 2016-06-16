@@ -4,6 +4,9 @@ declare variable $datum_vreme_predlaganja as xs:string external;
 declare variable $datum_vreme_usvajanja as xs:string external;
 declare variable $serijski_broj as xs:string external;
 declare variable $status as xs:string external;
+declare variable $ime_nadleznog_organa as xs:string external;
+declare variable $prezime_nadleznog_organa as xs:string external;
+declare variable $email_nadleznog_organa as xs:string external;
 
 declare variable $q1 := cts:directory-query("http://www.parliament.rs/documents/acts/", "infinity");
 
@@ -58,13 +61,45 @@ declare variable $q7 := if ($status eq "") then $q6 else
             )
     )));
 
+declare variable $q8 := if ($ime_nadleznog_organa eq "") then $q7 else
+    cts:and-query(($q7,
+    cts:properties-query(
+            cts:element-word-query(
+                    QName('', 'ImeNadleznogOrgana'),
+                    tokenize($ime_nadleznog_organa, '\s')
+            )
+    )));
+
+declare variable $q9 := if ($prezime_nadleznog_organa eq "") then $q8 else
+    cts:and-query(($q8,
+    cts:properties-query(
+            cts:element-word-query(
+                    QName('', 'PrezimeNadleznogOrgana'),
+                    tokenize($prezime_nadleznog_organa, '\s')
+            )
+    )));
+
+declare variable $q10 := if ($email_nadleznog_organa eq "") then $q9 else
+    cts:and-query(($q9,
+    cts:properties-query(
+            cts:element-word-query(
+                    QName('', 'EmailNadleznogOrgana'),
+                    tokenize($email_nadleznog_organa, '\s')
+            )
+    )));
+
+
+
 <Propisi>
     {
-        for $x in cts:uris((), (), $q7)
+        for $x in cts:uris((), (), $q10)
         return
             <Propis>
-                <uri>{$x}</uri>
+                <Id>{(tokenize(((tokenize($x, "[/]"))[last()]), "[.]"))[1]}</Id>
                 <NazivPropisa>{data(xdmp:document-get-properties($x, QName('', 'NazivPropisa')))}</NazivPropisa>
+				<ImeNadleznogOrgana>{data(xdmp:document-get-properties($x, QName('', 'ImeNadleznogOrgana')))}</ImeNadleznogOrgana>
+				<PrezimeNadleznogOrgana>{data(xdmp:document-get-properties($x, QName('', 'PrezimeNadleznogOrgana')))}</PrezimeNadleznogOrgana>
+				<EmailNadleznogOrgana>{data(xdmp:document-get-properties($x, QName('', 'EmailNadleznogOrgana')))}</EmailNadleznogOrgana>
                 <Status>{data(xdmp:document-get-properties($x, QName('', 'Status')))}</Status>
             </Propis>
     }

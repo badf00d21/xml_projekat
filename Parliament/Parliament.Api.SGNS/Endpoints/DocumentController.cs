@@ -12,6 +12,8 @@ using System.Web.Configuration;
 using System.Web.Http;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.XPath;
+using System.Xml.Xsl;
 
 namespace Parliament.Api.SGNS.Endpoints
 {
@@ -39,6 +41,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
 				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "");
+
+				getActQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("email_nadleznog_organa", "");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = new XmlDocument();
@@ -113,6 +119,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "");
 
+				getActQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("email_nadleznog_organa", "");
+
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
 
@@ -137,6 +147,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
 				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "Predlozen");
+
+				getActQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("email_nadleznog_organa", "");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
@@ -163,10 +177,88 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("naziv_propisa", "");
 				getActQuery.SetNewStringVariable("status", "Usvojen");
 
+				getActQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getActQuery.SetNewStringVariable("email_nadleznog_organa", "");
+
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
 
 				return Ok(xmlResult);
+			}
+		}
+
+		[HttpGet]
+		[Route("api/documents/acts/{id}", Name = "GetActById")]
+		public IHttpActionResult GetActById(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getActQuery = session.NewAdhocQuery(string.Format("doc('http://www.parliament.rs/documents/acts/{0}.xml')", id));
+
+				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
+
+				if (getActQueryResult.AsString() == "")
+					return BadRequest(string.Format("Document '{0}' does not exist!", id));
+
+				return Ok(XElement.Parse(getActQueryResult.AsString()));
+			}
+		}
+
+		[HttpGet]
+		[Route("api/documents/acts/{id}/html", Name = "GetActHtmlById")]
+		public IHttpActionResult GetActHtmlById(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getActQuery = session.NewAdhocQuery(string.Format("doc('http://www.parliament.rs/documents/acts/{0}.xml')", id));
+				
+				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
+
+				if (getActQueryResult.AsString() == "")
+					return BadRequest(string.Format("Document '{0}' does not exist!", id));
+
+				var xmlResult = XDocument.Parse(getActQueryResult.AsString());
+
+				XslCompiledTransform transform = new XslCompiledTransform();
+				string xslPath = System.Web.Hosting.HostingEnvironment.MapPath("~/Resources/propis-html.xsl");
+				transform.Load(xslPath);
+				
+				using (StringWriter resultWriter = new StringWriter())
+				{
+					transform.Transform(xmlResult.CreateNavigator(), null, resultWriter);
+					return Ok(resultWriter.ToString());
+				}
+			}
+		}
+
+		[HttpGet]
+		[Route("api/documents/acts/{id}/pdf", Name = "GetActPdfById")]
+		public IHttpActionResult GetActPdfById(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getActQuery = session.NewAdhocQuery(string.Format("doc('http://www.parliament.rs/documents/acts/{0}.xml')", id));
+
+				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
+
+				if (getActQueryResult.AsString() == "")
+					return BadRequest(string.Format("Document '{0}' does not exist!", id));
+
+				var xmlResult = XDocument.Parse(getActQueryResult.AsString());
+
+				//convert to pdf
+
+				return Ok();
 			}
 		}
 
@@ -190,6 +282,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("datum_vreme_usvajanja", act.DatumVremeUsvajanja);
 				getActQuery.SetNewStringVariable("naziv_propisa", act.Naziv);
 				getActQuery.SetNewStringVariable("status", act.Status);
+
+				getActQuery.SetNewStringVariable("ime_nadleznog_organa", act.ImeNadleznogOrgana);
+				getActQuery.SetNewStringVariable("prezime_nadleznog_organa", act.PrezimeNadleznogOrgana);
+				getActQuery.SetNewStringVariable("email_nadleznog_organa", act.EmailNadleznogOrgana);
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
