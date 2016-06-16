@@ -13,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Net.Http.Formatting;
 using System.Reflection;
 using System.Web;
 using System.Web.Configuration;
@@ -36,6 +37,7 @@ namespace Parliament.Api.SGNS.ServerConfig
             app.UseNinjectWebApi(config);
 
             ConfigureJSONFormatter(config);
+            config.Formatters.Remove(config.Formatters.JsonFormatter);
         }
 
         public void ConfigureJSONFormatter(HttpConfiguration config)
