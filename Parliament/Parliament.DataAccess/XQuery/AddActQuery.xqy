@@ -16,12 +16,15 @@ declare variable $result := if ($validation_error eq 'Success') then
   catch($exception){
     'Document Loading Error'
   }
-else 'Document Loading Error';
+else $errors || "Error";
 
 declare variable $props := xdmp:document-add-properties($document_uri,(
   <NazivPropisa>{data($act/parliament:Propis/parliament:NazivPropisa)}</NazivPropisa>,
   <DatumVremePredlaganja>{data($act/parliament:Propis/@parliament:DatumVremePredlaganja)}</DatumVremePredlaganja>,
   <DatumVremeUsvajanja>{data($act/parliament:Propis/@parliament:DatumVremeUsvajanja)}</DatumVremeUsvajanja>,
+  <ImeNadleznogOrgana>{data($act/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan/parliament:Ime)}</ImeNadleznogOrgana>,
+  <PrezimeNadleznogOrgana>{data($act/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan/parliament:Prezime)}</PrezimeNadleznogOrgana>,
+  <EmailNadleznogOrgana>{data($act/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan/parliament:Email)}</EmailNadleznogOrgana>,
   <SerijskiBroj>{data($act/parliament:Propis/@SerijskiBroj)}</SerijskiBroj>,
   <Status>{'Predlozen'}</Status>
 ));

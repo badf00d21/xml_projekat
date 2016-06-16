@@ -9,13 +9,13 @@
     <xs:element name="Propis">
         <xs:complexType>
             <xs:sequence>
-                <xs:element ref="Preamblula" minOccurs="0"/>
+                <xs:element ref="Preambula" minOccurs="1"/>
                 <xs:element name="NazivPropisa">
                     <xs:simpleType>
                         <xs:restriction base="xs:string">
                             <xs:minLength value="1"/>
                             <xs:maxLength value="300"/>
-                            <xs:pattern value="[A-Z]{1,300}"/>
+                            <xs:pattern value="[A-Z][A-Z ]{0,300}"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -29,13 +29,13 @@
             </xs:sequence>
             <xs:attribute ref="DatumVremePredlaganja" use="required"/>
             <xs:attribute ref="DatumVremeUsvajanja" use="optional"/>
-            <xs:attribute name="SerijskiBroj" type="xs:long" use="required"/>
+            <xs:attribute name="SerijskiBroj" type="xs:positiveInteger" use="required"/>
         </xs:complexType>
     </xs:element>
-    <xs:element name="Preamblula">
+    <xs:element name="Preambula">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="PravniOsnov" type="xs:string"/>
+                <xs:element name="PravniOsnov" type="xs:string" minOccurs="0"/>
                 <xs:element ref="NadlezniOrgan"/>
                 <xs:element minOccurs="0" ref="Saglasnost"/>
             </xs:sequence>
@@ -74,7 +74,7 @@
                         <xs:restriction base="xs:string">
                             <xs:minLength value="1"/>
                             <xs:maxLength value="500"/>
-                            <xs:pattern value="[A-Z]{1,300}"/>
+                            <xs:pattern value="[A-Z][A-Z ]{0,300}"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -92,7 +92,7 @@
                         <xs:restriction base="xs:string">
                             <xs:minLength value="1"/>
                             <xs:maxLength value="30"/>
-                            <xs:pattern value="[1-9][0-9]*\. [A-Za-z]*"/>
+                            <xs:pattern value="[1-9][0-9]*\. [A-Za-z ]*"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -113,7 +113,7 @@
                         <xs:restriction base="xs:string">
                             <xs:minLength value="1"/>
                             <xs:maxLength value="300"/>
-                            <xs:pattern value="\([a-z]\) [A-Za-z]*"/>
+                            <xs:pattern value="\([a-z]\) [A-Za-z ]*"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -131,15 +131,6 @@
                         <xs:restriction base="xs:string">
                             <xs:minLength value="1"/>
                             <xs:maxLength value="300"/>
-                        </xs:restriction>
-                    </xs:simpleType>
-                </xs:element>
-                <xs:element name="OznakaClana">
-                    <xs:simpleType>
-                        <xs:restriction base="xs:string">
-                            <xs:minLength value="6"/>
-                            <xs:maxLength value="10"/>
-                            <xs:pattern value="Clan [1-9][0-9]*"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:element>
@@ -191,7 +182,7 @@
         </xs:complexType>
     </xs:element>
     <xs:element name="TekstualniSadrzaj" type="xs:string"/>
-    <xs:attribute name="RedniBroj" type="xs:int"/>
+    <xs:attribute name="RedniBroj" type="xs:positiveInteger"/>
     <xs:attribute name="Id" type="xs:ID"/>
     <xs:attribute name="DatumVremePredlaganja" type="xs:dateTime"/>
     <xs:attribute name="DatumVremeUsvajanja" type="xs:dateTime"/>
