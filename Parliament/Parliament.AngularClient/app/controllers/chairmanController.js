@@ -1,21 +1,24 @@
-﻿'use strict';
+﻿
 app.controller('chairmanController', ['$scope', 'actService', function ($scope, actService) {
 
+    x2js = new X2JS();
     $scope.predlozeniAkti = [];
     $scope.usvojeniAkti = [];
+    $scope.sviAkti = [];
+
 
     var refreshData = function () {
-        // actService.ucitajPredlozeneAkte().then(function (response) {
-        //   $scope.predlozeniAkti = response.data;
-        // });
-        $scope.predlozeniAkti = actService.ucitajPredlozeneAkte();
-
-        //actService.ucitajUsvojeneAkte().then(function (response) {
-        //   $scope.usvojeniAkti = response.data;
-        //});
-        $scope.usvojeniAkti = actService.ucitajUsvojeneAkte();
+        actService.ucitajPredlozeneAkte().then(function (response) {
+            $scope.predlozeniAkti = x2js.xml_str2json(response.data).Propisi.Propis;
+        });
+        actService.ucitajUsvojeneAkte().then(function (response) {
+            $scope.usvojeniAkti = x2js.xml_str2json(response.data).Propisi.Propis;
+        });
+        actService.ucitajSveAkte().then(function (response) {
+            $scope.sviAkti = x2js.xml_str2json(response.data).Propisi.Propis;
+        });
     }
 
-    refreshData()
+    refreshData();
 
 }]);

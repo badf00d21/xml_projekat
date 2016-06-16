@@ -97,7 +97,8 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-		[Route("api/documents/acts", Name = "GetAllActs")]
+        [AllowAnonymous]
+        [Route("api/documents/acts", Name = "GetAllActs")]
 		public IHttpActionResult GetAllActs()
 		{
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
@@ -122,7 +123,8 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-		[Route("api/documents/acts/proposed", Name = "GetAllProposedActs")]
+        [AllowAnonymous]
+        [Route("api/documents/acts/proposed", Name = "GetAllProposedActs")]
 		public IHttpActionResult GetAllProposedActs()
 		{
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
@@ -147,7 +149,8 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-		[Route("api/documents/acts/adopted", Name = "GetAllAdoptedActs")]
+        [AllowAnonymous]
+        [Route("api/documents/acts/adopted", Name = "GetAllAdoptedActs")]
 		public IHttpActionResult GetAllAdoptedActs()
 		{
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);

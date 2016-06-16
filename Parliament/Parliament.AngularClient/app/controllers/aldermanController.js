@@ -1,22 +1,24 @@
-﻿'use strict';
+﻿
 app.controller('aldermanController', ['$scope', '$location', 'actService', function ($scope, $location, actService) {
-
+    x2js = new X2JS();
     $scope.predlozeniAkti = [];
     $scope.usvojeniAkti = [];
+    $scope.sviAkti = [];
 
+    
     var refreshData = function () {
         actService.ucitajPredlozeneAkte().then(function (response) {
-            $scope.predlozeniAkti = response.data;
+            $scope.predlozeniAkti = x2js.xml_str2json(response.data).Propisi.Propis;
          });
-        //$scope.predlozeniAkti = actService.ucitajPredlozeneAkte();
-
         actService.ucitajUsvojeneAkte().then(function (response) {
-            $scope.usvojeniAkti = response.data;
+            $scope.usvojeniAkti = x2js.xml_str2json(response.data).Propisi.Propis;
         });
-        //$scope.usvojeniAkti = actService.ucitajUsvojeneAkte();
+        actService.ucitajSveAkte().then(function (response) {
+            $scope.sviAkti = x2js.xml_str2json(response.data).Propisi.Propis;
+        });
     }
 
-    refreshData()
-
+    refreshData();
+    
 
 }]);
