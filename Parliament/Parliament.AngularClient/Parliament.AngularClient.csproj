@@ -77,6 +77,7 @@
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
+    <Content Include="app\views\actTable.html" />
     <Content Include="app\views\aldermanHome.html" />
     <Content Include="app\views\citizenHome.html" />
     <Content Include="app\views\chairmanHome.html" />

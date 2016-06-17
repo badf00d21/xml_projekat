@@ -67,9 +67,9 @@ namespace Parliament.Api.SGNS.Endpoints
 				if (targetCertificate == null)
 					return BadRequest("Could not find users certificate!");
 				
-				XMLUtils.SignXmlDocument(document, targetCertificate);
-				XMLUtils.AddTimeAndSerialNumber(document);
-				XMLUtils.GenerateIdForElements(document);
+				//XMLUtils.SignXmlDocument(document, targetCertificate);
+				//XMLUtils.AddTimeAndSerialNumber(document);
+				//XMLUtils.GenerateIdForElements(document);
 
 				using (var dbContext = new ParliamentDbContext())
 				{
@@ -77,7 +77,7 @@ namespace Parliament.Api.SGNS.Endpoints
 					{
 						var user = await userManager.FindByNameAsync(User.Identity.Name);
 
-						XMLUtils.AddUserInfo(document, user.FirstName, user.LastName, user.Email);
+						//XMLUtils.AddUserInfo(document, user.FirstName, user.LastName, user.Email);
 					}
 				}
 				
@@ -285,7 +285,8 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpPost]
-		[Route("api/documents/acts/filter", Name = "FindActs")]
+        [AllowAnonymous]
+        [Route("api/documents/acts/filter", Name = "FindActs")]
 		public IHttpActionResult FindActs(ActViewModel act)
 		{
 			if (act == null)

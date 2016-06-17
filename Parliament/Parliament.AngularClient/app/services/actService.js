@@ -4,7 +4,7 @@ restApiBaseUrl = 'http://localhost:8973/api/';
 
 
 app.service('actService', ['$http', 'localStorageService', function ($http, localStorageService) {
-    
+    x2js = new X2JS();
     
     this.ucitajSveAkte = function () {
         return $http.get(restApiBaseUrl + 'documents/acts/');
@@ -25,7 +25,7 @@ app.service('actService', ['$http', 'localStorageService', function ($http, loca
     }
 
     this.pretraziAkte = function (body) {
-        return $http.post(restApiBaseUrl + "documents/acts/filter/", body);
+        return $http.post(restApiBaseUrl + "documents/acts/filter/",body);
         //return "u izgradnji!";
     }
 

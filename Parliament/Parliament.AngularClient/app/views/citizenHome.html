@@ -5,22 +5,14 @@
     </div>
     <div class="col-md-8">
         Ovde je za bata citizena 
-        <h3>Spisak usvojenih akata:</h3><br />
-        <ul ng-repeat="usvojen in usvojeniAkti">
-            <li>
-                ><a href="{{usvojen.uri}}">Pregled akta</a><br />
-                Naziv: {{usvojen.NazivPropisa}}<br /><br />
-             </li>
-        </ul>
+        <h3>Spisak akata:</h3><br />
+        <div ng-include="'app/views/searchForm.html'"></div>
+        
         <br />
-        <h3>Spisak predlozenih akata:</h3><br />
-        <ul ng-repeat="predlozen in predlozeniAkti">
-            <a href="{{predlozen.uri}}">Pregled akta</a><br />
-            Naziv: {{predlozen.NazivPropisa}}<br /><br />
-        </ul>
-        <br />
+        
     </div>
     <div class="col-md-2">
         &nbsp;
     </div>
 </div>
+<div ng-include="'app/views/actTable.html'"></div>
