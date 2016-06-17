@@ -4,10 +4,11 @@ import schema "http://www.parliament.rs/schema" at "Propis.xsd";
 declare namespace parliament = "http://www.parliament.rs/schema";
 
 declare variable $act_string as xs:string external;
+declare variable $id as xs:string external;
 declare variable $act := xdmp:unquote($act_string);
 declare variable $errors := xdmp:validate($act, "strict");
 declare variable $validation_error := if (exists($errors//error:error)) then "Validation Error" else "Success";
-declare variable $document_uri := "http://www.parliament.rs/documents/acts/" || sem:uuid-string() || ".xml";
+declare variable $document_uri := "http://www.parliament.rs/documents/acts/" || $id || ".xml";
 
 declare variable $result := if ($validation_error eq 'Success') then
   try {
