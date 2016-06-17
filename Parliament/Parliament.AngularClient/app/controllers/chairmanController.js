@@ -1,5 +1,5 @@
 ﻿
-app.controller('chairmanController', ['$scope', 'actService','angularModalService', function ($scope, actService, angularModalService) {
+app.controller('chairmanController', ['$scope', 'actService', function ($scope, actService) {
 
     x2js = new X2JS();
     $scope.akti = [];
