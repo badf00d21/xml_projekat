@@ -114,6 +114,8 @@
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="scripts\angular-resource.js" />
+    <Content Include="scripts\angular-route.js" />
     <Content Include="xml-editor\editor.html" />
     <Content Include="xml-editor\editor.js" />
     <Content Include="xml-editor\lib\ace\ace.min.js" />
