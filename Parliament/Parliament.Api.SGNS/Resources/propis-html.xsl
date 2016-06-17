@@ -3,7 +3,7 @@
     <xsl:template match="/"> <!-- Ovo Matchuje dokument i postavlja ga za trenutni kontekst, svaka sledeca putanja do taka je relativna u odnosu na ovo -->
         <body>
             <div class="container">
-                <h1><xsl:value-of select="parliament:Propis/parliament:NazivPropisa"/></h1> <!-- Za naslov dokumenta ide h1 i izvlaci se vrednost naslova iz xml-a, obratite paznju na putanju (prefiks:ImeTaga/prefiks:PodTag) -->
+                <h1><xsl:value-of select="//parliament:NazivPropisa"/></h1> <!-- Za naslov dokumenta ide h1 i izvlaci se vrednost naslova iz xml-a, obratite paznju na putanju (prefiks:ImeTaga/prefiks:PodTag) -->
                 <xsl:for-each select="//parliament:Preambula"> <!-- Putanja do preambule ili ovako jer je trenutni kontekst Propis ili moze full putanja parliament:Propis/parliament:Preambula -->
                     <xsl:for-each select="//parliament:PravniOsnov">
                         <p> Pravni osnov: <xsl:value-of select="current()"/> </p> <!-- Ovde je u for-each selektovan PravniPropis tag pa njegova vrednost se dobija sa current(), jer nema podtagove -->
@@ -25,6 +25,10 @@
                         </xsl:for-each>
                     </xsl:for-each>
                  </xsl:for-each>   
+                 <!-- Moj predlog je da koristite uvek pune putanje za svaki slucaj ako niste 100% sta je trenutni kontekst itd -->
+                 <!-- Ono sto vam je sigurno je da je kontekst parliament:Propis, znaci kad napisete // to je umesto parliament:Propis -->
+                 <!-- Najpametnije je odatle ici pune putanje //parliament:Deo/parliament:Glava/parliament:Clan... -->
+                 
             </div>
         </body>
     </xsl:template>
