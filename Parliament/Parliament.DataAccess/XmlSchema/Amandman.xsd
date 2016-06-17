@@ -38,7 +38,7 @@
             </xs:sequence>
             <xs:attribute ref="DatumVremePredlaganja" use="required"/>
             <xs:attribute ref="DatumVremeUsvajanja"/>
-            <xs:attribute name="SerijskiBroj" type="xs:long"/>
+            <xs:attribute name="SerijskiBroj" type="xs:positiveInteger" use="required"/>
             <xs:attribute name="PredmetAmandmana" use="required">
                 <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -48,6 +48,7 @@
                     </xs:restriction>
                 </xs:simpleType>
             </xs:attribute>
+            <xs:attribute ref="Id" use="required"/>
         </xs:complexType>
     </xs:element>
 </xs:schema>

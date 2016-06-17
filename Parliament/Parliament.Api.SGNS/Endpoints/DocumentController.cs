@@ -25,6 +25,7 @@ namespace Parliament.Api.SGNS.Endpoints
 	public class DocumentController : ApiController
 	{
 		[HttpPost]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/propose/act", Name = "ProposeAct")]
 		public async Task<IHttpActionResult> ProposeAct()
 		{
@@ -81,7 +82,7 @@ namespace Parliament.Api.SGNS.Endpoints
 					{
 						var user = await userManager.FindByNameAsync(User.Identity.Name);
 						string role = user.Role == ParliamentRole.Citizen ? "Gradjanin" : user.Role == ParliamentRole.Chairman ? "Odbornik" : "Predsednik skupstine";
-						XMLUtils.AddUserInfo(document, user.FirstName, user.LastName, user.Email, role);
+						XMLUtils.AddActUserInfo(document, user.FirstName, user.LastName, user.Email, role);
 					}
 				}
 
@@ -100,6 +101,83 @@ namespace Parliament.Api.SGNS.Endpoints
 				Request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
 
 				return Created(addActQueryResult.AsString(), document.DocumentElement);
+			}
+		}
+
+		[HttpPost]
+		[Authorize(Roles = "Alderman")]
+		[Route("api/documents/propose/amandment", Name = "ProposeAmandment")]
+		public async Task<IHttpActionResult> ProposeAmandment()
+		{
+			XDocument doc = XDocument.Load(await Request.Content.ReadAsStreamAsync());
+			XmlDocument document = new XmlDocument();
+			document.LoadXml(doc.ToString());
+
+			XMLUtils.AddTimeAndSerialNumber(document);
+
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getAmandmentQuery = session.NewModuleInvoke("/GetAmandmentQuery.xqy");
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_predlaganja", document.DocumentElement.Attributes["parliament:DatumVremePredlaganja"].Value);
+				getAmandmentQuery.SetNewStringVariable("serijski_broj", document.DocumentElement.Attributes["SerijskiBroj"].Value);
+
+				getAmandmentQuery.SetNewStringVariable("text", "");
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
+				getAmandmentQuery.SetNewStringVariable("id_propisa", "");
+
+				getAmandmentQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getAmandmentQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getAmandmentQuery.SetNewStringVariable("email_nadleznog_organa", "");
+
+				ResultSequence getActQueryResult = session.SubmitRequest(getAmandmentQuery);
+				var xmlResult = new XmlDocument();
+				xmlResult.LoadXml(getActQueryResult.AsString());
+
+
+				if (xmlResult.SelectSingleNode("Amandmani").HasChildNodes)
+					return BadRequest("Xml document with same date and serial number already exists!");
+
+				X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
+				store.Open(OpenFlags.ReadOnly);
+
+				var certificates = store.Certificates.Find(X509FindType.FindBySubjectName, User.Identity.Name, false);
+				var targetCertificate = certificates.Count > 0 ? certificates[0] : null;
+
+				store.Close();
+
+				if (targetCertificate == null)
+					return BadRequest("Could not find users certificate!");
+
+				XMLUtils.SignXmlDocument(document, targetCertificate);
+
+				using (var dbContext = new ParliamentDbContext())
+				{
+					using (var userManager = new ParliamentUserManager(dbContext))
+					{
+						var user = await userManager.FindByNameAsync(User.Identity.Name);
+						string role = user.Role == ParliamentRole.Citizen ? "Gradjanin" : user.Role == ParliamentRole.Chairman ? "Odbornik" : "Predsednik skupstine";
+						XMLUtils.AddAmandmentUserInfo(document, user.FirstName, user.LastName, user.Email, role);
+					}
+				}
+
+				string documentId = XMLUtils.AddDocumentId(document);
+
+				var addAmandmentQuery = session.NewModuleInvoke("/AddAmandmentQuery.xqy");
+				addAmandmentQuery.SetNewStringVariable("amandment_string", document.InnerXml);
+				addAmandmentQuery.SetNewStringVariable("id", documentId);
+
+				ResultSequence addAmandmentQueryResult = session.SubmitRequest(addAmandmentQuery);
+
+				if (addAmandmentQueryResult.AsString().Contains("Error"))
+					return BadRequest(addAmandmentQueryResult.AsString());
+
+				Request.Headers.Accept.Clear();
+				Request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
+
+				return Created(addAmandmentQueryResult.AsString(), document.DocumentElement);
 			}
 		}
 
@@ -132,7 +210,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		[HttpGet]
 		[AllowAnonymous]
 		[Route("api/documents/schema/{name}/{referenced}", Name = "GetReferencedSchema")]
-		public async Task<IHttpActionResult> GetReferencedSchema(string name, string referenced)
+		public IHttpActionResult GetReferencedSchema(string name, string referenced)
 		{
 			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlSchemaDbConnectionString"]);
 			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
@@ -178,6 +256,35 @@ namespace Parliament.Api.SGNS.Endpoints
 				getActQuery.SetNewStringVariable("email_nadleznog_organa", "");
 
 				ResultSequence getActQueryResult = session.SubmitRequest(getActQuery);
+				var xmlResult = XElement.Parse(getActQueryResult.AsString());
+
+				return Ok(xmlResult);
+			}
+		}
+
+		[HttpGet]
+		[Authorize(Roles = "Alderman")]
+		[Route("api/documents/amandments", Name = "GetAllAmandments")]
+		public IHttpActionResult GetAllAmandments()
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getAmandmentQuery = session.NewModuleInvoke("/GetAmandmentQuery.xqy");
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_predlaganja", "");
+				getAmandmentQuery.SetNewStringVariable("serijski_broj", "");
+
+				getAmandmentQuery.SetNewStringVariable("text", "");
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_usvajanja", "");
+				getAmandmentQuery.SetNewStringVariable("id_propisa", "");
+
+				getAmandmentQuery.SetNewStringVariable("ime_nadleznog_organa", "");
+				getAmandmentQuery.SetNewStringVariable("prezime_nadleznog_organa", "");
+				getAmandmentQuery.SetNewStringVariable("email_nadleznog_organa", "");
+
+				ResultSequence getActQueryResult = session.SubmitRequest(getAmandmentQuery);
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
 
 				return Ok(xmlResult);
@@ -295,6 +402,30 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Alderman")]
+		[Route("api/documents/amandments/revoke/{id}", Name = "RevokeAmandment")]
+		public IHttpActionResult RevokeAmandment(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var deleteAmandmentQuery = session.NewAdhocQuery(string.Format("xdmp:document-delete('http://www.parliament.rs/documents/amandments/{0}.xml')", id));
+
+				ResultSequence deleteAmandmentQueryResult = session.SubmitRequest(deleteAmandmentQuery);
+
+				if (deleteAmandmentQueryResult.AsString() != "")
+					return BadRequest(string.Format("Error deleting document '{0}'!", id));
+
+				Request.Headers.Accept.Clear();
+				Request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
+
+				return Ok();
+			}
+		}
+
+		[HttpGet]
 		[Route("api/documents/acts/{id}/html", Name = "GetActHtmlById")]
 		public IHttpActionResult GetActHtmlById(string id)
 		{
@@ -328,7 +459,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-		[AllowAnonymous]
 		[Route("api/documents/acts/{id}/pdf", Name = "GetActPdfById")]
 		public IHttpActionResult GetActPdfById(string id)
 		{
@@ -351,10 +481,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				string xslPath = System.Web.Hosting.HostingEnvironment.MapPath("~/Resources/propis-fo.xsl");
 				transform.Load(xslPath);
 
-				var pdfGenerator = new Aspose.Pdf.Generator.Pdf();
-				pdfGenerator.BindXML(xmlResult, xslPath);
+				//var pdfGenerator = new Aspose.Pdf.Generator.Pdf();
+				//pdfGenerator.BindXML(xmlResult, xslPath);
 
-				pdfGenerator.Save(string.Format("{0}.pdf", id), Aspose.Pdf.Generator.SaveType.OpenInBrowser, HttpContext.Current.Response);
+				//pdfGenerator.Save(string.Format("{0}.pdf", id), Aspose.Pdf.Generator.SaveType.OpenInBrowser, HttpContext.Current.Response);
 
 				return Ok();
 			}
@@ -389,6 +519,52 @@ namespace Parliament.Api.SGNS.Endpoints
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
 
 				return Ok(xmlResult);
+			}
+		}
+
+		[HttpPost]
+		[Authorize(Roles = "Alderman")]
+		[Route("api/documents/amandments/filter", Name = "FindAmandments")]
+		public IHttpActionResult FindAmandments(AmandmentViewModel amandment)
+		{
+			if (amandment == null)
+				amandment = new AmandmentViewModel();
+
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getAmandmentQuery = session.NewModuleInvoke("/GetAmandmentQuery.xqy");
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_predlaganja", amandment.DatumVremePredlaganja);
+				getAmandmentQuery.SetNewStringVariable("serijski_broj", "");
+
+				getAmandmentQuery.SetNewStringVariable("text", amandment.Text);
+				getAmandmentQuery.SetNewStringVariable("datum_vreme_usvajanja", amandment.DatumVremeUsvajanja);
+				getAmandmentQuery.SetNewStringVariable("id_propisa", amandment.IdPropisa);
+
+				getAmandmentQuery.SetNewStringVariable("ime_nadleznog_organa", amandment.ImeNadleznogOrgana);
+				getAmandmentQuery.SetNewStringVariable("prezime_nadleznog_organa", amandment.PrezimeNadleznogOrgana);
+				getAmandmentQuery.SetNewStringVariable("email_nadleznog_organa", amandment.EmailNadleznogOrgana);
+
+				ResultSequence getActQueryResult = session.SubmitRequest(getAmandmentQuery);
+				var xmlResult = XElement.Parse(getActQueryResult.AsString());
+
+				return Ok(xmlResult);
+			}
+		}
+
+		[HttpGet]
+		[Authorize(Roles = "Chairman")]
+		[Route("api/documents/acts/adopt/inprinciple/{id}", Name = "AdoptActInPrinciple")]
+		public IHttpActionResult AdoptActInPrinciple(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{				
+				return Ok();
 			}
 		}
 	}
