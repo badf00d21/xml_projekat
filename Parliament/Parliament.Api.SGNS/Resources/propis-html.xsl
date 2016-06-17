@@ -5,6 +5,11 @@
     xmlns:parliament="http://www.parliament.rs/schema" exclude-result-prefixes="xs" version="2.0">
     <xsl:template match="/">
         <!-- Ovo Matchuje dokument i postavlja ga za trenutni kontekst, svaka sledeca putanja do taka je relativna u odnosu na ovo -->
+      <html>  
+        <head>
+           
+        </head>
+
         <body>
             <div class="container">
                 <h1>
@@ -51,42 +56,46 @@
                 <xsl:choose>
                   <xsl:when test="//parliament:Deo">
                     <xsl:for-each select="//parliament:Deo">
-                        <p> Naziv dela: <xsl:value-of select="//parliament:NazivDela"/> </p>
+                        <h2> <xsl:value-of select="//parliament:NazivDela"/> </h2>
 
                         <xsl:for-each select="//parliament:Glava">
-                          <p> Naziv glave: <xsl:value-of select="//parliament:NazivGlave"/></p>
+                          <h3> <xsl:value-of select="//parliament:NazivGlave"/></h3>
+                          <h6>Glava <xsl:value-of select="//parliament:Deo/parliament:Glava/@parliament:RedniBroj"/></h6>
 
                           <xsl:for-each select="//parliament:Odeljak">
-                            <p> Naziv odeljka: <xsl:value-of select="//parliament:NazivOdeljka"/></p>
+                            <h4> <xsl:value-of select="//parliament:NazivOdeljka"/></h4>
+                            <h6> Odeljak <xsl:value-of select="//@parliament:RedniBroj"/></h6>
 
                             <xsl:choose>
                               <xsl:when test="//parliament:Pododeljak">
-                                <p> Naziv pododeljka: <xsl:value-of select="//parliament:NazivPododeljka"/></p>
+                                <h5> <xsl:value-of select="//parliament:NazivPododeljka"/></h5>
+                                <h6> Pododeljak <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                                 <xsl:for-each select="//parliament:Clan">
-                                  <p> Naziv Člana: <xsl:value-of select="current()"/> </p>
+                                  <h6> <xsl:value-of select="//parliament:NazivClana"/> </h6>
+                                  <h6> Član <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                                   <xsl:choose>
                                     <xsl:when test="//parliament:TekstualniSadrzaj">
-                                      <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                      <p>  <xsl:value-of select="current()"/> </p>
                                     </xsl:when>
                                     <xsl:otherwise>
                                       <xsl:for-each select="//parliament:Stav">
                                         <xsl:choose>
                                           <xsl:when test="//parliament:TekstualniSadrzaj">
-                                            <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                            <p>  <xsl:value-of select="current()"/> </p>
                                           </xsl:when>
                                           <xsl:otherwise>
                                             <xsl:for-each select="//parliament:Tacka">
                                               <xsl:choose>
                                                 <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                  <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                  <p>  <xsl:value-of select="current()"/> </p>
                                                 </xsl:when>
                                                 <xsl:otherwise>
                                                   <xsl:for-each select="//parliament:Podtacka">
                                                     <xsl:choose>
                                                       <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                        <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                        <p> <xsl:value-of select="current()"/> </p>
                                                       </xsl:when>
                                                       <xsl:otherwise>
                                                         <xsl:for-each select="//parliament:Alineja">
@@ -108,29 +117,30 @@
                               </xsl:when>
                               <xsl:otherwise>
                                 <xsl:for-each select="//parliament:Clan">
-                                  <p> Naziv Člana: <xsl:value-of select="current()"/> </p>
+                                  <h6> <xsl:value-of select="//parliament:NazivClana"/> </h6>
+                                  <h6> Član <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                                   <xsl:choose>
                                     <xsl:when test="//parliament:TekstualniSadrzaj">
-                                      <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                      <p>  <xsl:value-of select="current()"/> </p>
                                     </xsl:when>
                                     <xsl:otherwise>
                                       <xsl:for-each select="//parliament:Stav">
                                         <xsl:choose>
                                           <xsl:when test="//parliament:TekstualniSadrzaj">
-                                            <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                            <p>  <xsl:value-of select="current()"/> </p>
                                           </xsl:when>
                                           <xsl:otherwise>
                                             <xsl:for-each select="//parliament:Tacka">
                                               <xsl:choose>
                                                 <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                  <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                  <p>  <xsl:value-of select="current()"/> </p>
                                                 </xsl:when>
                                                 <xsl:otherwise>
                                                   <xsl:for-each select="//parliament:Podtacka">
                                                     <xsl:choose>
                                                       <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                        <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                        <p>  <xsl:value-of select="current()"/> </p>
                                                       </xsl:when>
                                                       <xsl:otherwise>
                                                         <xsl:for-each select="//parliament:Alineja">
@@ -158,39 +168,42 @@
                   </xsl:when>
                   <xsl:when test="//parliament:Glava">
                     <xsl:for-each select="//parliament:Glava">
-                      <p> Naziv glave: <xsl:value-of select="//parliament:NazivGlave"/></p>
+                      <h3> <xsl:value-of select="//parliament:NazivGlave"/></h3>
+                      <h6>Glava <xsl:value-of select="//@parliament:RedniBroj"/></h6>
 
                       <xsl:for-each select="//parliament:Odeljak">
-                        <p> Naziv odeljka: <xsl:value-of select="//parliament:NazivOdeljka"/></p>
+                        <h4> <xsl:value-of select="//parliament:NazivOdeljka"/></h4>
+                        <h6> Odeljak <xsl:value-of select="//@parliament:RedniBroj"/></h6>
 
                         <xsl:choose>
                           <xsl:when test="//parliament:Pododeljak">
-                            <p> Naziv pododeljka: <xsl:value-of select="//parliament:NazivPododeljka"/></p>
-
+                            <h5> <xsl:value-of select="//parliament:NazivPododeljka"/></h5>
+                            <h6> Pododeljak <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
                             <xsl:for-each select="//parliament:Clan">
-                              <p> Naziv Člana: <xsl:value-of select="current()"/> </p>
+                              <h6> <xsl:value-of select="//parliament:NazivClana"/> </h6>
+                              <h6> Član <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                               <xsl:choose>
                                 <xsl:when test="//parliament:TekstualniSadrzaj">
-                                  <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                  <p>  <xsl:value-of select="current()"/> </p>
                                 </xsl:when>
                                 <xsl:otherwise>
                                   <xsl:for-each select="//parliament:Stav">
                                     <xsl:choose>
                                       <xsl:when test="//parliament:TekstualniSadrzaj">
-                                        <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                        <p>  <xsl:value-of select="current()"/> </p>
                                       </xsl:when>
                                       <xsl:otherwise>
                                         <xsl:for-each select="//parliament:Tacka">
                                           <xsl:choose>
                                             <xsl:when test="//parliament:TekstualniSadrzaj">
-                                              <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                              <p>  <xsl:value-of select="current()"/> </p>
                                             </xsl:when>
                                             <xsl:otherwise>
                                               <xsl:for-each select="//parliament:Podtacka">
                                                 <xsl:choose>
                                                   <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                    <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                    <p>  <xsl:value-of select="current()"/> </p>
                                                   </xsl:when>
                                                   <xsl:otherwise>
                                                     <xsl:for-each select="//parliament:Alineja">
@@ -212,29 +225,30 @@
                           </xsl:when>
                           <xsl:otherwise>
                             <xsl:for-each select="//parliament:Clan">
-                              <p> Naziv Člana: <xsl:value-of select="current()"/> </p>
+                              <h6> <xsl:value-of select="//parliament:NazivClana"/> </h6>
+                              <h6> Član <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                               <xsl:choose>
                                 <xsl:when test="//parliament:TekstualniSadrzaj">
-                                  <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                  <p>  <xsl:value-of select="current()"/> </p>
                                 </xsl:when>
                                 <xsl:otherwise>
                                   <xsl:for-each select="//parliament:Stav">
                                     <xsl:choose>
                                       <xsl:when test="//parliament:TekstualniSadrzaj">
-                                        <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                        <p>  <xsl:value-of select="current()"/> </p>
                                       </xsl:when>
                                       <xsl:otherwise>
                                         <xsl:for-each select="//parliament:Tacka">
                                           <xsl:choose>
                                             <xsl:when test="//parliament:TekstualniSadrzaj">
-                                              <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                              <p>  <xsl:value-of select="current()"/> </p>
                                             </xsl:when>
                                             <xsl:otherwise>
                                               <xsl:for-each select="//parliament:Podtacka">
                                                 <xsl:choose>
                                                   <xsl:when test="//parliament:TekstualniSadrzaj">
-                                                    <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                                    <p>  <xsl:value-of select="current()"/> </p>
                                                   </xsl:when>
                                                   <xsl:otherwise>
                                                     <xsl:for-each select="//parliament:Alineja">
@@ -261,29 +275,30 @@
                   </xsl:when>
                   <xsl:otherwise>
                     <xsl:for-each select="//parliament:Clan">
-                      <p> Naziv Člana: <xsl:value-of select="current()"/> </p>
+                      <h6> <xsl:value-of select="//parliament:NazivClana"/> </h6>
+                      <h6> Član <xsl:value-of select="//@parliament:RedniBroj"/> </h6>
 
                       <xsl:choose>
                         <xsl:when test="//parliament:TekstualniSadrzaj">
-                          <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                          <p>  <xsl:value-of select="current()"/> </p>
                         </xsl:when>
                         <xsl:otherwise>
                           <xsl:for-each select="//parliament:Stav">
                             <xsl:choose>
                               <xsl:when test="//parliament:TekstualniSadrzaj">
-                                <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                <p>  <xsl:value-of select="current()"/> </p>
                               </xsl:when>
                               <xsl:otherwise>
                                 <xsl:for-each select="//parliament:Tacka">
                                   <xsl:choose>
                                     <xsl:when test="//parliament:TekstualniSadrzaj">
-                                      <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                      <p>  <xsl:value-of select="current()"/> </p>
                                     </xsl:when>
                                     <xsl:otherwise>
                                       <xsl:for-each select="//parliament:Podtacka">
                                         <xsl:choose>
                                           <xsl:when test="//parliament:TekstualniSadrzaj">
-                                            <p> Sadržaj: <xsl:value-of select="current()"/> </p>
+                                            <p>  <xsl:value-of select="current()"/> </p>
                                           </xsl:when>
                                           <xsl:otherwise>
                                             <xsl:for-each select="//parliament:Alineja">
@@ -305,10 +320,11 @@
                   </xsl:otherwise>
                 </xsl:choose>
                 <xsl:for-each select="//parliament:Prilog">
-                    <p> Naziv Priloga: <xsl:value-of select="current()"/>
-                    </p>
+                    <h3> Naziv Priloga: <xsl:value-of select="current()"/>
+                    </h3>
                 </xsl:for-each>
             </div>
         </body>
+      </html>
     </xsl:template>
 </xsl:stylesheet>
