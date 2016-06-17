@@ -37,7 +37,7 @@ namespace Parliament.Api.SGNS.ServerConfig
             app.UseNinjectWebApi(config);
 
             ConfigureJSONFormatter(config);
-            config.Formatters.Remove(config.Formatters.JsonFormatter);
+            //config.Formatters.Remove(config.Formatters.JsonFormatter);
         }
 
         public void ConfigureJSONFormatter(HttpConfiguration config)

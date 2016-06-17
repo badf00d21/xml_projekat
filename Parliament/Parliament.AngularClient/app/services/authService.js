@@ -1,4 +1,4 @@
-﻿'use strict';
+﻿
 app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSettings', function ($http, $q, localStorageService, ngAuthSettings) {
 
     var serviceBase = ngAuthSettings.apiServiceBaseUri;
@@ -27,6 +27,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             console.log(response);
+            tt = response.access_token;
 
             localStorageService.set('authorizationData',
                 {
@@ -34,6 +35,8 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
                 });
 
             $http.get('https://localhost:44337/api/users/username/' + loginData.userName + '/').success(function (userresponse) {
+                //x2js = new X2JS();
+               // userresponse = x2js.xml_str2json(userresponse).UserInfoViewModel;
 
                 _authentication.email = userresponse.email;
                 _authentication.firstName = userresponse.firstName;
@@ -42,7 +45,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
                 localStorageService.set('authorizationData',
                 {
-                    
+                    token : tt,
                     userName: username,
                     email: _authentication.email,
                     firstName: _authentication.firstName,
