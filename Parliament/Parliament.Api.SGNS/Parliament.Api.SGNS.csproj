@@ -275,6 +275,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServerConfig\Startup.cs" />
     <Compile Include="ViewModels\ActViewModel.cs" />
+    <Compile Include="ViewModels\AmandmentViewModel.cs" />
     <Compile Include="ViewModels\UserInfoViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
