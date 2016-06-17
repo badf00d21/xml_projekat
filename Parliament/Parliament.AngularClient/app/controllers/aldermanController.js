@@ -1,5 +1,5 @@
 ﻿
-app.controller('aldermanController', ['$scope', '$location', 'actService', function ($scope, $location, actService) {
+app.controller('aldermanController', ['$scope', '$location', 'actService','angularModalService', function ($scope, $location, actService, angularModalService) {
     
     $scope.akti = [];
     $scope.searchBody = {

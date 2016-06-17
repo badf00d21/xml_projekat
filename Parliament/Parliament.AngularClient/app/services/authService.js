@@ -27,6 +27,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             console.log(response);
+            tt = response.access_token;
 
             localStorageService.set('authorizationData',
                 {
@@ -44,7 +45,7 @@ app.factory('authService', ['$http', '$q', 'localStorageService', 'ngAuthSetting
 
                 localStorageService.set('authorizationData',
                 {
-                    
+                    token : tt,
                     userName: username,
                     email: _authentication.email,
                     firstName: _authentication.firstName,

@@ -118,7 +118,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-        [AllowAnonymous]
         [Route("api/documents/acts", Name = "GetAllActs")]
 		public IHttpActionResult GetAllActs()
 		{
@@ -148,7 +147,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-        [AllowAnonymous]
         [Route("api/documents/acts/proposed", Name = "GetAllProposedActs")]
 		public IHttpActionResult GetAllProposedActs()
 		{
@@ -178,7 +176,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-        [AllowAnonymous]
         [Route("api/documents/acts/adopted", Name = "GetAllAdoptedActs")]
 		public IHttpActionResult GetAllAdoptedActs()
 		{
@@ -285,7 +282,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpPost]
-        [AllowAnonymous]
         [Route("api/documents/acts/filter", Name = "FindActs")]
 		public IHttpActionResult FindActs(ActViewModel act)
 		{

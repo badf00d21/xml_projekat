@@ -73,6 +73,7 @@
     <Content Include="app\controllers\homeController.js" />
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
+    <Content Include="app\controllers\modalController.js" />
     <Content Include="app\controllers\newActController.js" />
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
@@ -85,7 +86,16 @@
     <Content Include="app\views\login.html" />
     <Content Include="app\views\newAct.html" />
     <Content Include="app\views\searchForm.html" />
+    <Content Include="app\views\test.html" />
     <Content Include="authComplete.html" />
+    <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.js" />
+    <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.min.js" />
+    <Content Include="bower_components\angular-modal-service\karma.config.js" />
+    <Content Include="bower_components\angular-modal-service\webpack.config.js" />
+    <Content Include="bower_components\angular\angular-csp.css" />
+    <Content Include="bower_components\angular\angular.js" />
+    <Content Include="bower_components\angular\angular.min.js" />
+    <Content Include="bower_components\angular\index.js" />
     <Content Include="content\css\font-awesome.min.css" />
     <Content Include="content\css\loading-bar.css" />
     <Content Include="content\css\site.css" />
@@ -120,6 +130,19 @@
     <Content Include="xml-editor\lib\jquery.xmleditor.min.js" />
     <Content Include="xml-editor\lib\json2.min.js" />
     <Content Include="xml-editor\lib\xsd2json.min.js" />
+    <Content Include="bower_components\angular-modal-service\.bower.json" />
+    <Content Include="bower_components\angular-modal-service\bower.json" />
+    <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.js.map" />
+    <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.min.js.map" />
+    <Content Include="bower_components\angular-modal-service\LICENSE" />
+    <Content Include="bower_components\angular-modal-service\README.md" />
+    <Content Include="bower_components\angular\.bower.json" />
+    <Content Include="bower_components\angular\angular.min.js.gzip" />
+    <Content Include="bower_components\angular\angular.min.js.map" />
+    <Content Include="bower_components\angular\bower.json" />
+    <Content Include="bower_components\angular\LICENSE.md" />
+    <Content Include="bower_components\angular\package.json" />
+    <Content Include="bower_components\angular\README.md" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
