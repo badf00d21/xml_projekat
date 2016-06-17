@@ -21,7 +21,7 @@ using System.Xml.Xsl;
 
 namespace Parliament.Api.SGNS.Endpoints
 {
-    //[Authorize]
+    [Authorize]
     public class DocumentController : ApiController
     {
         [HttpPost]
@@ -630,7 +630,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Chairman")]
+        [Authorize(Roles = "Chairman")]
         [Route("api/documents/acts/sendtoarchive/{id}", Name = "SendActToArchive")]
         public IHttpActionResult SendActToArchive(string id)
         {
