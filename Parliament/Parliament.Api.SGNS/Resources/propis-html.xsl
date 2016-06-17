@@ -17,7 +17,6 @@
                     </xsl:for-each>
                     <xsl:for-each select="//propis:Prilog">
                     </xsl:for-each>
-                    </xsl:for-each>
                     <xsl:choose>
                         <xsl:when test="propis:Deo">
                             <xsl:for-each select="//propis:Deo">
