@@ -188,16 +188,16 @@ namespace Parliament.Security
 			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
 
 			Random random = new Random();
-			var propisNode = document.SelectSingleNode("/parliament:Propis", nsmgr);
+			var rootNode = document.DocumentElement;
 
-			if (propisNode.Attributes["SerijskiBroj"] == null)
-				propisNode.Attributes.Append(document.CreateAttribute("SerijskiBroj"));
+			if (rootNode.Attributes["SerijskiBroj"] == null)
+				rootNode.Attributes.Append(document.CreateAttribute("SerijskiBroj"));
 
-			if (propisNode.Attributes["parliament:DatumVremePredlaganja"] == null)
-				propisNode.Attributes.Append(document.CreateAttribute("parliament", "DatumVremePredlaganja", "http://www.parliament.rs/schema"));
+			if (rootNode.Attributes["parliament:DatumVremePredlaganja"] == null)
+				rootNode.Attributes.Append(document.CreateAttribute("parliament", "DatumVremePredlaganja", "http://www.parliament.rs/schema"));
 
-			propisNode.Attributes["SerijskiBroj"].Value = random.Next(100000).ToString();
-			propisNode.Attributes["parliament:DatumVremePredlaganja"].Value = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
+			rootNode.Attributes["SerijskiBroj"].Value = random.Next(100000).ToString();
+			rootNode.Attributes["parliament:DatumVremePredlaganja"].Value = DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss");
 		}
 
 		public static string AddDocumentId(XmlDocument document)
@@ -207,17 +207,17 @@ namespace Parliament.Security
 			var nsmgr = new XmlNamespaceManager(document.NameTable);
 			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
 
-			var propisNode = document.SelectSingleNode("/parliament:Propis", nsmgr);
+			var rootNode = document.DocumentElement;
 
-			if (propisNode.Attributes["parliament:Id"] == null)
-				propisNode.Attributes.Append(document.CreateAttribute("parliament", "Id", "http://www.parliament.rs/schema"));
+			if (rootNode.Attributes["parliament:Id"] == null)
+				rootNode.Attributes.Append(document.CreateAttribute("parliament", "Id", "http://www.parliament.rs/schema"));
 
-			propisNode.Attributes["parliament:Id"].Value = id;
+			rootNode.Attributes["parliament:Id"].Value = id;
 
 			return id;
 		}
 
-		public static void AddUserInfo(XmlDocument document, string firstName, string lastName, string email, string role)
+		public static void AddActUserInfo(XmlDocument document, string firstName, string lastName, string email, string role)
 		{
 			var nsmgr = new XmlNamespaceManager(document.NameTable);
 			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
@@ -226,6 +226,17 @@ namespace Parliament.Security
 			document.SelectSingleNode("/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan/parliament:Prezime", nsmgr).InnerText = lastName;
 			document.SelectSingleNode("/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan/parliament:Email", nsmgr).InnerText = email;
 			document.SelectSingleNode("/parliament:Propis/parliament:Preambula/parliament:NadlezniOrgan", nsmgr).Attributes["Uloga"].Value = role;
+		}
+
+		public static void AddAmandmentUserInfo(XmlDocument document, string firstName, string lastName, string email, string role)
+		{
+			var nsmgr = new XmlNamespaceManager(document.NameTable);
+			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
+
+			document.SelectSingleNode("/parliament:Amandman/parliament:NadlezniOrgan/parliament:Ime", nsmgr).InnerText = firstName;
+			document.SelectSingleNode("/parliament:Amandman/parliament:NadlezniOrgan/parliament:Prezime", nsmgr).InnerText = lastName;
+			document.SelectSingleNode("/parliament:Amandman/parliament:NadlezniOrgan/parliament:Email", nsmgr).InnerText = email;
+			document.SelectSingleNode("/parliament:Amandman/parliament:NadlezniOrgan", nsmgr).Attributes["Uloga"].Value = role;
 		}
 
 	}
