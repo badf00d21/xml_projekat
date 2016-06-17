@@ -1,5 +1,5 @@
 ﻿
-app.controller('citizenController', ['$scope', 'actService', function ($scope, actService, angularModalService ) {
+app.controller('citizenController', ['$scope', 'actService', function ($scope, actService, ModalService ) {
 
     $scope.akti = [];
     $scope.searchBody = {
@@ -34,7 +34,7 @@ app.controller('citizenController', ['$scope', 'actService', function ($scope, a
 
         });
     }
-    /*
+    
         $scope.show = function () {
             ModalService.showModal({
                 templateUrl: 'modal.html',
@@ -46,5 +46,5 @@ app.controller('citizenController', ['$scope', 'actService', function ($scope, a
                 });
             });
         };
-        */
+        
 }]);
