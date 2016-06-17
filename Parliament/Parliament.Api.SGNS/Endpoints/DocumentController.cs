@@ -481,10 +481,10 @@ namespace Parliament.Api.SGNS.Endpoints
 				string xslPath = System.Web.Hosting.HostingEnvironment.MapPath("~/Resources/propis-fo.xsl");
 				transform.Load(xslPath);
 
-				var pdfGenerator = new Aspose.Pdf.Generator.Pdf();
-				pdfGenerator.BindXML(xmlResult, xslPath);
+				//var pdfGenerator = new Aspose.Pdf.Generator.Pdf();
+				//pdfGenerator.BindXML(xmlResult, xslPath);
 
-				pdfGenerator.Save(string.Format("{0}.pdf", id), Aspose.Pdf.Generator.SaveType.OpenInBrowser, HttpContext.Current.Response);
+				//pdfGenerator.Save(string.Format("{0}.pdf", id), Aspose.Pdf.Generator.SaveType.OpenInBrowser, HttpContext.Current.Response);
 
 				return Ok();
 			}
