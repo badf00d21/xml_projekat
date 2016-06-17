@@ -28,7 +28,17 @@
                  <!-- Moj predlog je da koristite uvek pune putanje za svaki slucaj ako niste 100% sta je trenutni kontekst itd -->
                  <!-- Ono sto vam je sigurno je da je kontekst parliament:Propis, znaci kad napisete // to je umesto parliament:Propis -->
                  <!-- Najpametnije je odatle ici pune putanje //parliament:Deo/parliament:Glava/parliament:Clan... -->
-                 
+              
+                 <!-- Evo ispod cetiri prazna foreach-a, posto trenutno obradjujemo tag Propis, i ispod njega smo obradili Preambulu, na tom nivou mogu da se nadju jos Deo ili Glava ili Clan i opciono Prilog -->
+              
+                 <xsl:for-each select="//parliament:Deo">
+                 </xsl:for-each>
+                 <xsl:for-each select="//parliament:Glava">
+                 </xsl:for-each>
+                 <xsl:for-each select="//parliament:Clan">
+                 </xsl:for-each>
+                 <xsl:for-each select="//parliament:Prilog">
+                 </xsl:for-each>
             </div>
         </body>
     </xsl:template>
