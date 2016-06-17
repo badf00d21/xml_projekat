@@ -51,7 +51,7 @@
                 <xsl:choose>
                   <xsl:when test="//parliament:Deo">
                     <xsl:for-each select="//parliament:Deo">
-                        <p> Naziv dela: <xsl:value-of select="//parliament:NazivDela" </p>
+                        <p> Naziv dela: <xsl:value-of select="//parliament:NazivDela"/> </p>
 
                         <xsl:for-each select="//parliament:Glava">
                           <p> Naziv glave: <xsl:value-of select="//parliament:NazivGlave"/></p>
