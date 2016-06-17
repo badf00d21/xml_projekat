@@ -239,5 +239,10 @@ namespace Parliament.Security
 			document.SelectSingleNode("/parliament:Amandman/parliament:NadlezniOrgan", nsmgr).Attributes["Uloga"].Value = role;
 		}
 
+        public static void Merge(XmlDocument act, XmlDocument amandment)
+        {
+
+        }
+
 	}
 }

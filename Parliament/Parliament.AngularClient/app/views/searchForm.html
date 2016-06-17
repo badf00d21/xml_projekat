@@ -23,7 +23,6 @@
 <div class="bootstrap-iso">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6 col-sm-6 col-xs-12">
                 <form class="form-horizontal" method="post">
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-2" for="naziv">
@@ -35,48 +34,35 @@
                     </div>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-2">
-                            Status Propisa
+                            Status
                         </label>
-                        <div class="col-sm-10 ">
-                            <div class="checkbox">
-                                <label class="checkbox">
-                                    <input name="status" ng-model="searchBody.Status" type="checkbox" value="Predlozen" />
-                                    Predlozen
-                                </label>
-                            </div>
-                            <div class="checkbox">
-                                <label class="checkbox">
-                                    <input name="status" type="checkbox" ng-model="searchBody.Status" value="Usvojen" />
-                                    Usvojen
-                                </label>
-                            </div>
-                            <span class="help-block" id="hint_status">
-                                Unesite Status
-                            </span>
+                        <div class="col-sm-10">
+                            <input class="form-control" ng-model="searchBody.Status" placeholder="Unesite status propisa" type="text" />
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-2" for="date">
-                            Datum Predlaganja
+                            Ime
                         </label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="datumPredlaganja" ng-model="searchBody.datum_vreme_predlaganja" name="datumPredlaganja" placeholder="MM/DD/YYYY" type="text" />
+                            <input class="form-control"  ng-model="searchBody.ImeNadleznogOrgana"  placeholder="Ime nadleznog organa" type="text" />
                         </div>
+
                     </div>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-2" for="date1">
-                            Datum Usvajanja
+                            Prezime
                         </label>
                         <div class="col-sm-10">
-                            <input class="form-control" id="datumUsvajanja" name="datumUsvajanja" ng-model="searchBody.datum_vreme_usvajanja" placeholder="MM/DD/YYYY" type="text" />
+                            <input class="form-control"   ng-model="searchBody.PrezimeNadleznogOrgana" placeholder="Prezime nadleznog organa" type="text" />
                         </div>
                     </div>
                     <div class="form-group form-group-sm">
                         <label class="control-label col-sm-2" for="text">
-                            Tekst
+                            Email
                         </label>
                         <div class="col-sm-10">
-                            <textarea class="form-control"  ng-model="searchBody.text" cols="40" id="text" name="text" rows="10"></textarea>
+                            <input type="text" class="form-control"  ng-model="searchBody.EmailNadleznogOrgana" placeholder="Unesite email propisa" />
                         </div>
                     </div>
                     <div class="form-group">
@@ -89,4 +75,3 @@
                 </form>
             </div>
         </div>
-    </div>
