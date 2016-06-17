@@ -25,6 +25,7 @@ namespace Parliament.Api.SGNS.Endpoints
 	public class DocumentController : ApiController
 	{
 		[HttpPost]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/propose/act", Name = "ProposeAct")]
 		public async Task<IHttpActionResult> ProposeAct()
 		{
@@ -104,6 +105,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/propose/amandment", Name = "ProposeAmandment")]
 		public async Task<IHttpActionResult> ProposeAmandment()
 		{
@@ -261,6 +263,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/amandments", Name = "GetAllAmandments")]
 		public IHttpActionResult GetAllAmandments()
 		{
@@ -399,6 +402,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/amandments/revoke/{id}", Name = "RevokeAmandment")]
 		public IHttpActionResult RevokeAmandment(string id)
 		{
@@ -455,7 +459,6 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpGet]
-		[AllowAnonymous]
 		[Route("api/documents/acts/{id}/pdf", Name = "GetActPdfById")]
 		public IHttpActionResult GetActPdfById(string id)
 		{
@@ -520,6 +523,7 @@ namespace Parliament.Api.SGNS.Endpoints
 		}
 
 		[HttpPost]
+		[Authorize(Roles = "Alderman")]
 		[Route("api/documents/amandments/filter", Name = "FindAmandments")]
 		public IHttpActionResult FindAmandments(AmandmentViewModel amandment)
 		{
@@ -547,6 +551,20 @@ namespace Parliament.Api.SGNS.Endpoints
 				var xmlResult = XElement.Parse(getActQueryResult.AsString());
 
 				return Ok(xmlResult);
+			}
+		}
+
+		[HttpGet]
+		[Authorize(Roles = "Chairman")]
+		[Route("api/documents/acts/adopt/inprinciple/{id}", Name = "AdoptActInPrinciple")]
+		public IHttpActionResult AdoptActInPrinciple(string id)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			using (Session session = contentSource.NewSession())
+			{				
+				return Ok();
 			}
 		}
 	}
