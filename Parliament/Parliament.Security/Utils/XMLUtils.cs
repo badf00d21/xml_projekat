@@ -53,5 +53,24 @@ namespace Parliament.Security
 
 			eXml.DecryptDocument();
 		}
+
+		public static void GenerateIdForElements(XmlDocument document)
+		{
+
+		}
+
+		public static void AddTimeAndSerialNumber(XmlDocument document)
+		{
+
+		}
+
+		public static void AddUserInfo(XmlDocument document, string firstName, string lastName, string email)
+		{
+			var nsmgr = new XmlNamespaceManager(document.NameTable);
+			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
+
+			
+		}
+
 	}
 }
