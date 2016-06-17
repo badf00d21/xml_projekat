@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
@@ -125,6 +126,32 @@ namespace Parliament.Api.SGNS.Endpoints
 				Request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
 
 				return Ok(XElement.Parse( getSchemaQueryResult.AsString()));
+			}
+		}
+
+		[HttpGet]
+		[AllowAnonymous]
+		[Route("api/documents/schema/{name}/{referenced}", Name = "GetReferencedSchema")]
+		public async Task<IHttpActionResult> GetReferencedSchema(string name, string referenced)
+		{
+			Uri uri = new Uri(WebConfigurationManager.AppSettings["ParliamentXmlSchemaDbConnectionString"]);
+			ContentSource contentSource = ContentSourceFactory.NewContentSource(uri);
+
+			if (!referenced.Contains(".xsd"))
+				referenced = referenced + ".xsd";
+
+			using (Session session = contentSource.NewSession())
+			{
+				var getSchemaQuery = session.NewAdhocQuery(string.Format("doc('{0}')", referenced));
+				ResultSequence getSchemaQueryResult = session.SubmitRequest(getSchemaQuery);
+
+				if (getSchemaQueryResult.AsString() == "")
+					return BadRequest("Schema '" + referenced + "' does not exist!");
+
+				Request.Headers.Accept.Clear();
+				Request.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("text/xml"));
+
+				return Ok(XElement.Parse(getSchemaQueryResult.AsString()));
 			}
 		}
 
