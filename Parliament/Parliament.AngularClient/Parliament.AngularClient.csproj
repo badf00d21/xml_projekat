@@ -74,7 +74,6 @@
     <Content Include="app\controllers\indexController.js" />
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\modalController.js" />
-    <Content Include="app\controllers\newActController.js" />
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
@@ -86,7 +85,6 @@
     <Content Include="app\views\login.html" />
     <Content Include="app\views\newAct.html" />
     <Content Include="app\views\searchForm.html" />
-    <Content Include="app\views\test.html" />
     <Content Include="authComplete.html" />
     <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.js" />
     <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.min.js" />
@@ -114,6 +112,8 @@
     <Content Include="content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="content\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="scripts\angular-resource.js" />
+    <Content Include="scripts\angular-route.js" />
     <Content Include="xml-editor\editor.html" />
     <Content Include="xml-editor\editor.js" />
     <Content Include="xml-editor\lib\ace\ace.min.js" />
