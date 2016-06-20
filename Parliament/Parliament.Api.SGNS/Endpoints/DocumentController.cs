@@ -26,7 +26,7 @@ namespace Parliament.Api.SGNS.Endpoints
     public class DocumentController : ApiController
     {
         [HttpPost]
-        //[Authorize(Roles = "Alderman")]
+        [Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/act", Name = "ProposeAct")]
         public async Task<IHttpActionResult> ProposeAct()
         {
@@ -630,6 +630,9 @@ namespace Parliament.Api.SGNS.Endpoints
 					
                 }
 
+                var deleteQuery = session.NewAdhocQuery(string.Format("xdmp:document-delete('http://www.parliament.rs/documents/acts/{0}.xml')", id));
+                session.SubmitRequest(deleteQuery);
+
                 var updateDocQuery = session.NewModuleInvoke("/AddActQuery.xqy");
                 updateDocQuery.SetNewStringVariable("act_string", document.InnerXml);
                 updateDocQuery.SetNewStringVariable("id", id);
@@ -638,15 +641,17 @@ namespace Parliament.Api.SGNS.Endpoints
                 setPropertyQuery.SetNewStringVariable("document", string.Format("http://www.parliament.rs/documents/acts/{0}.xml", id));
                 setPropertyQuery.SetNewStringVariable("status", "Usvojen");
 
+                ResultSequence updateDocQueryResult = session.SubmitRequest(updateDocQuery);
+
+                if (updateDocQueryResult.AsString().Contains("Error"))
+                    return BadRequest(updateDocQueryResult.AsString());
+
                 ResultSequence setPropertyQueryResult = session.SubmitRequest(setPropertyQuery);
 
                 if (setPropertyQueryResult.AsString() != "")
                     return BadRequest(string.Format("Document with '{0}' id could not be adopted", id));
 
-                ResultSequence updateDocQueryResult = session.SubmitRequest(updateDocQuery);
-
-                if (updateDocQueryResult.AsString().Contains("Error"))
-                    return BadRequest(updateDocQueryResult.AsString());
+               
 
                 return Ok();
             }

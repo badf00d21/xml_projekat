@@ -1,5 +1,5 @@
 ﻿
-app.controller('citizenController', ['$scope', 'actService', 'authService', function ($scope, actService,authService) {
+app.controller('citizenController', ['$scope', 'actService', 'authService','$route', function ($scope, actService,authService,$route) {
 
     $scope.akti = [];
     $scope.authentication = authService.authentication;
@@ -56,13 +56,13 @@ app.controller('citizenController', ['$scope', 'actService', 'authService', func
 
     $scope.usvojCeo = function (idAkta) {
         actService.usvojiUNacelu(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
 
     $scope.usvojNacelo = function (idAkta) {
         actService.usvojiUCelosti(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
         

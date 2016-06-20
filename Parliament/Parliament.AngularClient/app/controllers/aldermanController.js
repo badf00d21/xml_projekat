@@ -1,5 +1,5 @@
 ﻿
-app.controller('aldermanController', ['$scope', '$location', 'actService','authService', function ($scope, $location, actService,authService) {
+app.controller('aldermanController', ['$scope', '$location', 'actService','authService', '$route',function ($scope, $location, actService,authService,$route) {
     
     $scope.akti = [];
     $scope.idAkta = "";
@@ -59,13 +59,13 @@ app.controller('aldermanController', ['$scope', '$location', 'actService','authS
 
     $scope.usvojCeo = function (idAkta) {
         actService.usvojiUNacelu(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
 
     $scope.usvojNacelo = function (idAkta) {
         actService.usvojiUCelosti(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
 }]);

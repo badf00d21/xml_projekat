@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parliament:Propis xmlns:parliament="http://www.parliament.rs/schema"
+ xmlns:security="http://www.w3.org/2000/09/xmldsig#"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.parliament.rs/schema file:/E:/GitRepos/xml_projekat/Parliament/Parliament.DataAccess/XmlSchema/Propis.xsd" parliament:DatumVremePredlaganja="2006-05-04T18:13:51.0" SerijskiBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+    <parliament:Preambula>
+        <parliament:NadlezniOrgan Uloga="Odbornik">
+            <parliament:Ime>AA</parliament:Ime>
+            <parliament:Prezime>AA</parliament:Prezime>
+            <parliament:Email>0@0.0</parliament:Email>
+        </parliament:NadlezniOrgan>
+    </parliament:Preambula>
+    <parliament:NazivPropisa>A</parliament:NazivPropisa>
+    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+        <parliament:NazivClana>NazivClana0</parliament:NazivClana>
+        <parliament:TekstualniSadrzaj>TekstualniSadrzaj0</parliament:TekstualniSadrzaj>
+    </parliament:Clan>
+    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+        <parliament:NazivClana>NazivClana1</parliament:NazivClana>
+        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                <parliament:TekstualniSadrzaj>TekstualniSadrzaj1</parliament:TekstualniSadrzaj>
+            </parliament:Tacka>
+            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja0</parliament:Alineja>
+                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja1</parliament:Alineja>
+                </parliament:Podtacka>
+                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj2</parliament:TekstualniSadrzaj>
+                </parliament:Podtacka>
+            </parliament:Tacka>
+        </parliament:Stav>
+        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                <parliament:TekstualniSadrzaj>TekstualniSadrzaj3</parliament:TekstualniSadrzaj>
+            </parliament:Tacka>
+            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj4</parliament:TekstualniSadrzaj>
+                </parliament:Podtacka>
+                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj5</parliament:TekstualniSadrzaj>
+                </parliament:Podtacka>
+            </parliament:Tacka>
+        </parliament:Stav>
+    </parliament:Clan>
+    <security:Signature>
+        <security:SignedInfo>
+            <security:CanonicalizationMethod Algorithm="http://www.oxygenxml.com/">
+            </security:CanonicalizationMethod>
+            <security:SignatureMethod Algorithm="http://www.oxygenxml.com/">
+            </security:SignatureMethod>
+            <security:Reference>
+                <security:DigestMethod Algorithm="http://www.oxygenxml.com/">
+                </security:DigestMethod>
+                <security:DigestValue>ZGVmYXVsdA==</security:DigestValue>
+            </security:Reference>
+            <security:Reference>
+                <security:DigestMethod Algorithm="http://www.oxygenxml.com/">
+                </security:DigestMethod>
+                <security:DigestValue>ZGVmYXVsdA==</security:DigestValue>
+            </security:Reference>
+        </security:SignedInfo>
+        <security:SignatureValue>ZGVmYXVsdA==</security:SignatureValue>
+    </security:Signature>
+</parliament:Propis>

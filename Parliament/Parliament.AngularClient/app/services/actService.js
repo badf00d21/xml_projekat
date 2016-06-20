@@ -1,6 +1,6 @@
 ﻿
 
-restApiBaseUrl = 'http://localhost:8973/api/';
+restApiBaseUrl = 'https://localhost:44337/api/';
 
 
 app.service('actService', ['$http', 'localStorageService', '$window', function ($http, localStorageService, $window) {
@@ -17,7 +17,7 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
     this.napraviAkt = function (xmlStr) {
        
         console.log(xmlStr);
-        $http({
+        return $http({
             method: 'POST',
             url: restApiBaseUrl + 'documents/propose/act/',
             data: xmlStr,
@@ -40,7 +40,7 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
 
     this.napraviAmandman = function (xmlStr) {
         console.log(xmlStr);
-        $http({
+        return $http({
             method: 'POST',
             url: restApiBaseUrl + 'documents/propose/amandment/',
             data: xmlStr,

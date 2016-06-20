@@ -13,6 +13,6 @@ namespace Parliament.AuthServer.Database
     {
         public DbSet<AuthClient> AuthClients { get; set; }
 
-		public AuthDbContext() : base("Database=AuthDb;Integrated Security=True;") { }
+		public AuthDbContext() : base("Server=MARKO-PC\\IME_MOJE;Database=AuthDb;Integrated Security = True;") { }
     }
 }

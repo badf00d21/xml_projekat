@@ -1,5 +1,5 @@
 ﻿
-app.controller('chairmanController', ['$scope', 'actService','authService', function ($scope, actService,authService) {
+app.controller('chairmanController', ['$scope', 'actService','authService','$route', function ($scope, actService,authService,$route) {
 
     x2js = new X2JS();
     $scope.akti = [];
@@ -56,13 +56,13 @@ app.controller('chairmanController', ['$scope', 'actService','authService', func
 
     $scope.usvojCeo = function (idAkta) {
         actService.usvojiUCelosti(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
 
     $scope.usvojNacelo = function (idAkta) {
         actService.usvojiUNacelu(idAkta).then(function (response) {
-            $scope.$apply();
+            $route.reload();
         });
     }
 }]);

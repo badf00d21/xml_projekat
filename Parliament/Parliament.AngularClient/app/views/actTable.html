@@ -4,6 +4,7 @@
     <table class="table table-hover table-bordered results">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Naziv Propisa</th>
                 <th>Ime Nadleznog Organa</th>
                 <th>Prezime Nadleznog Organa</th>
@@ -19,6 +20,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="akt in akti ">
+                <td> {{akt.Id}} </td>
                 <td > {{akt.NazivPropisa}} </td>
                 <td>  {{akt.ImeNadleznogOrgana}} </td>
                 <td>  {{akt.PrezimeNadleznogOrgana}} </td>

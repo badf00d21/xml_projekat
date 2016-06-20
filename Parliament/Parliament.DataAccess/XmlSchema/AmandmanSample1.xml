@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parliament:Amandman xmlns:parliament="http://www.parliament.rs/schema"
+ xmlns:security="http://www.w3.org/2000/09/xmldsig#"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.parliament.rs/schema file:/E:/GitRepos/xml_projekat/Parliament/Parliament.DataAccess/XmlSchema/Amandman.xsd" parliament:DatumVremePredlaganja="2006-05-04T18:13:51.0" SerijskiBroj="50" PredmetAmandmana="00000000-0000-0000-0000-000000000000"
+     parliament:Id="00000000-0000-0000-0000-000000000000">
+    <parliament:NadlezniOrgan Uloga="Odbornik">
+        <parliament:Ime>AA</parliament:Ime>
+        <parliament:Prezime>AA</parliament:Prezime>
+        <parliament:Email>0@0.0</parliament:Email>
+    </parliament:NadlezniOrgan>
+    <parliament:Modifikacija>Modifikacija0</parliament:Modifikacija>
+    <parliament:Modifikacija>Modifikacija1</parliament:Modifikacija>
+    <security:Signature>
+        <security:SignedInfo>
+            <security:CanonicalizationMethod Algorithm="http://www.oxygenxml.com/">
+            </security:CanonicalizationMethod>
+            <security:SignatureMethod Algorithm="http://www.oxygenxml.com/">
+            </security:SignatureMethod>
+            <security:Reference>
+                <security:DigestMethod Algorithm="http://www.oxygenxml.com/">
+                </security:DigestMethod>
+                <security:DigestValue>ZGVmYXVsdA==</security:DigestValue>
+            </security:Reference>
+            <security:Reference>
+                <security:DigestMethod Algorithm="http://www.oxygenxml.com/">
+                </security:DigestMethod>
+                <security:DigestValue>ZGVmYXVsdA==</security:DigestValue>
+            </security:Reference>
+        </security:SignedInfo>
+        <security:SignatureValue>ZGVmYXVsdA==</security:SignatureValue>
+    </security:Signature>
+</parliament:Amandman>
