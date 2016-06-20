@@ -1,26 +1,42 @@
-﻿<table class="table table-hover table-bordered results">
-    <thead>
-        <tr>
-            <th>Naziv Propisa</th>
-            <th>Ime Nadleznog Organa</th>
-            <th>Prezime Nadleznog Organa</th>
-            <th>Email Nadleznog Organa</th>
-            <th>Status</th>
-            <th>Pregled</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="akt in akti ">
-            <td> {{akt.NazivPropisa}} </td>
-            <td>  {{akt.ImeNadleznogOrgana}} </td>
-            <td>  {{akt.PrezimeNadleznogOrgana}} </td>
-            <td>  {{akt.EmailNadleznogOrgana}} </td>
-            <td> {{akt.Status}} </td>
-            <td>
-                <button class="image-button" ng-click="izbrisiFakturu(f.id_fakture)">
-                    <img src="https://cdn1.iconfinder.com/data/icons/surgery/450/eye-512.png" class="icon" width="30" height="30">
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
+﻿<div ng-show="akti.length <= 0"> Trentuno nema ni jednog propisa u vasoj bazi!<br />Molimo vas da ubacite neki!</div>
+
+<div ng-show="akti.length > 0">
+    <table class="table table-hover table-bordered results">
+        <thead>
+            <tr>
+                <th>Naziv Propisa</th>
+                <th>Ime Nadleznog Organa</th>
+                <th>Prezime Nadleznog Organa</th>
+                <th>Email Nadleznog Organa</th>
+                <th>Status</th>
+                <th>Pregled HTML</th>
+                <th>Pregled XML</th>
+                <th>Pregled PDF</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="akt in akti ">
+                <td> {{akt.NazivPropisa}} </td>
+                <td>  {{akt.ImeNadleznogOrgana}} </td>
+                <td>  {{akt.PrezimeNadleznogOrgana}} </td>
+                <td>  {{akt.EmailNadleznogOrgana}} </td>
+                <td> {{akt.Status}} </td>
+                <td>
+                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoHtml()">
+                        <img src="https://cdn1.iconfinder.com/data/icons/surgery/450/eye-512.png" class="icon" width="30" height="30">
+                    </button>
+                </td>
+                <td>
+                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoXml()">
+                        <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSPmJZxEoSCWzUtFinrtEstNNpP_q3ViIA1JiP0pvvbGhclv6CQ8g" class="icon" width="30" height="30">
+                    </button>
+                </td>
+                <td>
+                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoPdf()">
+                        <img src="http://a-1fenceproducts.com/wp-content/uploads/2015/03/pdf-ico.jpg" class="icon" width="30" height="30">
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>

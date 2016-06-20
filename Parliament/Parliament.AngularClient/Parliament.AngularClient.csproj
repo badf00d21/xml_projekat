@@ -75,6 +75,7 @@
     <Content Include="app\controllers\loginController.js" />
     <Content Include="app\controllers\modalController.js" />
     <Content Include="app\controllers\newActController.js" />
+    <Content Include="app\controllers\newAmandmentController.js" />
     <Content Include="app\services\actService.js" />
     <Content Include="app\services\authInterceptorService.js" />
     <Content Include="app\services\authService.js" />
@@ -85,6 +86,7 @@
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\newAct.html" />
+    <Content Include="app\views\newAmandment.html" />
     <Content Include="app\views\searchForm.html" />
     <Content Include="authComplete.html" />
     <Content Include="bower_components\angular-modal-service\dst\angular-modal-service.js" />

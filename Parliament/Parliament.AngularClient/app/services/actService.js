@@ -8,7 +8,6 @@ app.service('actService', ['$http', 'localStorageService', function ($http, loca
     
     this.ucitajSveAkte = function () {
         return $http.get(restApiBaseUrl + 'documents/acts/');
-        //return fake_propisi;
     }
 
     this.ucitajPredlozeneAkte = function () {
@@ -34,18 +33,29 @@ app.service('actService', ['$http', 'localStorageService', function ($http, loca
 
     this.ucitajUsvojeneAkte = function () {
         return $http.get(restApiBaseUrl + 'documents/acts/adopted/');
-        //usvojeni = [];
-        //usvojeni.push(fake_propisi[3]);
-        //usvojeni.push(fake_propisi[4]);
-        //usvojeni.push(fake_propisi[5]);
-        //return usvojeni;
     }
 
     this.pretraziAkte = function (body) {
         return $http.post(restApiBaseUrl + "documents/acts/filter/",body);
-        //return "u izgradnji!";
     }
 
+    this.aktKaoHtml = function (idAkta) {
+        $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/html').then(function (data) {
+            $window.open(data);
+        })
+    }
 
-    
+    this.aktKaoPdf = function (idAkta) {
+       $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf')
+            .then(function (data) {
+                $window.open(data);
+            })
+    }
+
+    this.aktKaoXml = function (idAkta) {
+        $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
+            $window.open(data);
+        })
+    }
+
 }]);
