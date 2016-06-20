@@ -241,7 +241,70 @@ namespace Parliament.Security
 
         public static void Merge(XmlDocument act, XmlDocument amandment)
         {
+			var nsmgr = new XmlNamespaceManager(amandment.NameTable);
+			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
 
+			var nsmgr1 = new XmlNamespaceManager(act.NameTable);
+			nsmgr.AddNamespace("parliament", "http://www.parliament.rs/schema");
+
+			var modifications = amandment.SelectNodes("/parliament:Amandman/parliament:Modifikacija", nsmgr);
+
+			for (int i = 0; i < modifications.Count; i++)
+			{
+				if (modifications[i].Attributes["PredmetModifikacije"] == null || modifications[i].Attributes["TipModifikacije"] == null)
+					continue;
+
+				string predmetModifikacije = modifications[i].Attributes["PredmetModifikacije"].Value;
+				string tipModifikacije = modifications[i].Attributes["TipModifikacije"].Value;
+
+				if (tipModifikacije == "Dodavanje")
+				{
+					var clanNodes = act.GetElementsByTagName("parliament:Clan");
+
+					for (int j = 0; j < clanNodes.Count; j++)
+					{
+						if (clanNodes[j].Attributes["parliament:Id"].Value == predmetModifikacije)
+						{
+							if (clanNodes[j].SelectNodes("parliament:Stav", nsmgr).Count > 0)
+								break;
+
+							clanNodes[j].SelectSingleNode("parliament:TekstualniSadrzaj", nsmgr).InnerText += modifications[i].InnerText;
+							break;
+						}
+					}
+				}
+				else if (tipModifikacije == "Izmena")
+				{
+					var clanNodes = act.GetElementsByTagName("parliament:Clan");
+
+					for (int j = 0; j < clanNodes.Count; j++)
+					{
+						if (clanNodes[j].Attributes["parliament:Id"].Value == predmetModifikacije)
+						{
+							if (clanNodes[j].SelectNodes("parliament:Stav", nsmgr).Count > 0)
+								break;
+
+							clanNodes[j].SelectSingleNode("parliament:TekstualniSadrzaj", nsmgr).InnerText = modifications[i].InnerText;
+							break;
+						}
+					}
+				}
+				else if (tipModifikacije == "Brisanje")
+				{
+					var clanNodes = act.GetElementsByTagName("parliament:Clan");
+
+					for (int j = 0; j < clanNodes.Count; j++)
+					{
+						if (clanNodes[j].Attributes["parliament:Id"].Value == predmetModifikacije)
+						{
+							clanNodes[j].ParentNode.RemoveChild(clanNodes[i]);
+							break;
+						}
+					}
+				}
+				
+			}
+			
         }
 
 	}

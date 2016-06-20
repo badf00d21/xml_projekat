@@ -13,6 +13,6 @@ namespace Parliament.AuthServer.Database
     {
         public DbSet<AuthClient> AuthClients { get; set; }
 
-		public AuthDbContext() : base("AuthDb") { }
+		public AuthDbContext() : base("Server=W7ENT\\OASYSHDB;Database=AuthDb;Integrated Security=True;") { }
     }
 }

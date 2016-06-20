@@ -14,24 +14,28 @@
                 <xs:element maxOccurs="1" ref="NadlezniOrgan"/>
                 <xs:element maxOccurs="unbounded" name="Modifikacija">
                     <xs:complexType>
-                        <xs:attribute name="TipModifikacije" use="required">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:enumeration value="Izmena"/>
-                                    <xs:enumeration value="Brisanje"/>
-                                    <xs:enumeration value="Dodavanje"/>
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:attribute>
-                        <xs:attribute name="PredmetModifikacije" use="required">
-                            <xs:simpleType>
-                                <xs:restriction base="xs:string">
-                                    <xs:pattern
-                                        value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
-                                    />
-                                </xs:restriction>
-                            </xs:simpleType>
-                        </xs:attribute>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name="TipModifikacije">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:enumeration value="Izmena"/>
+                                            <xs:enumeration value="Dodavanje"/>
+                                            <xs:enumeration value="Brisanje"/>
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                                <xs:attribute name="PredmetModifikacije">
+                                    <xs:simpleType>
+                                        <xs:restriction base="xs:string">
+                                            <xs:pattern
+                                                value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"
+                                            />
+                                        </xs:restriction>
+                                    </xs:simpleType>
+                                </xs:attribute>
+                            </xs:extension>
+                        </xs:simpleContent>
                     </xs:complexType>
                 </xs:element>
                 <xs:element ref="security:Signature"/>

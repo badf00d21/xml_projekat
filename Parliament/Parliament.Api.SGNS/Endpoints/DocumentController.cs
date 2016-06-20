@@ -21,11 +21,11 @@ using System.Xml.Xsl;
 
 namespace Parliament.Api.SGNS.Endpoints
 {
-    [Authorize]
+    //[Authorize]
     public class DocumentController : ApiController
     {
         [HttpPost]
-        [Authorize(Roles = "Alderman")]
+        //[Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/act", Name = "ProposeAct")]
         public async Task<IHttpActionResult> ProposeAct()
         {
@@ -105,7 +105,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpPost]
-        [Authorize(Roles = "Alderman")]
+        //[Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/amandment", Name = "ProposeAmandment")]
         public async Task<IHttpActionResult> ProposeAmandment()
         {
@@ -577,7 +577,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpGet]
-        [Authorize(Roles = "Chairman")]
+        //[Authorize(Roles = "Chairman")]
         [Route("api/documents/acts/adopt/{id}", Name = "AdoptAct")]
         public IHttpActionResult AdoptAct(string id)
         {
@@ -623,6 +623,18 @@ namespace Parliament.Api.SGNS.Endpoints
                     amandmanDoc.LoadXml(getAmandmentQueryResult1.AsString());
 
                     XMLUtils.Merge(document, amandmanDoc);
+
+					//var deleteOldQuery = session.NewAdhocQuery(string.Format("xdmp:document-delete('http://www.parliament.rs/documents/acts/{0}.xml')", id));
+					//ResultSequence deleteOldQueryResult = session.SubmitRequest(deleteOldQuery);
+
+					var updateDocQuery = session.NewModuleInvoke("/AddActQuery.xqy");
+					updateDocQuery.SetNewStringVariable("act_string", document.InnerXml);
+					updateDocQuery.SetNewStringVariable("id", id);
+
+					ResultSequence updateDocQueryResult = session.SubmitRequest(updateDocQuery);
+
+					if (updateDocQueryResult.AsString().Contains("Error"))
+						return BadRequest(updateDocQueryResult.AsString());
                 }
 
                 return Ok();
