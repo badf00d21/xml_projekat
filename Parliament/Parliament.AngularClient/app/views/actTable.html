@@ -22,17 +22,17 @@
                 <td>  {{akt.EmailNadleznogOrgana}} </td>
                 <td> {{akt.Status}} </td>
                 <td>
-                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoHtml()">
+                    <button class="image-button" ng-click="kaoHtml(akt.Id)">
                         <img src="https://cdn1.iconfinder.com/data/icons/surgery/450/eye-512.png" class="icon" width="30" height="30">
                     </button>
                 </td>
                 <td>
-                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoXml()">
+                    <button class="image-button" ng-click="kaoXml(akt.Id)">
                         <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSPmJZxEoSCWzUtFinrtEstNNpP_q3ViIA1JiP0pvvbGhclv6CQ8g" class="icon" width="30" height="30">
                     </button>
                 </td>
                 <td>
-                    <button class="image-button" ng-click="idAkta =  akt.ID  ; kaoPdf()">
+                    <button class="image-button" ng-click="kaoPdf(akt.Id)">
                         <img src="http://a-1fenceproducts.com/wp-content/uploads/2015/03/pdf-ico.jpg" class="icon" width="30" height="30">
                     </button>
                 </td>

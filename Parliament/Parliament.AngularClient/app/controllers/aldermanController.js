@@ -37,20 +37,20 @@ app.controller('aldermanController', ['$scope', '$location', 'actService', funct
         });
     }
 
-    $scope.kaoHtml = function () {
-        actService.aktKaoHtml($scope.idAkta).then(function (response) {
+    $scope.kaoHtml = function (idAkta) {
+        actService.aktKaoHtml(idAkta).then(function (response) {
             
         });
     }
 
-    $scope.kaoXml = function () {
-        actService.aktKaoXml($scope.idAkta).then(function (response) {
+    $scope.kaoXml = function (idAkta) {
+        actService.aktKaoXml(idAkta).then(function (response) {
 
         });
     }
 
-    $scope.kaoPdf = function () {
-        actService.aktKaoPdf($scope.idAkta).then(function (response) {
+    $scope.kaoPdf = function (idAkta) {
+        actService.aktKaoPdf(idAkta).then(function (response) {
 
         });
     }

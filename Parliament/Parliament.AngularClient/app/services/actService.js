@@ -53,7 +53,7 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
     }
 
     this.aktKaoXml = function (idAkta) {
-       return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
+        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
             $window.open(data);
         })
     }
