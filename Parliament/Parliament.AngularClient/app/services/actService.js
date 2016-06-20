@@ -3,7 +3,7 @@
 restApiBaseUrl = 'http://localhost:8973/api/';
 
 
-app.service('actService', ['$http', 'localStorageService', function ($http, localStorageService) {
+app.service('actService', ['$http', 'localStorageService', '$window', function ($http, localStorageService, $window) {
     x2js = new X2JS();
     
     this.ucitajSveAkte = function () {
