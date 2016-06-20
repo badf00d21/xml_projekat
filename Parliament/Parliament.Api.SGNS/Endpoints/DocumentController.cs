@@ -566,8 +566,9 @@ namespace Parliament.Api.SGNS.Endpoints
 
             using (Session session = contentSource.NewSession())
             {
-                var setPropertyQuery = session.NewModuleInvoke("/AdopActInPrincipleQuery.xqy");
+                var setPropertyQuery = session.NewModuleInvoke("/ChangeActStatusQuery.xqy");
                 setPropertyQuery.SetNewStringVariable("document", string.Format("http://www.parliament.rs/documents/acts/{0}.xml", id));
+                setPropertyQuery.SetNewStringVariable("status", "Usvojen u nacelu");
 
                 ResultSequence setPropertyQueryResult = session.SubmitRequest(setPropertyQuery);
 
@@ -626,18 +627,26 @@ namespace Parliament.Api.SGNS.Endpoints
 
                     XMLUtils.Merge(document, amandmanDoc);
 
-					//var deleteOldQuery = session.NewAdhocQuery(string.Format("xdmp:document-delete('http://www.parliament.rs/documents/acts/{0}.xml')", id));
-					//ResultSequence deleteOldQueryResult = session.SubmitRequest(deleteOldQuery);
-
-					var updateDocQuery = session.NewModuleInvoke("/AddActQuery.xqy");
-					updateDocQuery.SetNewStringVariable("act_string", document.InnerXml);
-					updateDocQuery.SetNewStringVariable("id", id);
-
-					ResultSequence updateDocQueryResult = session.SubmitRequest(updateDocQuery);
-
-					if (updateDocQueryResult.AsString().Contains("Error"))
-						return BadRequest(updateDocQueryResult.AsString());
+					
                 }
+
+                var updateDocQuery = session.NewModuleInvoke("/AddActQuery.xqy");
+                updateDocQuery.SetNewStringVariable("act_string", document.InnerXml);
+                updateDocQuery.SetNewStringVariable("id", id);
+
+                var setPropertyQuery = session.NewModuleInvoke("/ChangeActStatusQuery.xqy");
+                setPropertyQuery.SetNewStringVariable("document", string.Format("http://www.parliament.rs/documents/acts/{0}.xml", id));
+                setPropertyQuery.SetNewStringVariable("status", "Usvojen");
+
+                ResultSequence setPropertyQueryResult = session.SubmitRequest(setPropertyQuery);
+
+                if (setPropertyQueryResult.AsString() != "")
+                    return BadRequest(string.Format("Document with '{0}' id could not be adopted", id));
+
+                ResultSequence updateDocQueryResult = session.SubmitRequest(updateDocQuery);
+
+                if (updateDocQueryResult.AsString().Contains("Error"))
+                    return BadRequest(updateDocQueryResult.AsString());
 
                 return Ok();
             }

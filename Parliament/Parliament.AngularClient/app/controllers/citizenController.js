@@ -1,7 +1,8 @@
 ﻿
-app.controller('citizenController', ['$scope', 'actService', function ($scope, actService ) {
+app.controller('citizenController', ['$scope', 'actService', 'authService', function ($scope, actService,authService) {
 
     $scope.akti = [];
+    $scope.authentication = authService.authentication;
     $scope.searchBody = {
         Naziv: "",
         Status: "",
@@ -50,6 +51,18 @@ app.controller('citizenController', ['$scope', 'actService', function ($scope, a
     $scope.kaoPdf = function (idAkta) {
         actService.aktKaoPdf(idAkta).then(function (response) {
 
+        });
+    }
+
+    $scope.usvojCeo = function (idAkta) {
+        actService.usvojiUNacelu(idAkta).then(function (response) {
+            $scope.$apply();
+        });
+    }
+
+    $scope.usvojNacelo = function (idAkta) {
+        actService.usvojiUCelosti(idAkta).then(function (response) {
+            $scope.$apply();
         });
     }
         

@@ -1,8 +1,10 @@
 ﻿
-app.controller('aldermanController', ['$scope', '$location', 'actService', function ($scope, $location, actService) {
+app.controller('aldermanController', ['$scope', '$location', 'actService','authService', function ($scope, $location, actService,authService) {
     
     $scope.akti = [];
     $scope.idAkta = "";
+
+    $scope.authentication = authService.authentication;
     $scope.searchBody = {
         Naziv : "",
         Status : "",
@@ -55,5 +57,15 @@ app.controller('aldermanController', ['$scope', '$location', 'actService', funct
         });
     }
 
+    $scope.usvojCeo = function (idAkta) {
+        actService.usvojiUNacelu(idAkta).then(function (response) {
+            $scope.$apply();
+        });
+    }
 
+    $scope.usvojNacelo = function (idAkta) {
+        actService.usvojiUCelosti(idAkta).then(function (response) {
+            $scope.$apply();
+        });
+    }
 }]);

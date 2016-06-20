@@ -15,7 +15,7 @@
 
     $scope.postXml = function () {
         console.log('usao');
-        amandmentService.napraviAmandman($scope.xmlStr).then(function (response) {
+        actService.napraviAmandman($scope.xmlStr).then(function (response) {
 
             console.log(response);
             $location.path('/citizenhome');

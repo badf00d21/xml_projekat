@@ -12,11 +12,14 @@
                 <th>Pregled HTML</th>
                 <th>Pregled XML</th>
                 <th>Pregled PDF</th>
+
+                <th ng-show='authentication.role == "Chairman"'>Usvoj u Celosti</th>
+                <th ng-show='authentication.role == "Chairman"'>Usvoj u Nacelu</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="akt in akti ">
-                <td> {{akt.NazivPropisa}} </td>
+                <td > {{akt.NazivPropisa}} </td>
                 <td>  {{akt.ImeNadleznogOrgana}} </td>
                 <td>  {{akt.PrezimeNadleznogOrgana}} </td>
                 <td>  {{akt.EmailNadleznogOrgana}} </td>
@@ -31,9 +34,19 @@
                         <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSPmJZxEoSCWzUtFinrtEstNNpP_q3ViIA1JiP0pvvbGhclv6CQ8g" class="icon" width="30" height="30">
                     </button>
                 </td>
-                <td>
+                <td >
                     <button class="image-button" ng-click="kaoPdf(akt.Id)">
                         <img src="http://a-1fenceproducts.com/wp-content/uploads/2015/03/pdf-ico.jpg" class="icon" width="30" height="30">
+                    </button>
+                </td>
+                <td ng-show='authentication.role == "Chairman" && akt.Status == "Predlozen"'>
+                    <button class="image-button" ng-click="usvojCeo(akt.Id)">
+                        <img src="http://icons.iconarchive.com/icons/custom-icon-design/pretty-office-3/256/Process-Accept-icon.png" class="icon" width="30" height="30">
+                    </button>
+                </td>
+                <td ng-show='authentication.role == "Chairman" && akt.Status == "Predlozen"'>
+                    <button class="image-button" ng-click="usvojNacelo(akt.Id)" >
+                        <img src="https://cdn1.iconfinder.com/data/icons/toolbar-signs/512/OK-512.png" class="icon" width="30" height="30">
                     </button>
                 </td>
             </tr>

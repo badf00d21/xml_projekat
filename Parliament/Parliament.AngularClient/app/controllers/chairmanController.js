@@ -1,8 +1,9 @@
 ﻿
-app.controller('chairmanController', ['$scope', 'actService', function ($scope, actService) {
+app.controller('chairmanController', ['$scope', 'actService','authService', function ($scope, actService,authService) {
 
     x2js = new X2JS();
     $scope.akti = [];
+    $scope.authentication = authService.authentication;
     $scope.searchBody = {
         Naziv: "",
         Status: "",
@@ -50,6 +51,18 @@ app.controller('chairmanController', ['$scope', 'actService', function ($scope, 
     $scope.kaoPdf = function (idAkta) {
         actService.aktKaoPdf(idAkta).then(function (response) {
 
+        });
+    }
+
+    $scope.usvojCeo = function (idAkta) {
+        actService.usvojiUCelosti(idAkta).then(function (response) {
+            $scope.$apply();
+        });
+    }
+
+    $scope.usvojNacelo = function (idAkta) {
+        actService.usvojiUNacelu(idAkta).then(function (response) {
+            $scope.$apply();
         });
     }
 }]);

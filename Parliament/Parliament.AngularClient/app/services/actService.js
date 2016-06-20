@@ -38,8 +38,26 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
 
     }
 
+    this.napraviAmandman = function (xmlStr) {
+        console.log(xmlStr);
+        $http({
+            method: 'POST',
+            url: restApiBaseUrl + 'documents/propose/amandment/',
+            data: xmlStr,
+            headers: { "Content-Type": 'application/xml' }
+        });
+    }
+
     this.ucitajUsvojeneAkte = function () {
         return $http.get(restApiBaseUrl + 'documents/acts/adopted/');
+    }
+
+    this.usvojiUNacelu = function (aktId) {
+        return $http.get(restApiBaseUrl + 'documents/acts/adopt/inprinciple/' + aktId);
+    }
+
+    this.usvojiUCelosti = function (aktId) {
+        return $http.get(restApiBaseUrl + 'documents/acts/adopt/' + aktId);
     }
 
     this.pretraziAkte = function (body) {
