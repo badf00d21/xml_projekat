@@ -38,19 +38,19 @@ app.controller('aldermanController', ['$scope', '$location', 'actService', funct
     }
 
     $scope.kaoHtml = function () {
-        actService.aktKaoHtml(idAkta).then(function (response) {
+        actService.aktKaoHtml($scope.idAkta).then(function (response) {
             
         });
     }
 
     $scope.kaoXml = function () {
-        actService.aktKaoXml(idAkta).then(function (response) {
+        actService.aktKaoXml($scope.idAkta).then(function (response) {
 
         });
     }
 
     $scope.kaoPdf = function () {
-        actService.aktKaoPdf(idAkta).then(function (response) {
+        actService.aktKaoPdf($scope.idAkta).then(function (response) {
 
         });
     }

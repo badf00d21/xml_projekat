@@ -40,20 +40,20 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
     }
 
     this.aktKaoHtml = function (idAkta) {
-        $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/html').then(function (data) {
+        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/html').then(function (data) {
             $window.open(data);
         })
     }
 
     this.aktKaoPdf = function (idAkta) {
-       $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf')
+       return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf')
             .then(function (data) {
                 $window.open(data);
             })
     }
 
     this.aktKaoXml = function (idAkta) {
-        $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
+       return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
             $window.open(data);
         })
     }
