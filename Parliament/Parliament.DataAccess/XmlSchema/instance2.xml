@@ -37,127 +37,114 @@
                     <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
                     <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                         <parliament:NazivClana>NazivClana2</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj3</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana3</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj4</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
+            </parliament:Odeljak>
+            <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana4</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj5</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana5</parliament:NazivClana>
                         <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                             <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj6</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj7</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj8</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj9</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj10</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana6</parliament:NazivClana>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj11</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
                                 <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                     <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja0</parliament:Alineja>
                                     <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja1</parliament:Alineja>
                                 </parliament:Podtacka>
-                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj3</parliament:TekstualniSadrzaj>
-                                </parliament:Podtacka>
                             </parliament:Tacka>
                             <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj12</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                 <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj4</parliament:TekstualniSadrzaj>
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj13</parliament:TekstualniSadrzaj>
                                 </parliament:Podtacka>
                                 <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                     <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja2</parliament:Alineja>
                                     <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja3</parliament:Alineja>
                                 </parliament:Podtacka>
                             </parliament:Tacka>
-                        </parliament:Stav>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                             <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj5</parliament:TekstualniSadrzaj>
-                            </parliament:Tacka>
-                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj6</parliament:TekstualniSadrzaj>
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj14</parliament:TekstualniSadrzaj>
                             </parliament:Tacka>
                         </parliament:Stav>
                     </parliament:Clan>
                     <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana3</parliament:NazivClana>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja4</parliament:Alineja>
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja5</parliament:Alineja>
-                                </parliament:Podtacka>
-                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja6</parliament:Alineja>
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja7</parliament:Alineja>
-                                </parliament:Podtacka>
-                            </parliament:Tacka>
-                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja8</parliament:Alineja>
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja9</parliament:Alineja>
-                                </parliament:Podtacka>
-                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj7</parliament:TekstualniSadrzaj>
-                                </parliament:Podtacka>
-                            </parliament:Tacka>
-                        </parliament:Stav>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj8</parliament:TekstualniSadrzaj>
-                        </parliament:Stav>
+                        <parliament:NazivClana>NazivClana7</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj15</parliament:TekstualniSadrzaj>
                     </parliament:Clan>
                 </parliament:Pododeljak>
-            </parliament:Odeljak>
-            <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana4</parliament:NazivClana>
-                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj9</parliament:TekstualniSadrzaj>
-                </parliament:Clan>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana5</parliament:NazivClana>
-                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj10</parliament:TekstualniSadrzaj>
-                </parliament:Clan>
             </parliament:Odeljak>
         </parliament:Glava>
         <parliament:Glava parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
             <parliament:NazivGlave>A</parliament:NazivGlave>
             <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                 <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
-                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana6</parliament:NazivClana>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj11</parliament:TekstualniSadrzaj>
-                        </parliament:Stav>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj12</parliament:TekstualniSadrzaj>
-                        </parliament:Stav>
-                    </parliament:Clan>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana7</parliament:NazivClana>
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj13</parliament:TekstualniSadrzaj>
-                    </parliament:Clan>
-                </parliament:Pododeljak>
-                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana8</parliament:NazivClana>
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj14</parliament:TekstualniSadrzaj>
-                    </parliament:Clan>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana9</parliament:NazivClana>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj15</parliament:TekstualniSadrzaj>
-                        </parliament:Stav>
-                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj16</parliament:TekstualniSadrzaj>
-                        </parliament:Stav>
-                    </parliament:Clan>
-                </parliament:Pododeljak>
+                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivClana>NazivClana8</parliament:NazivClana>
+                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj16</parliament:TekstualniSadrzaj>
+                    </parliament:Stav>
+                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj17</parliament:TekstualniSadrzaj>
+                    </parliament:Stav>
+                </parliament:Clan>
+                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivClana>NazivClana9</parliament:NazivClana>
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj18</parliament:TekstualniSadrzaj>
+                </parliament:Clan>
             </parliament:Odeljak>
             <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                 <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
                 <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                     <parliament:NazivClana>NazivClana10</parliament:NazivClana>
-                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj17</parliament:TekstualniSadrzaj>
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj19</parliament:TekstualniSadrzaj>
                 </parliament:Clan>
                 <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                     <parliament:NazivClana>NazivClana11</parliament:NazivClana>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj18</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj19</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj20</parliament:TekstualniSadrzaj>
                 </parliament:Clan>
             </parliament:Odeljak>
         </parliament:Glava>
@@ -172,33 +159,21 @@
                     <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
                     <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                         <parliament:NazivClana>NazivClana12</parliament:NazivClana>
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj20</parliament:TekstualniSadrzaj>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj21</parliament:TekstualniSadrzaj>
                     </parliament:Clan>
                     <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                         <parliament:NazivClana>NazivClana13</parliament:NazivClana>
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj21</parliament:TekstualniSadrzaj>
-                    </parliament:Clan>
-                </parliament:Pododeljak>
-                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana14</parliament:NazivClana>
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj22</parliament:TekstualniSadrzaj>
-                    </parliament:Clan>
-                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:NazivClana>NazivClana15</parliament:NazivClana>
                         <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj23</parliament:TekstualniSadrzaj>
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj22</parliament:TekstualniSadrzaj>
                         </parliament:Stav>
                         <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                             <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                 <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja10</parliament:Alineja>
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja11</parliament:Alineja>
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj23</parliament:TekstualniSadrzaj>
                                 </parliament:Podtacka>
                                 <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja12</parliament:Alineja>
-                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja13</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja4</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja5</parliament:Alineja>
                                 </parliament:Podtacka>
                             </parliament:Tacka>
                             <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
@@ -207,94 +182,156 @@
                         </parliament:Stav>
                     </parliament:Clan>
                 </parliament:Pododeljak>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana14</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj25</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana15</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj26</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
             </parliament:Odeljak>
             <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                 <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana16</parliament:NazivClana>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj25</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj26</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
-                </parliament:Clan>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana17</parliament:NazivClana>
-                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj27</parliament:TekstualniSadrzaj>
-                </parliament:Clan>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana16</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj27</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana17</parliament:NazivClana>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj28</parliament:TekstualniSadrzaj>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja6</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja7</parliament:Alineja>
+                                </parliament:Podtacka>
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja8</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja9</parliament:Alineja>
+                                </parliament:Podtacka>
+                            </parliament:Tacka>
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj29</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana18</parliament:NazivClana>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj30</parliament:TekstualniSadrzaj>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja10</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja11</parliament:Alineja>
+                                </parliament:Podtacka>
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj31</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                            </parliament:Tacka>
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj32</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja12</parliament:Alineja>
+                                    <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja13</parliament:Alineja>
+                                </parliament:Podtacka>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana19</parliament:NazivClana>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj33</parliament:TekstualniSadrzaj>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj34</parliament:TekstualniSadrzaj>
+                        </parliament:Stav>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
             </parliament:Odeljak>
         </parliament:Glava>
         <parliament:Glava parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
             <parliament:NazivGlave>A</parliament:NazivGlave>
             <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                 <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana18</parliament:NazivClana>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj28</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj29</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
-                </parliament:Clan>
-                <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana19</parliament:NazivClana>
-                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj30</parliament:TekstualniSadrzaj>
-                </parliament:Clan>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana20</parliament:NazivClana>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj35</parliament:TekstualniSadrzaj>
+                        </parliament:Stav>
+                        <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj36</parliament:TekstualniSadrzaj>
+                            </parliament:Tacka>
+                            <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj37</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                                <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj38</parliament:TekstualniSadrzaj>
+                                </parliament:Podtacka>
+                            </parliament:Tacka>
+                        </parliament:Stav>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana21</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj39</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
+                <parliament:Pododeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                    <parliament:NazivPododeljka>(a) </parliament:NazivPododeljka>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana22</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj40</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                    <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:NazivClana>NazivClana23</parliament:NazivClana>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj41</parliament:TekstualniSadrzaj>
+                    </parliament:Clan>
+                </parliament:Pododeljak>
             </parliament:Odeljak>
             <parliament:Odeljak parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                 <parliament:NazivOdeljka>1. </parliament:NazivOdeljka>
                 <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana20</parliament:NazivClana>
+                    <parliament:NazivClana>NazivClana24</parliament:NazivClana>
                     <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
+                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj42</parliament:TekstualniSadrzaj>
+                        </parliament:Tacka>
                         <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                             <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                 <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja14</parliament:Alineja>
                                 <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja15</parliament:Alineja>
                             </parliament:Podtacka>
                             <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj31</parliament:TekstualniSadrzaj>
-                            </parliament:Podtacka>
-                        </parliament:Tacka>
-                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
                                 <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja16</parliament:Alineja>
                                 <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja17</parliament:Alineja>
                             </parliament:Podtacka>
-                            <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj32</parliament:TekstualniSadrzaj>
-                            </parliament:Podtacka>
                         </parliament:Tacka>
                     </parliament:Stav>
                     <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:TekstualniSadrzaj>TekstualniSadrzaj33</parliament:TekstualniSadrzaj>
-                            </parliament:Podtacka>
-                            <parliament:Podtacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                                <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja18</parliament:Alineja>
-                                <parliament:Alineja parliament:Id="00000000-0000-0000-0000-000000000000">Alineja19</parliament:Alineja>
-                            </parliament:Podtacka>
-                        </parliament:Tacka>
-                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj34</parliament:TekstualniSadrzaj>
-                        </parliament:Tacka>
+                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj43</parliament:TekstualniSadrzaj>
                     </parliament:Stav>
                 </parliament:Clan>
                 <parliament:Clan parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                    <parliament:NazivClana>NazivClana21</parliament:NazivClana>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj35</parliament:TekstualniSadrzaj>
-                        </parliament:Tacka>
-                        <parliament:Tacka parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                            <parliament:TekstualniSadrzaj>TekstualniSadrzaj36</parliament:TekstualniSadrzaj>
-                        </parliament:Tacka>
-                    </parliament:Stav>
-                    <parliament:Stav parliament:RedniBroj="50" parliament:Id="00000000-0000-0000-0000-000000000000">
-                        <parliament:TekstualniSadrzaj>TekstualniSadrzaj37</parliament:TekstualniSadrzaj>
-                    </parliament:Stav>
+                    <parliament:NazivClana>NazivClana25</parliament:NazivClana>
+                    <parliament:TekstualniSadrzaj>TekstualniSadrzaj44</parliament:TekstualniSadrzaj>
                 </parliament:Clan>
             </parliament:Odeljak>
         </parliament:Glava>

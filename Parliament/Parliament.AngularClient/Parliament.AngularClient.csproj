@@ -83,6 +83,7 @@
     <Content Include="app\views\aldermanHome.html" />
     <Content Include="app\views\citizenHome.html" />
     <Content Include="app\views\chairmanHome.html" />
+    <Content Include="app\views\documentView.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\login.html" />
     <Content Include="app\views\newAct.html" />

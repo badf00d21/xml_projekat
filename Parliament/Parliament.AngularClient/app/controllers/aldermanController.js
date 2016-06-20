@@ -39,19 +39,19 @@ app.controller('aldermanController', ['$scope', '$location', 'actService', funct
 
     $scope.kaoHtml = function (idAkta) {
         actService.aktKaoHtml(idAkta).then(function (response) {
-            
+           
         });
     }
 
     $scope.kaoXml = function (idAkta) {
         actService.aktKaoXml(idAkta).then(function (response) {
-
+           
         });
     }
 
     $scope.kaoPdf = function (idAkta) {
         actService.aktKaoPdf(idAkta).then(function (response) {
-
+            console.log('uso');
         });
     }
 

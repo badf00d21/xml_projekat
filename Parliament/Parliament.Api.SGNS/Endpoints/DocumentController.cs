@@ -18,6 +18,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
 using System.Xml.Xsl;
+using static javax.sound.sampled.AudioFormat;
 
 namespace Parliament.Api.SGNS.Endpoints
 {
@@ -459,6 +460,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpGet]
+        [AllowAnonymous]
         [Route("api/documents/acts/{id}/pdf", Name = "GetActPdfById")]
         public IHttpActionResult GetActPdfById(string id)
         {

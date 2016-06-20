@@ -15,19 +15,26 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
     }
 
     this.napraviAkt = function (xmlStr) {
-        //return $http.post(restApiBaseUrl + 'documents/acts/propose/', x2js.json2xml_str(xmlStr));
+       
+        console.log(xmlStr);
+        $http({
+            method: 'POST',
+            url: restApiBaseUrl + 'documents/propose/act/',
+            data: xmlStr,
+            headers: { "Content-Type": 'application/xml' }
+        });
 
+        /*
         return $http({
             method: 'POST',
             url: restApiBaseUrl + 'documents/acts/propose/',
             headers: {
-                'Content-Type': 'text/xml' /*or whatever type is relevant */
+                'Content-Type': 'text/xml' 
             },
             data:
-                /* You probably need to send some data if you plan to log in */
                 x2js.json2xml_str(xmlStr),
 
-        });
+        });*/
 
     }
 
@@ -40,22 +47,27 @@ app.service('actService', ['$http', 'localStorageService', '$window', function (
     }
 
     this.aktKaoHtml = function (idAkta) {
-        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/html').then(function (data) {
-            $window.open(data);
-        })
+        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/html')
+            .then(function (data) {
+                var myWindow = window.open();
+                myWindow.document.write(data.data);
+            });
     }
 
     this.aktKaoPdf = function (idAkta) {
-       return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf')
+        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf')
             .then(function (data) {
-                $window.open(data);
-            })
+                $window.open(restApiBaseUrl + 'documents/acts/' + idAkta + '/pdf');
+            });
     }
 
     this.aktKaoXml = function (idAkta) {
-        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta).then(function (data) {
-            $window.open(data);
-        })
+        return $http.get(restApiBaseUrl + 'documents/acts/' + idAkta)
+            .then(function (data) {
+                var myWindow = window.open();
+                console.log(x2js.json2xml_str(data.data));
+                myWindow.document.write('<html><head></head><body>' + x2js.json2xml_str(data.data) + '</body></html>');
+            });
     }
 
 }]);
