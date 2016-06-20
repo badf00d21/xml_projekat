@@ -38,6 +38,11 @@ app.config(function ($routeProvider) {
         templateUrl: "/app/views/newAct.html"
     });
 
+    $routeProvider.when("/newamandment", {
+        controller: "newAmandmentController",
+        templateUrl: "/app/views/newAmandment.html"
+    });
+
     $routeProvider.otherwise({ redirectTo: "/home" });
 
 });
