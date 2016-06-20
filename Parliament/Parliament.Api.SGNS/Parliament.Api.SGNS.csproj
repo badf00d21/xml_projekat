@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Pdf, Version=11.7.0.0, Culture=neutral, PublicKeyToken=6947866647e416ec, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Libs\AsposePDF\Aspose.Pdf for .NET\Bin\net4.0\Aspose.Pdf.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -52,85 +56,85 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="IKVM.AWT.WinForms">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.AWT.WinForms.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.AWT.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Beans">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Beans.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Beans.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Charsets">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Charsets.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Charsets.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Corba">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Corba.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Corba.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Core">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Core.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Jdbc">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Jdbc.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Jdbc.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Management">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Management.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Management.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Media">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Media.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Media.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Misc">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Misc.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Misc.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Naming">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Naming.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Naming.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Remoting">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Remoting.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Remoting.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Security">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Security.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Security.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.SwingAWT">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.SwingAWT.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Text">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Text.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Text.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Tools">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Tools.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Tools.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.Util">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.Util.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.Util.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.API">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.API.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.API.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.Bind">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.Bind.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.Bind.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.Crypto">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.Parse">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.Parse.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.Parse.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.Transform">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.Transform.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.Transform.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.WebServices">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.WebServices.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.OpenJDK.XML.XPath">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.OpenJDK.XML.XPath.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.OpenJDK.XML.XPath.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.Reflection">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.Reflection.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.Reflection.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.Runtime">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.Runtime.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="IKVM.Runtime.JNI">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\IKVM.Runtime.JNI.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\IKVM.Runtime.JNI.dll</HintPath>
     </Reference>
     <Reference Include="MarklogicXcc">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\MarklogicXcc.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\MarklogicXcc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -247,7 +251,7 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="xcccore">
-      <HintPath>C:\Users\Pex\Desktop\krsa - svega\MarcLogicXCC\dll\xcccore.dll</HintPath>
+      <HintPath>..\..\..\..\Libs\MarkLogicXCC\xcccore.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

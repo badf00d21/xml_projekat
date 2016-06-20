@@ -93,6 +93,7 @@
     </None>
     <None Include="XQuery\AddActQuery.xqy" />
     <None Include="XQuery\AddAmandmentQuery.xqy" />
+    <None Include="XQuery\AdopActInPrincipleQuery.xqy" />
     <None Include="XQuery\GetActQuery.xqy" />
     <None Include="XQuery\GetAmandmentQuery.xqy" />
   </ItemGroup>

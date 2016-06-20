@@ -15,6 +15,23 @@ app.service('actService', ['$http', 'localStorageService', function ($http, loca
         return $http.get(restApiBaseUrl + 'documents/acts/proposed/');
     }
 
+    this.napraviAkt = function (xmlStr) {
+        //return $http.post(restApiBaseUrl + 'documents/acts/propose/', x2js.json2xml_str(xmlStr));
+
+        return $http({
+            method: 'POST',
+            url: restApiBaseUrl + 'documents/acts/propose/',
+            headers: {
+                'Content-Type': 'text/xml' /*or whatever type is relevant */
+            },
+            data:
+                /* You probably need to send some data if you plan to log in */
+                x2js.json2xml_str(xmlStr),
+
+        });
+
+    }
+
     this.ucitajUsvojeneAkte = function () {
         return $http.get(restApiBaseUrl + 'documents/acts/adopted/');
         //usvojeni = [];

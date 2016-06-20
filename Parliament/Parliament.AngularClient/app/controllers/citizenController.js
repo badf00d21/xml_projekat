@@ -1,5 +1,5 @@
 ﻿
-app.controller('citizenController', ['$scope', 'actService', function ($scope, actService, ModalService ) {
+app.controller('citizenController', ['$scope', 'actService', function ($scope, actService ) {
 
     $scope.akti = [];
     $scope.searchBody = {
