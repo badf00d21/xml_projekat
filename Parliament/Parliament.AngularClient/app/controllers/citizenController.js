@@ -35,5 +35,22 @@ app.controller('citizenController', ['$scope', 'actService', function ($scope, a
         });
     }
     
+    $scope.kaoHtml = function () {
+        actService.aktKaoHtml(idAkta).then(function (response) {
+
+        });
+    }
+
+    $scope.kaoXml = function () {
+        actService.aktKaoXml(idAkta).then(function (response) {
+
+        });
+    }
+
+    $scope.kaoPdf = function () {
+        actService.aktKaoPdf(idAkta).then(function (response) {
+
+        });
+    }
         
 }]);
