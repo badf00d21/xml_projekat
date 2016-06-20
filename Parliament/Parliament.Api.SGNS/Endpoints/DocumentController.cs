@@ -25,7 +25,7 @@ namespace Parliament.Api.SGNS.Endpoints
     public class DocumentController : ApiController
     {
         [HttpPost]
-        [Authorize(Roles = "Alderman")]
+        //[Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/act", Name = "ProposeAct")]
         public async Task<IHttpActionResult> ProposeAct()
         {
