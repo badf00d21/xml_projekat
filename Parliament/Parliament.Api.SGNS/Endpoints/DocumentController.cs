@@ -21,11 +21,11 @@ using System.Xml.Xsl;
 
 namespace Parliament.Api.SGNS.Endpoints
 {
-    //[Authorize]
+    [Authorize]
     public class DocumentController : ApiController
     {
         [HttpPost]
-        //[Authorize(Roles = "Alderman")]
+        [Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/act", Name = "ProposeAct")]
         public async Task<IHttpActionResult> ProposeAct()
         {
@@ -105,7 +105,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Alderman")]
+        [Authorize(Roles = "Alderman")]
         [Route("api/documents/propose/amandment", Name = "ProposeAmandment")]
         public async Task<IHttpActionResult> ProposeAmandment()
         {
@@ -577,7 +577,7 @@ namespace Parliament.Api.SGNS.Endpoints
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Chairman")]
+        [Authorize(Roles = "Chairman")]
         [Route("api/documents/acts/adopt/{id}", Name = "AdoptAct")]
         public IHttpActionResult AdoptAct(string id)
         {
@@ -664,7 +664,7 @@ namespace Parliament.Api.SGNS.Endpoints
                 X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
                 store.Open(OpenFlags.ReadOnly);
 
-                var certificates = store.Certificates.Find(X509FindType.FindBySubjectName, "sgns.parliament.rs", false);
+                var certificates = store.Certificates.Find(X509FindType.FindBySubjectName, "parliament.sgns", false);
                 var targetCertificate = certificates.Count > 0 ? certificates[0] : null;
 
                 store.Close();

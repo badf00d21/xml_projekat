@@ -21,9 +21,9 @@ namespace Parliament.Api.IAGNS.Endpoints
     public class ArchiveController : System.Web.Http.ApiController
     {
         [HttpPost]
-        //[Authorize(Roles = "Alderman")]
+        [Authorize(Roles = "Chairman")]
         [Route("api/documents/save/act", Name = "SaveAct")]
-        public async Task<IHttpActionResult> ProposeAct()
+        public async Task<IHttpActionResult> SaveAct()
         {
             XDocument doc = XDocument.Load(await Request.Content.ReadAsStreamAsync());
             XmlDocument document = new XmlDocument();
@@ -32,7 +32,7 @@ namespace Parliament.Api.IAGNS.Endpoints
             X509Store store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
             store.Open(OpenFlags.ReadOnly);
 
-            var certificates = store.Certificates.Find(X509FindType.FindBySubjectName, "sgns.parliament.rs", false);
+            var certificates = store.Certificates.Find(X509FindType.FindBySubjectName, "parliament.sgns", false);
             var targetCertificate = certificates.Count > 0 ? certificates[0] : null;
 
             store.Close();
@@ -47,7 +47,11 @@ namespace Parliament.Api.IAGNS.Endpoints
 
             using (Session session = contentSource.NewSession())
             {
-                var insertQuery = session.NewAdhocQuery(string.Format("'xdmp:document-insert(http://www.parliament.rs/archive/documents/acts/{0}.xml)'", Guid.NewGuid().ToString()));
+				string location = string.Format("http://www.parliament.rs/archive/documents/acts/{0}.xml", Guid.NewGuid().ToString());
+				ContentCreateOptions options = ContentCreateOptions.NewXmlInstance();
+				Content content = ContentFactory.NewContent(location, document, options);
+
+				session.InsertContent(content);
 
                 return Ok();
             }
